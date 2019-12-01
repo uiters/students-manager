@@ -46,6 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Diem.cs" />
+    <Compile Include="DAL_DKMH.cs" />
+    <Compile Include="DAL_GiaoVien.cs" />
+    <Compile Include="DAL_Hoc.cs" />
+    <Compile Include="DAL_Khoa.cs" />
+    <Compile Include="DAL_Lop.cs" />
+    <Compile Include="DAL_MonHoc.cs" />
+    <Compile Include="DAL_Nganh.cs" />
+    <Compile Include="DAL_SinhVien.cs" />
+    <Compile Include="DAL_tb_User.cs" />
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO_QLSV\DTO_QLSV.csproj">
+      <Project>{44e57d11-b5b5-4fa3-b9f3-20ff60d3be1c}</Project>
+      <Name>DTO_QLSV</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

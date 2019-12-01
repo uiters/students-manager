@@ -165,5 +165,15 @@
   <ItemGroup>
     <Folder Include="Reports\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS_QLSV\BUS_QLSV.csproj">
+      <Project>{e39f052a-4ec5-4a94-b733-787209de5322}</Project>
+      <Name>BUS_QLSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO_QLSV\DTO_QLSV.csproj">
+      <Project>{44e57d11-b5b5-4fa3-b9f3-20ff60d3be1c}</Project>
+      <Name>DTO_QLSV</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

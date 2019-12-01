@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_Diem.cs" />
+    <Compile Include="DTO_DKMH.cs" />
+    <Compile Include="DTO_GiaoVien.cs" />
+    <Compile Include="DTO_Hoc.cs" />
+    <Compile Include="DTO_Khoa.cs" />
+    <Compile Include="DTO_Lop.cs" />
+    <Compile Include="DTO_MonHoc.cs" />
+    <Compile Include="DTO_Nganh.cs" />
+    <Compile Include="DTO_SinhVien.cs" />
+    <Compile Include="DTO_tb_User.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,1 +1,1 @@
-SQLCMD -S HUONGLG -E -i CreateDB.sql
+SQLCMD -S VANCUONG -E -i CreateDB.sql
