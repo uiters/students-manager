@@ -1,1 +1,0 @@
-SQLCMD -S HUONGLG -E -i CreateDB.sql
