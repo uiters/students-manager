@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
@@ -14,6 +15,7 @@ namespace DTO_QLSV
         private int _MonHoc_TinChiLyThuyet;
         private int _MonHoc_TinChiThucHanh;
         private string _MonHoc_MaKhoa;
+
 
         public string MonHoc_MaMonHoc
         {
@@ -51,19 +53,17 @@ namespace DTO_QLSV
             set { _MonHoc_MaKhoa = value; }
         }
 
-        public DTO_MonHoc()
-        {
 
-        }
 
         public DTO_MonHoc(string MaMonHoc, string TenMonHoc, int LoaiMonHoc, int TinChiLyThuyet, int TinChiThucHanh, string MaKhoa)
         {
             this.MonHoc_MaMonHoc = MaMonHoc;
             this.MonHoc_TenMonHoc = TenMonHoc;
-            this._MonHoc_LoaiMonHoc = LoaiMonHoc;
-            this._MonHoc_TinChiLyThuyet = TinChiLyThuyet;
-            this._MonHoc_TinChiThucHanh = TinChiThucHanh;
-            this._MonHoc_MaKhoa = MaKhoa;
+            this.MonHoc_LoaiMonHoc = LoaiMonHoc;
+            this.MonHoc_TinChiLyThuyet = TinChiLyThuyet;
+            this.MonHoc_TinChiThucHanh = TinChiThucHanh;
+            this.MonHoc_MaKhoa = MaKhoa;
+
         }
     }
 }

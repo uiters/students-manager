@@ -13,23 +13,32 @@ namespace DAL_QLSV
     {
         public DataTable getDKMH()
         {
+            SqlCommand cmd = new SqlCommand("Diem", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DKMH", _conn);
+            da.SelectCommand = cmd;
             DataTable dtDK = new DataTable();
             da.Fill(dtDK);
+            _conn.Close();
             return dtDK;
         }
-        public bool ThemDKMH(DTO_DKMH dk)
+
+        public void ThemDKMH(DTO_DKMH dk)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("ThemDKMH", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("INSERT INTO DKMH(MaSinhVien, MaMonHoc) VALUE('','')",dk.MaSinhVien,dk.MaMonHoc);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -41,20 +50,23 @@ namespace DAL_QLSV
                 _conn.Close();
             }
 
-            return false;
+
         }
-        public bool SuaDKMH(DTO_DKMH dk)
+        public void SuaDKMH(DTO_DKMH dk)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("SuaDKMH", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("UPDATE DKMH SET MaSinhVien='', MaMonHoc='' WHERE MaSinhVien='',MaMonHoc='')", dk.MaSinhVien, dk.MaMonHoc);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -66,20 +78,23 @@ namespace DAL_QLSV
                 _conn.Close();
             }
 
-            return false;
+
         }
-        public bool XoaDKMH(DTO_DKMH dk)
+        public void XoaDKMH(DTO_DKMH dk)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("XoaDKMH", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("DELETE FROM DKMH WHERE MaSinhVien='',MaMonHoc='')", dk.MaSinhVien, dk.MaMonHoc);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -91,7 +106,6 @@ namespace DAL_QLSV
                 _conn.Close();
             }
 
-            return false;
         }
     }
 }

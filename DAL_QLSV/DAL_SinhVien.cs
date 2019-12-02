@@ -13,24 +13,43 @@ namespace DAL_QLSV
     {
         public DataTable getSinhVien()
         {
+            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM SinhVien", _conn);
             DataTable dtSinhVien = new DataTable();
             da.Fill(dtSinhVien);
+            _conn.Close();
             return dtSinhVien;
         }
 
-        public bool ThemSinhVien(DTO_SinhVien sv)
+        public void ThemSinhVien(DTO_SinhVien sv)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO SinhVien(MaSinhVien, HoTen, QueQuan, NgaySinh, NoiSinh, GioiTinh, Hinh, MaNganh) VALUE ('','','','','','','','')",sv.MaSinhVien, sv.HoTen,sv.QueQuan,sv.NgaySinh,sv.NoiSinh,sv.GioiTinh,sv.Hinh,sv.MaNganh);
+                SqlCommand cmd = new SqlCommand("ThemSinhVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar, 150);
+                cmd.Parameters.Add("@QueQuan", SqlDbType.NVarChar, 350);
+                cmd.Parameters.Add("@NgaySinh", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@NoiSinh", SqlDbType.NVarChar, 400);
+                cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar, 5);
+                cmd.Parameters.Add("@Hinh", SqlDbType.NVarChar, 150);
+                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaSinhVien"].Value = sv.SinhVien_MaSinhVien;
+                cmd.Parameters["@HoTen"].Value = sv.SinhVien_HoTen;
+                cmd.Parameters["@QueQuan"].Value = sv.SinhVien_QueQuan;
+                cmd.Parameters["@NgaySinh"].Value = sv.SinhVien_NgaySinh;
+                cmd.Parameters["@NoiSinh"].Value = sv.SinhVien_NoiSinh;
+                cmd.Parameters["@GioiTinh"].Value = sv.SinhVien_GioiTinh;
+                cmd.Parameters["@Hinh"].Value = sv.SinhVien_Hinh;
+                cmd.Parameters["@MaNganh"].Value = sv.SinhVien_MaNganh;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,20 +59,34 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool SuaSinhVien(DTO_SinhVien sv)
+        public void SuaSinhVien(DTO_SinhVien sv)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("UPDATE SinhVien SET HoTen='', QueQuan='', NgaySinh='', NoiSinh='', GioiTinh='', Hinh='', MaNganh='' WHERE  MaSinhVien=''", sv.HoTen, sv.QueQuan, sv.NgaySinh, sv.NoiSinh, sv.GioiTinh, sv.Hinh, sv.MaNganh, sv.MaSinhVien);
+                SqlCommand cmd = new SqlCommand("SuaSinhVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar, 150);
+                cmd.Parameters.Add("@QueQuan", SqlDbType.NVarChar, 350);
+                cmd.Parameters.Add("@NgaySinh", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@NoiSinh", SqlDbType.NVarChar, 400);
+                cmd.Parameters.Add("@GioiTinh", SqlDbType.NVarChar, 5);
+                cmd.Parameters.Add("@Hinh", SqlDbType.NVarChar, 150);
+                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaSinhVien"].Value = sv.SinhVien_MaSinhVien;
+                cmd.Parameters["@HoTen"].Value = sv.SinhVien_HoTen;
+                cmd.Parameters["@QueQuan"].Value = sv.SinhVien_QueQuan;
+                cmd.Parameters["@NgaySinh"].Value = sv.SinhVien_NgaySinh;
+                cmd.Parameters["@NoiSinh"].Value = sv.SinhVien_NoiSinh;
+                cmd.Parameters["@GioiTinh"].Value = sv.SinhVien_GioiTinh;
+                cmd.Parameters["@Hinh"].Value = sv.SinhVien_Hinh;
+                cmd.Parameters["@MaNganh"].Value = sv.SinhVien_MaNganh;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -63,19 +96,20 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool XoaSinhVien(DTO_SinhVien sv)
+        public void XoaSinhVien(DTO_SinhVien sv)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("ThemSinhVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("DELETE FROM SinhVien WHERE MaSinhVIen=''", sv.MaSinhVien);
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaSinhVien"].Value = sv.SinhVien_MaSinhVien;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -86,8 +120,6 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
     }
 }

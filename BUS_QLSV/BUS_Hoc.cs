@@ -17,17 +17,17 @@ namespace BUS_QLSV
         {
             return DalHoc.getHoc();
         }
-        public bool ThemHoc(DTO_Hoc hoc)
+        public void ThemHoc(DTO_Hoc hoc)
         {
-            return DalHoc.ThemHoc(hoc);
+            DalHoc.ThemHoc(hoc);
         }
-        public bool SuaHoc(DTO_Hoc hoc)
+        public void SuaHoc(DTO_Hoc hoc)
         {
-            return DalHoc.SuaHoc(hoc);
+            DalHoc.SuaHoc(hoc);
         }
-        public bool XoaHoc(DTO_Hoc hoc)
+        public void XoaHoc(DTO_Hoc hoc)
         {
-            return DalHoc.XoaHoc(hoc);
+            DalHoc.XoaHoc(hoc);
         }
     }
 }

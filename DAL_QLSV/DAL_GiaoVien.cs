@@ -13,24 +13,35 @@ namespace DAL_QLSV
     {
         public DataTable getGiaoVien()
         {
+            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM GiaoVien", _conn);
             DataTable dtGiaoVien = new DataTable();
             da.Fill(dtGiaoVien);
+            _conn.Close();
             return dtGiaoVien;
         }
 
-        public bool ThemGiaoVien(DTO_GiaoVien gv)
+        public void ThemGiaoVien(DTO_GiaoVien gv)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO GiaoVien(MaGiaoVien, TenGiaoVien, GhiChu, MaKhoa) VALUE ('','','','')", gv.MaGiaoVien,gv.TenGiaoVien,gv.GhiChu,gv.MaKhoa);
+                SqlCommand cmd = new SqlCommand("ThemGiaoVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenGiaoVien", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.NVarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
+                cmd.Parameters["@TenGiaoVien"].Value = gv.GiaoVien_TenGiaoVien;
+                cmd.Parameters["@GhiChu"].Value = gv.GiaoVien_GhiChu;
+                cmd.Parameters["@MaKhoa"].Value = gv.GiaoVien_MaKhoa;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,20 +51,27 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool SuaGiaoVien(DTO_GiaoVien gv)
+        public void SuaGiaoVien(DTO_GiaoVien gv)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("UPDATE GiaoVien SET TenGiaoVien='', GhiChu='', MaKhoa=''WHERE MaGiaoVien=''", gv.TenGiaoVien, gv.GhiChu, gv.MaKhoa, gv.MaGiaoVien);
+                SqlCommand cmd = new SqlCommand("SuaGiaoVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenGiaoVien", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.NVarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
+                cmd.Parameters["@TenGiaoVien"].Value = gv.GiaoVien_TenGiaoVien;
+                cmd.Parameters["@GhiChu"].Value = gv.GiaoVien_GhiChu;
+                cmd.Parameters["@MaKhoa"].Value = gv.GiaoVien_MaKhoa;
+
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -63,20 +81,20 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool XoaGiaoVien(DTO_GiaoVien gv)
+        public void XoaGiaoVien(DTO_GiaoVien gv)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("DELETE FROM GiaoVien WHERE MaGiaoVien=''", gv.MaGiaoVien);
+                SqlCommand cmd = new SqlCommand("XoaGiaoVien", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -86,7 +104,6 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
     }
 }

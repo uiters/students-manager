@@ -13,24 +13,35 @@ namespace DAL_QLSV
     {
         public DataTable getKhoa()
         {
+            SqlCommand cmd = new SqlCommand("Khoa", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Khoa", _conn);
             DataTable dtKhoa = new DataTable();
             da.Fill(dtKhoa);
+            _conn.Close();
             return dtKhoa;
         }
 
-        public bool ThemKhoa(DTO_Khoa khoa)
+        public void ThemKhoa(DTO_Khoa khoa)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO Khoa(MaKhoa, TenKhoa, GhiChu, Username) VALUE ('','','','')", khoa.MaKhoa, khoa.TenKhoa, khoa.GhiChu, khoa.Username);
+                SqlCommand cmd = new SqlCommand("ThemKhoa", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenKhoa", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
+                cmd.Parameters["@TenKhoa"].Value = khoa.Khoa_TenKhoa;
+                cmd.Parameters["@GhiChu"].Value = khoa.Khoa_GhiChu;
+                cmd.Parameters["@Username"].Value = khoa.Khoa_Username;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,21 +51,27 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
 
-        public bool SuaKhoa(DTO_Khoa khoa)
+        public void SuaKhoa(DTO_Khoa khoa)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("UPDATE Khoa SET TenKhoa='', GhiChu='', Username='' WHERE MaKhoa",  khoa.TenKhoa, khoa.GhiChu, khoa.Username, khoa.MaKhoa);
+                SqlCommand cmd = new SqlCommand("SuaKhoa", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenKhoa", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
+                cmd.Parameters["@TenKhoa"].Value = khoa.Khoa_TenKhoa;
+                cmd.Parameters["@GhiChu"].Value = khoa.Khoa_GhiChu;
+                cmd.Parameters["@Username"].Value = khoa.Khoa_Username;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -64,20 +81,20 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool XoaKhoa(DTO_Khoa khoa)
+        public void XoaKhoa(DTO_Khoa khoa)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("DELETE FROM Khoa WHERE MaKhoa", khoa.MaKhoa);
+                SqlCommand cmd = new SqlCommand("XoaKhoa", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -87,7 +104,6 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
     }
 }

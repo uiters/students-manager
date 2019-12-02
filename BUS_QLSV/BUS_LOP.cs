@@ -17,17 +17,17 @@ namespace BUS_QLSV
         {
             return DalLop.getLop();
         }
-        public bool ThemLop(DTO_Lop lop)
+        public void ThemLop(DTO_Lop lop)
         {
-            return DalLop.ThemLop(lop);
+           DalLop.ThemLop(lop);
         }
-        public bool SuaLop(DTO_Lop lop)
+        public void SuaLop(DTO_Lop lop)
         {
-            return DalLop.SuaLop(lop);
+           DalLop.SuaLop(lop);
         }
-        public bool XoaLop(DTO_Lop lop)
+        public void XoaLop(DTO_Lop lop)
         {
-            return DalLop.XoaLop(lop);
+            DalLop.XoaLop(lop);
         }
     }
 }

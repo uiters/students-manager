@@ -18,17 +18,17 @@ namespace BUS_QLSV
         {
             return DalGiaoVien.getGiaoVien();
         }
-        public bool ThemGiaoVien(DTO_GiaoVien gv)
+        public void ThemGiaoVien(DTO_GiaoVien gv)
         {
-            return DalGiaoVien.ThemGiaoVien(gv);
+            DalGiaoVien.ThemGiaoVien(gv);
         }
-        public bool SuaGiaoVien(DTO_GiaoVien gv)
+        public void SuaGiaoVien(DTO_GiaoVien gv)
         {
-            return DalGiaoVien.SuaGiaoVien(gv);
+            DalGiaoVien.SuaGiaoVien(gv);
         }
-        public bool XoaGiaoVien(DTO_GiaoVien gv)
+        public void XoaGiaoVien(DTO_GiaoVien gv)
         {
-            return DalGiaoVien.XoaGiaoVien(gv);
+            DalGiaoVien.XoaGiaoVien(gv);
         }
     }
 }

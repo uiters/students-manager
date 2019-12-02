@@ -13,23 +13,42 @@ namespace DAL_QLSV
     {
         public DataTable getLop()
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LOP", _conn);
+            SqlCommand cmd = new SqlCommand("Khoa", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Lop", _conn);
             DataTable dtLop = new DataTable();
             da.Fill(dtLop);
+            _conn.Close();
             return dtLop;
         }
-        public bool ThemLop(DTO_Lop lop)
+        public void ThemLop(DTO_Lop lop)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("ThemLop", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("INSERT INTO lOP(MaLop, TenLop, LoaiLop, NienKhoa, NgayBatDau, NgayKetThuc, MaMonHoc, MaGiaoVien) VALUE('','','','','','','','')",lop.MaLop,lop.TenLop,lop.LoaiLop,lop.NienKhoa,lop.NgayBatDau,lop.NgayKetThuc,lop.MaMonHoc,lop.MaGiaoVien);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenLop", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@LoaiLop", SqlDbType.Bit);
+                cmd.Parameters.Add("@NienKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@NgayBatDau", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@NgayKetThuc", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL,_conn);
+                cmd.Parameters["@MaLop"].Value = lop.Lop_MaLop;
+                cmd.Parameters["@TenLop"].Value = lop.Lop_TenLop;;
+                cmd.Parameters["@LoaiLop"].Value = lop.Lop_LoaiLop;
+                cmd.Parameters["@NienKhoa"].Value = lop.Lop_NienKhoa;
+                cmd.Parameters["@NgayBatDau"].Value = lop.Lop_NgayBatDau;
+                cmd.Parameters["@NgayKetThuc"].Value = lop.Lop_NgayKetThuc;
+                cmd.Parameters["@MaMonHoc"].Value = lop.Lop_MaMonHoc;
+                cmd.Parameters["@MaGiaoVien"].Value = lop.Lop_MaGiaoVien;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,22 +59,35 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
 
-        public bool SuaLop(DTO_Lop lop)
+        public void SuaLop(DTO_Lop lop)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("SuaLop", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("UPDATE lOP SET TenLop='', LoaiLop='', NienKhoa='', NgayBatDau='', NgayKetThuc='', MaMonHoc='', MaGiaoVien=''WHERE  MaLop=''", lop.TenLop, lop.LoaiLop, lop.NienKhoa, lop.NgayBatDau, lop.NgayKetThuc, lop.MaMonHoc, lop.MaGiaoVien, lop.MaLop);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenLop", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@LoaiLop", SqlDbType.Bit);
+                cmd.Parameters.Add("@NienKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@NgayBatDau", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@NgayKetThuc", SqlDbType.SmallDateTime);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaLop"].Value = lop.Lop_MaLop;
+                cmd.Parameters["@TenLop"].Value = lop.Lop_TenLop; ;
+                cmd.Parameters["@LoaiLop"].Value = lop.Lop_LoaiLop;
+                cmd.Parameters["@NienKhoa"].Value = lop.Lop_NienKhoa;
+                cmd.Parameters["@NgayBatDau"].Value = lop.Lop_NgayBatDau;
+                cmd.Parameters["@NgayKetThuc"].Value = lop.Lop_NgayKetThuc;
+                cmd.Parameters["@MaMonHoc"].Value = lop.Lop_MaMonHoc;
+                cmd.Parameters["@MaGiaoVien"].Value = lop.Lop_MaGiaoVien;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -66,21 +98,21 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
 
-        public bool XoaLop(DTO_Lop lop)
+        public void XoaLop(DTO_Lop lop)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("XoaLop", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("DELETE FROM lOP WHERE MaLop=''", lop.MaLop);
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaLop"].Value = lop.Lop_MaLop;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -91,8 +123,6 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
     }
 

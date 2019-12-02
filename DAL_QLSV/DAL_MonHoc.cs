@@ -5,55 +5,49 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 using DTO_QLSV;
 
 namespace DAL_QLSV
 {
     public class DAL_MonHoc : DBConnect
     {
+
         public DataTable getMonHoc()
         {
+            SqlCommand cmd = new SqlCommand("MonHoc", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM MonHoc", _conn);
+            da.SelectCommand = cmd;
             DataTable dtMonHoc = new DataTable();
             da.Fill(dtMonHoc);
+            _conn.Close();
             return dtMonHoc;
         }
 
-        public bool ThemMonHoc(DTO_MonHoc mh)
+        public void ThemMonHoc(DTO_MonHoc mh)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO MonHoc(MaMonHoc, TenMonHoc, LoaiMonHoc, TinChiLyThuyet, TinChiThucHanh, MaKhoa) VALUE ('','','','','','')", mh.MonHoc_MaMonHoc, mh.MonHoc_TenMonHoc, mh.MonHoc_LoaiMonHoc, mh.MonHoc_TinChiLyThuyet, mh.MonHoc_TinChiThucHanh, mh.MonHoc_MaKhoa);
+                SqlCommand cmd = new SqlCommand("ThemMonHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
-            }
-            catch(Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
-            return false;
-        }
-        public bool SuaMonHoc(DTO_MonHoc mh)
-        {
-            try
-            {
-                //ket noi
-                _conn.Open();
-                string SQL = string.Format("UPDATE MonHoc SET TenMonHoc='', LoaiMonHoc='', TinChiLyThuyet='', TinChiThucHanh='',MaKhoa='' WHERE MaMonHoc=''", mh.MonHoc_TenMonHoc, mh.MonHoc_LoaiMonHoc, mh.MonHoc_TinChiLyThuyet, mh.MonHoc_TinChiThucHanh, mh.MonHoc_MaKhoa, mh.MonHoc_MaMonHoc);
-
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenMonHoc", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@LoaiMonHoc", SqlDbType.Bit);
+                cmd.Parameters.Add("@TinChiLyThuyet", SqlDbType.Int);
+                cmd.Parameters.Add("@TinChiThuchanh", SqlDbType.Int);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters["@MaMonHoc"].Value = mh.MonHoc_MaMonHoc;
+                cmd.Parameters["@TenMonHoc"].Value = mh.MonHoc_TenMonHoc;
+                cmd.Parameters["@LoaiMonHoc"].Value = mh.MonHoc_LoaiMonHoc;
+                cmd.Parameters["@TinChiLyThuyet"].Value = mh.MonHoc_TinChiLyThuyet;
+                cmd.Parameters["@TinChiThucHanh"].Value = mh.MonHoc_TinChiThucHanh;
+                cmd.Parameters["@MaKhoa"].Value = mh.MonHoc_MaKhoa;
+                cmd.ExecuteNonQuery();
+                
             }
             catch (Exception e)
             {
@@ -63,20 +57,30 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool XoaMonHoc(DTO_MonHoc mh)
+
+        public void SuaMonHoc(DTO_MonHoc mh)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("DELETE FROM MonHoc WHERE MaMonHoc=''",mh.MonHoc_MaMonHoc);
+                SqlCommand cmd = new SqlCommand("SuaMonHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@LoaiMonHoc", SqlDbType.Bit);
+                cmd.Parameters.Add("@TinChiLyThuyet", SqlDbType.Int);
+                cmd.Parameters.Add("@TinChiThuchanh", SqlDbType.Int);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
+                cmd.Parameters["@MaMonHoc"].Value = mh.MonHoc_MaMonHoc;
+                cmd.Parameters["@TenMonHoc"].Value = mh.MonHoc_TenMonHoc;
+                cmd.Parameters["@LoaiMonHoc"].Value = mh.MonHoc_LoaiMonHoc;
+                cmd.Parameters["@TinChiLyThuyet"].Value = mh.MonHoc_TinChiLyThuyet;
+                cmd.Parameters["@TinChiThucHanh"].Value = mh.MonHoc_TinChiThucHanh;
+                cmd.Parameters["@MaKhoa"].Value = mh.MonHoc_MaKhoa;
+                cmd.ExecuteNonQuery();
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
             }
             catch (Exception e)
             {
@@ -86,8 +90,33 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
+
+        public void XoaMonHoc(DTO_MonHoc mh)
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand("XoaMonHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+
+                cmd.Parameters["@MaMonHoc"].Value = mh.MonHoc_MaMonHoc;
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
 
 
     }

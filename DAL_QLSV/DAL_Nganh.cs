@@ -13,24 +13,35 @@ namespace DAL_QLSV
     {
         public DataTable getNganh()
         {
+            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Nganh", _conn);
             DataTable dtNganh = new DataTable();
             da.Fill(dtNganh);
+            _conn.Close();
             return dtNganh;
         }
 
-        public bool ThemNganh(DTO_Nganh nganh)
+        public void ThemNganh(DTO_Nganh nganh)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO Nganh(MaNganh, TenNganh, GhiChu, MaKhoa) VALUE ('','','','')", nganh.MaNganh, nganh.TenNganh, nganh.GhiChu,nganh.MaKhoa);
+                SqlCommand cmd = new SqlCommand("ThemNganh", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
+                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
+                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
+                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,21 +51,27 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
 
-        public bool SuaNganh(DTO_Nganh nganh)
+        public void SuaNganh(DTO_Nganh nganh)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("UPDATE Nganh SET TenNganh='', GhiChu='', MaKhoa='' WHERE MaNganh=''", nganh.TenNganh, nganh.GhiChu, nganh.MaKhoa, nganh.MaNganh);
+                SqlCommand cmd = new SqlCommand("SuaNganh", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
+                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
+                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
+                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -64,21 +81,27 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
 
-        public bool XoaNganh(DTO_Nganh nganh)
+        public void XoaNganh(DTO_Nganh nganh)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("DELETE FROM Nganh  WHERE MaNganh=''", nganh.MaNganh);
+                SqlCommand cmd = new SqlCommand("XoaNganh", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
+                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
+                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
+                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
+                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -88,7 +111,6 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
     }
 }

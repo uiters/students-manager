@@ -17,17 +17,17 @@ namespace BUS_QLSV
         {
             return DalDiem.getDiem();
         }
-        public bool ThemDiem(DTO_Diem diem)
+        public void ThemDiem(DTO_Diem diem)
         {
-            return DalDiem.ThemDiem(diem);
+            DalDiem.ThemDiem(diem);
         }
-        public bool SuaDiem(DTO_Diem diem)
+        public void SuaDiem(DTO_Diem diem)
         {
-            return DalDiem.SuaDiem(diem);
+            DalDiem.SuaDiem(diem);
         }
-        public bool XoaDiem(DTO_Diem diem)
+        public void XoaDiem(DTO_Diem diem)
         {
-            return DalDiem.XoaDiem(diem);
+            DalDiem.XoaDiem(diem);
         }
     }
 }

@@ -13,23 +13,30 @@ namespace DAL_QLSV
     {
         public DataTable getHoc()
         {
+            SqlCommand cmd = new SqlCommand("Hoc", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Hoc", _conn);
             DataTable dtHoc = new DataTable();
             da.Fill(dtHoc);
+            _conn.Close();
             return dtHoc;
         }
-        public bool ThemHoc(DTO_Hoc hoc)
+        public void ThemHoc(DTO_Hoc hoc)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("ThemHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("INSERT INTO HOC(MaSinhVien, MaLop) VALUE('','')",hoc.MaSinhVien,hoc.MaLop) ;
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaSinhVien"].Value =hoc.Hoc_MaSinhVien;
+                cmd.Parameters["@MaLop"].Value = hoc.Hoc_MaLop;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,21 +47,22 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
-        public bool SuaHoc(DTO_Hoc hoc)
+        public void SuaHoc(DTO_Hoc hoc)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("SuaHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("UPDATE HOC SET MaSinhVien='', MaLop=''WHRER MaSinhVien='', MaLop='' ", hoc.MaSinhVien, hoc.MaLop);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaSinhVien"].Value = hoc.Hoc_MaSinhVien;
+                cmd.Parameters["@MaLop"].Value = hoc.Hoc_MaLop;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -65,21 +73,22 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
-        public bool XoaHoc(DTO_Hoc hoc)
+        public void XoaHoc(DTO_Hoc hoc)
         {
             try
             {
                 _conn.Open();
+                SqlCommand cmd = new SqlCommand("XoaHoc", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                string SQL = string.Format("DELETE FROM HOC WHRER MaSinhVien='', MaLop='' ", hoc.MaSinhVien, hoc.MaLop);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaLop", SqlDbType.VarChar, 50);
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters["@MaSinhVien"].Value = hoc.Hoc_MaSinhVien;
+                cmd.Parameters["@MaLop"].Value = hoc.Hoc_MaLop;
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -90,8 +99,6 @@ namespace DAL_QLSV
                 // Dong ket noi
                 _conn.Close();
             }
-
-            return false;
         }
     }
 }

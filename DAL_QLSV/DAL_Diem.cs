@@ -11,26 +11,37 @@ namespace DAL_QLSV
 {
     public class DAL_Diem : DBConnect
     {
+
         public DataTable getDiem()
         {
+            SqlCommand cmd = new SqlCommand("Diem", _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            _conn.Open();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Diem", _conn);
+            da.SelectCommand = cmd;
             DataTable dtDiem = new DataTable();
             da.Fill(dtDiem);
+            _conn.Close();
             return dtDiem;
         }
 
-        public bool ThemDiem(DTO_Diem diem)
+        public void ThemDiem(DTO_Diem diem)
         {
             try
-            {
-                //ket noi
+            {            
                 _conn.Open();
-                string SQL = string.Format("INSERT INTO Diem(MaMonHoc, MaSinhVien, SoDiem, LanThi) VALUE ('','','','')", diem.MaMonHoc,diem.MaSinhVien,diem.SoDiem,diem.LanThi);
+                SqlCommand cmd = new SqlCommand("ThemDiem", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@SoDiem", SqlDbType.Float);
+                cmd.Parameters.Add("@LanThi", SqlDbType.Int);
+                cmd.Parameters["@MaMonHoc"].Value = diem.Diem_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = diem.Diem_MaSinhVien;
+                cmd.Parameters["@SoDiem"].Value = diem.Diem_SoDiem;
+                cmd.Parameters["@LanThi"].Value = diem.Diem_LanThi;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -40,20 +51,24 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool SuaDiem(DTO_Diem diem)
+        public void SuaDiem(DTO_Diem diem)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("UPDATE Diem SET SoDiem='', LanThi='' WHERE MaMonHoc='', MaSinhVien=''", diem.SoDiem, diem.LanThi, diem.MaMonHoc, diem.MaSinhVien);
+                SqlCommand cmd = new SqlCommand("Sua", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
-
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@SoDiem", SqlDbType.Float);
+                cmd.Parameters.Add("@LanThi", SqlDbType.Int);
+                cmd.Parameters["@MaMonHoc"].Value = diem.Diem_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = diem.Diem_MaSinhVien;
+                cmd.Parameters["@SoDiem"].Value = diem.Diem_SoDiem;
+                cmd.Parameters["@LanThi"].Value = diem.Diem_LanThi;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -63,20 +78,22 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
-        public bool XoaDiem(DTO_Diem diem)
+        public void XoaDiem(DTO_Diem diem)
         {
             try
             {
-                //ket noi
                 _conn.Open();
-                string SQL = string.Format("DELETE FROM Diem WHERE MaMonHoc='', MaSinhVien=''", diem.MaMonHoc, diem.MaSinhVien);
+                SqlCommand cmd = new SqlCommand("ThemDiem", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlCommand cmd = new SqlCommand(SQL, _conn);
+                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
 
-                if (cmd.ExecuteNonQuery() > 0)
-                    return true;
+                cmd.Parameters["@MaMonHoc"].Value = diem.Diem_MaMonHoc;
+                cmd.Parameters["@MaSinhVien"].Value = diem.Diem_MaSinhVien;
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -86,7 +103,6 @@ namespace DAL_QLSV
             {
                 _conn.Close();
             }
-            return false;
         }
     }
 }

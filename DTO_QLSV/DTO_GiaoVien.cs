@@ -8,14 +8,21 @@ namespace DTO_QLSV
 {
     public class DTO_GiaoVien
     {
-        private string _MaGiaoVien;
-        private string _TenGiaoVien;
-        private string _GhiChu;
-        private string _MaKhoa;
+        private string _GiaoVien_MaGiaoVien;
+        private string _GiaoVien_TenGiaoVien;
+        private string _GiaoVien_GhiChu;
+        private string _GiaoVien_MaKhoa;
 
-        public string MaGiaoVien { get => _MaGiaoVien; set => _MaGiaoVien = value; }
-        public string TenGiaoVien { get => _TenGiaoVien; set => _TenGiaoVien = value; }
-        public string GhiChu { get => _GhiChu; set => _GhiChu = value; }
-        public string MaKhoa { get => _MaKhoa; set => _MaKhoa = value; }
+        public string GiaoVien_MaGiaoVien { get => _GiaoVien_MaGiaoVien; set => _GiaoVien_MaGiaoVien = value; }
+        public string GiaoVien_TenGiaoVien { get => _GiaoVien_TenGiaoVien; set => _GiaoVien_TenGiaoVien = value; }
+        public string GiaoVien_GhiChu { get => _GiaoVien_GhiChu; set => _GiaoVien_GhiChu = value; }
+        public string GiaoVien_MaKhoa { get => _GiaoVien_MaKhoa; set => _GiaoVien_MaKhoa = value; }
+        public DTO_GiaoVien(string MaGiaoVien, string TenGiaoVien, string GhiChu, string MaKhoa)
+        {
+            this.GiaoVien_MaGiaoVien = MaGiaoVien;
+            this.GiaoVien_TenGiaoVien = TenGiaoVien;
+            this.GiaoVien_GhiChu = GhiChu;
+            this.GiaoVien_MaKhoa = MaKhoa;
+        }
     }
 }

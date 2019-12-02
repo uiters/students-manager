@@ -8,12 +8,18 @@ namespace DTO_QLSV
 {
     public class DTO_tb_User
     {
-        private int _Usertype;
-        private string _Username;
-        private string _Pass;
+        private int _tb_User_Usertype;
+        private string _tb_User_Username;
+        private string _tb_User_Pass;
 
-        public int Usertype { get => _Usertype; set => _Usertype = value; }
-        public string Username { get => _Username; set => _Username = value; }
-        public string Pass { get => _Pass; set => _Pass = value; }
+        public int tb_User_Usertype { get => _tb_User_Usertype; set => _tb_User_Usertype = value; }
+        public string tb_User_Username { get => _tb_User_Username; set => _tb_User_Username = value; }
+        public string tb_User_Pass { get => _tb_User_Pass; set => _tb_User_Pass = value; }
+        public DTO_tb_User(int Usertype,string Username, string Pass)
+        {
+            this.tb_User_Usertype = Usertype;
+            this.tb_User_Username = Username;
+            this.tb_User_Pass = Pass;
+        }
     }
 }

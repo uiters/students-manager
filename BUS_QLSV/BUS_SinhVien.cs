@@ -17,19 +17,19 @@ namespace BUS_QLSV
         {
             return DalSinhVien.getSinhVien();
         }
-        public bool ThemSinhVien(DTO_SinhVien sv)
+        public void ThemSinhVien(DTO_SinhVien sv)
         {
-            return DalSinhVien.ThemSinhVien(sv);
+            DalSinhVien.ThemSinhVien(sv);
         }
 
-        public bool SuaSinhVien(DTO_SinhVien sv)
+        public void SuaSinhVien(DTO_SinhVien sv)
         {
-            return DalSinhVien.SuaSinhVien(sv);
+           DalSinhVien.SuaSinhVien(sv);
         }
 
-        public bool XoaSinhVien(DTO_SinhVien sv)
+        public void XoaSinhVien(DTO_SinhVien sv)
         {
-            return DalSinhVien.XoaSinhVien(sv);
+            DalSinhVien.XoaSinhVien(sv);
         }
     }
 }

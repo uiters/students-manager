@@ -17,13 +17,13 @@ namespace BUS_QLSV
         {
             return User.getUser();
         }
-        public bool ThemUser(DTO_tb_User user)
+        public void ThemUser(DTO_tb_User user)
         {
-            return User.ThemUser(user);
+            User.ThemUser(user);
         }
-        public bool XoaUser(DTO_tb_User user)
+        public void XoaUser(DTO_tb_User user)
         {
-            return User.XoaUser(user);
+            User.XoaUser(user);
         }
 
     }

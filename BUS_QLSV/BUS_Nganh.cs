@@ -17,17 +17,17 @@ namespace BUS_QLSV
             return DalNganh.getNganh();
         }
         
-        public bool ThemKhoa(DTO_Nganh nganh)
+        public void ThemKhoa(DTO_Nganh nganh)
         {
-            return DalNganh.ThemNganh(nganh);
+            DalNganh.ThemNganh(nganh);
         }
-        public bool SuaNganh(DTO_Nganh nganh)
+        public void SuaNganh(DTO_Nganh nganh)
         {
-            return DalNganh.SuaNganh(nganh);
+            DalNganh.SuaNganh(nganh);
         }
-        public bool XoaNganh(DTO_Nganh nganh)
+        public void XoaNganh(DTO_Nganh nganh)
         {
-            return DalNganh.XoaNganh(nganh);
+           DalNganh.XoaNganh(nganh);
         }
     }
 }

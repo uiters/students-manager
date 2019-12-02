@@ -17,17 +17,17 @@ namespace BUS_QLSV
         {
             return DalDK.getDKMH();
         }
-        public bool ThemDKMH(DTO_DKMH dk)
+        public void ThemDKMH(DTO_DKMH dk)
         {
-            return DalDK.ThemDKMH(dk);
+            DalDK.ThemDKMH(dk);
         }
-        public bool SuaDKMH(DTO_DKMH dk)
+        public void SuaDKMH(DTO_DKMH dk)
         {
-            return DalDK.SuaDKMH(dk);
+           DalDK.SuaDKMH(dk);
         }
-        public bool XoaDKMH(DTO_DKMH dk)
+        public void XoaDKMH(DTO_DKMH dk)
         {
-            return DalDK.XoaDKMH(dk);
+            DalDK.XoaDKMH(dk);
         }
     }
 }

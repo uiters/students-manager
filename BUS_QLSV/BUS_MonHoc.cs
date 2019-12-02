@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 using DAL_QLSV;
 using DTO_QLSV;
 
@@ -16,19 +17,19 @@ namespace BUS_QLSV
         {
             return DalMonHoc.getMonHoc();
         }
-        public bool ThemMonHoc(DTO_MonHoc mh)
+        public void ThemMonHoc(DTO_MonHoc mh)
         {
-            return DalMonHoc.ThemMonHoc(mh);
+            DalMonHoc.ThemMonHoc(mh);
         }
 
-        public bool SuaMonHoc(DTO_MonHoc mh)
+        public void SuaMonHoc(DTO_MonHoc mh)
         {
-            return DalMonHoc.SuaMonHoc(mh);
+            DalMonHoc.SuaMonHoc(mh);
         }
 
-        public bool XoaMonHoc(DTO_MonHoc mh)
+        public void XoaMonHoc(DTO_MonHoc mh)
         {
-            return DalMonHoc.XoaMonHoc(mh);
+            DalMonHoc.XoaMonHoc(mh);
         }
     }
 }
