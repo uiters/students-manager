@@ -12,9 +12,21 @@ namespace DTO_QLSV
         private string _tb_User_Username;
         private string _tb_User_Pass;
 
-        public int tb_User_Usertype { get => _tb_User_Usertype; set => _tb_User_Usertype = value; }
-        public string tb_User_Username { get => _tb_User_Username; set => _tb_User_Username = value; }
-        public string tb_User_Pass { get => _tb_User_Pass; set => _tb_User_Pass = value; }
+        public int tb_User_Usertype
+        {
+            get => _tb_User_Usertype;
+            set => _tb_User_Usertype = value;
+        }
+        public string tb_User_Username
+        {
+            get => _tb_User_Username;
+            set => _tb_User_Username = value;
+        }
+        public string tb_User_Pass
+        {
+            get => _tb_User_Pass;
+            set => _tb_User_Pass = value;
+        }
         public DTO_tb_User(int Usertype,string Username, string Pass)
         {
             this.tb_User_Usertype = Usertype;
