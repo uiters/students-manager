@@ -25,14 +25,14 @@ namespace BUS_QLSV
         private int column = 0;
 
         //mã hóa password ,using System.Security.Cryptography -- BUS
-        public string MahoaPass(string pass)
-        {
-            UnicodeEncoding uc = new UnicodeEncoding();
-            byte[] hash = uc.GetBytes(pass);
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            hash = md5.ComputeHash(hash);
-            return Convert.ToBase64String(hash);
-        }
+      // public string MahoaPass(string pass)
+        //{
+        //    UnicodeEncoding uc = new UnicodeEncoding();
+        //    byte[] hash = uc.GetBytes(pass);
+        //    MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+        //      hash = md5.ComputeHash(hash);
+        //    return Convert.ToBase64String(hash);
+        //}
         //tạo tài khoản 
         public void CreateUser()
         {
@@ -51,7 +51,8 @@ namespace BUS_QLSV
 
                 else
                 {
-                    DAL_xuly.CreateUser(DTO_user.USER, MahoaPass(DTO_user.PASS), DTO_user.ID);
+                    //DAL_xuly.CreateUser(DTO_user.USER, MahoaPass(DTO_user.PASS), DTO_user.ID);
+                    DAL_xuly.CreateUser(DTO_user.USER, DTO_user.PASS, DTO_user.ID);
                     MessageBox.Show("Tạo tài khoản mới thành công");
                 }
             }
@@ -76,15 +77,17 @@ namespace BUS_QLSV
             if (isExist(DTO_user.USER) == true)
             {
                 string oldpass = DAL_xuly.GetOldPass(DTO_user.USER).Rows[0][0].ToString();
-                if (MahoaPass(DTO_user.PASS) != oldpass)
-                {
+                //if (MahoaPass(DTO_user.PASS) != oldpass)
+                    if (DTO_user.PASS!= oldpass)
+                    {
                     //throw new Exception("Mật khẩu nhập vào không trùng khớp");
                     MessageBox.Show("Mật khẩu nhập vào không trùng khớp");
 
                 }
                 else
                 {
-                    DAL_xuly.UpdateUser(DTO_user.USER, MahoaPass(DTO_user.NEWPASS), DTO_user.ID);
+                    //DAL_xuly.UpdateUser(DTO_user.USER, MahoaPass(DTO_user.NEWPASS), DTO_user.ID);
+                    DAL_xuly.UpdateUser(DTO_user.USER, DTO_user.NEWPASS, DTO_user.ID);
                     MessageBox.Show("Cập nhật thành công");
                 }
             }
@@ -161,18 +164,29 @@ namespace BUS_QLSV
         {
             string kq = "";
 
-            if (CheckUser(DTO_user.USER, MahoaPass(DTO_user.PASS)) == true)
-            {
+            //if (CheckUser(DTO_user.USER, MahoaPass(DTO_user.PASS)) == true)
+            //{
 
-                if (PQ(DTO_user.USER, MahoaPass(DTO_user.PASS)) == true)
+            //    if (PQ(DTO_user.USER, MahoaPass(DTO_user.PASS)) == true)
+            //    {
+            //        kq = "Admin";
+            //    }
+            //    else if (PQ(DTO_user.USER, MahoaPass(DTO_user.PASS)) == false)
+            //    {
+            //        kq = "User";
+            //    }
+            //}if (CheckUser(DTO_user.USER, MahoaPass(DTO_user.PASS)) == true)
+            
+
+                if (PQ(DTO_user.USER, DTO_user.PASS) == true)
                 {
                     kq = "Admin";
                 }
-                else if (PQ(DTO_user.USER, MahoaPass(DTO_user.PASS)) == false)
+                else if (PQ(DTO_user.USER, DTO_user.PASS) == false)
                 {
                     kq = "User";
                 }
-            }
+            
             else
             {
                 kq = "False";

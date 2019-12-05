@@ -21,6 +21,7 @@ namespace GUI_QLSV
         // thao tác xử lý đăng nhập 
         DTO_tb_User xl_user = new DTO_tb_User();
         BUS_tb_User bus_xl_user = new BUS_tb_User();
+
         public delegate void EnableGroupbox(bool kq);
         public EnableGroupbox setGroupbox;
         public string PQ;
@@ -34,6 +35,7 @@ namespace GUI_QLSV
                 PQ = "Admin";
                 this.Close();
                 setGroupbox(true);
+               
                 MessageBox.Show("Đăng nhập thành công");
 
             }
