@@ -6,29 +6,63 @@ using System.Threading.Tasks;
 using System.Data;
 using DAL_QLSV;
 using DTO_QLSV;
+using System.Windows.Forms;
 
 namespace BUS_QLSV
 {
     public class BUS_Khoa
     {
         DAL_Khoa DalKhoa = new DAL_Khoa();
+        DTO_Khoa DTO_Khoa = new DTO_Khoa();
 
-        public DataTable getKhoa()
+        public void ThemKhoa()
         {
-            return DalKhoa.getKhoa();
+            try
+            {
+                DalKhoa.ThemKhoa(DTO_Khoa.Khoa_MaKhoa, DTO_Khoa.Khoa_TenKhoa, DTO_Khoa.Khoa_GhiChu,DTO_Khoa.Khoa_Username);
+            }
+            catch
+            {
+                MessageBox.Show("Có lỗi khi thực hiện !");
+            }
         }
 
-        public void ThemKhoa(DTO_Khoa khoa)
+        public void CapNhatKhoa()
         {
-            DalKhoa.ThemKhoa(khoa);
+            try
+            {
+                DalKhoa.CapNhatKhoa(DTO_Khoa.Khoa_MaKhoa, DTO_Khoa.Khoa_TenKhoa, DTO_Khoa.Khoa_GhiChu, DTO_Khoa.Khoa_Username);
+            }
+            catch
+            {
+                MessageBox.Show("Có lỗi khi thực hiện !");
+            }
         }
-        public void SuaKhoa(DTO_Khoa khoa)
+
+        public void XoaKhoa()
         {
-            DalKhoa.SuaKhoa(khoa);
+            try
+            {
+                DalKhoa.XoaKhoa(DTO_Khoa.Khoa_MaKhoa);
+            }
+            catch
+            {
+                MessageBox.Show("Có lỗi khi thực hiện !");
+            }
         }
-        public void XoaKhoa(DTO_Khoa khoa)
+
+        public DataTable LoadDLKhoa()
         {
-            DalKhoa.XoaKhoa(khoa);
+            DataTable dt = new DataTable();
+            dt = DalKhoa.LoadDLKhoa();
+            return dt;
+
+        }
+        public string TaoMaKhoa()
+        {
+            string ma;
+            ma = DalKhoa.TaoMaKhoa();
+            return ma;
         }
     }
 }

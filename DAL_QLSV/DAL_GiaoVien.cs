@@ -6,104 +6,89 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using DTO_QLSV;
+using System.Windows.Forms;
 
 namespace DAL_QLSV
 {
-    public class DAL_GiaoVien : DBConnect
+    public class DAL_GiaoVien 
     {
-        public DataTable getGiaoVien()
+        DAL_Xuly xuly = new DAL_Xuly(); 
+
+        SqlParameter _Magiaovien = new SqlParameter();
+        SqlParameter _Tengiaovien = new SqlParameter();
+        SqlParameter _Makhoa = new SqlParameter();
+        SqlParameter _Ghichu = new SqlParameter();
+
+        public void ThemGiaoVien(string magv, string tengv, string makhoa, string ghichu)
         {
-            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            _conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM GiaoVien", _conn);
-            DataTable dtGiaoVien = new DataTable();
-            da.Fill(dtGiaoVien);
-            _conn.Close();
-            return dtGiaoVien;
+            _Magiaovien.SqlValue = magv;
+            _Magiaovien.ParameterName = "@Magiaovien";
+
+            _Tengiaovien.SqlValue = tengv;
+            _Tengiaovien.ParameterName = "@TenGiaoVien";
+
+            _Makhoa.SqlValue = makhoa;
+            _Makhoa.ParameterName = "@MaKhoa";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@GhiChu";
+
+            xuly.ThaoTacDuLieu("qlsv_ThemGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien, _Makhoa, _Ghichu);
         }
 
-        public void ThemGiaoVien(DTO_GiaoVien gv)
+        public void CapNhatGiaoVien(string magv, string tengv, string makhoa, string ghichu)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("ThemGiaoVien", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            _Magiaovien.SqlValue = magv;
+            _Magiaovien.ParameterName = "@Magiaovien";
 
-                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenGiaoVien", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.NVarChar, 50);
+            _Tengiaovien.SqlValue = tengv;
+            _Tengiaovien.ParameterName = "@TenGiaoVien";
 
-                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
-                cmd.Parameters["@TenGiaoVien"].Value = gv.GiaoVien_TenGiaoVien;
-                cmd.Parameters["@GhiChu"].Value = gv.GiaoVien_GhiChu;
-                cmd.Parameters["@MaKhoa"].Value = gv.GiaoVien_MaKhoa;
+            _Makhoa.SqlValue = makhoa;
+            _Makhoa.ParameterName = "@MaKhoa";
 
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@GhiChu";
 
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            xuly.ThaoTacDuLieu("qlsv_CapNhatGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien, _Makhoa, _Ghichu);
         }
-        public void SuaGiaoVien(DTO_GiaoVien gv)
+
+        public void XoaGiaoVien(string magv)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("SuaGiaoVien", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            _Magiaovien.SqlValue = magv;
+            _Magiaovien.ParameterName = "@Magiaovien";
 
-                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenGiaoVien", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.NVarChar, 50);
-
-                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
-                cmd.Parameters["@TenGiaoVien"].Value = gv.GiaoVien_TenGiaoVien;
-                cmd.Parameters["@GhiChu"].Value = gv.GiaoVien_GhiChu;
-                cmd.Parameters["@MaKhoa"].Value = gv.GiaoVien_MaKhoa;
-
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            xuly.ThaoTacDuLieu("qlsv_XoaGiaoVien", CommandType.StoredProcedure, _Magiaovien);
         }
-        public void XoaGiaoVien(DTO_GiaoVien gv)
+
+        public DataTable LoadDL_GiaoVien()
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("XoaGiaoVien", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@MaGiaoVien", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaGiaoVien"].Value = gv.GiaoVien_MaGiaoVien;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from GiaoVien");
+            return dt;
         }
+
+        public string TaoMaGiaoVien()
+        {
+            string ma = "";
+            ma = xuly.SinhMaTuDong("GV", "Select * from GiaoVien");
+            return ma;
+        }
+
+        public void LayDLVaoCombobox_MaKhoa(ComboBox cmb)
+        {
+            xuly.LoadDLVaoCombobox("Select * from Khoa", cmb, "TenKhoa", "MaKhoa");
+
+        }
+
+        public DataTable TimKiemGiaoVien(string columnName, string DuLieuTim)
+        {
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from GiaoVien where " + columnName + " = N'" + DuLieuTim + "'");
+            return dt;
+        }
+
+       
     }
 }
+

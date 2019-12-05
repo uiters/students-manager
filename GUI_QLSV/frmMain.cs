@@ -21,5 +21,11 @@ namespace GUI_QLSV
         {
           
         }
+
+        private void DangNhapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
+        }
     }
 }

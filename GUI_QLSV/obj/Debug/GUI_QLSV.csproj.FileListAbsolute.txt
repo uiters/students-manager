@@ -75,3 +75,32 @@ E:\NMCNPM\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csprojAssemblyReference.cac
 E:\NMCNPM\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.CopyComplete
 E:\NMCNPM\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.exe
 E:\NMCNPM\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\GUI_QLSV.exe.config
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\GUI_QLSV.exe
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\GUI_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\BUS_QLSV.exe
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DAL_QLSV.exe
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\BUS_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\BUS_QLSV.exe.config
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DTO_QLSV.exe.config
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DAL_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\DAL_QLSV.exe.config
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csprojAssemblyReference.cache
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmAbout.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmLogin.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmMain.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmQLMH.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmQLSV.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Properties.Resources.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.UserControls.UC_GiaoVien_Khoa.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.UserControls.UC_Nganh_Lop.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.UserControls.UC_Nhapdiem.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.UserControls.UC_SinhVien_MonHoc_DKHP.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.UserControls.UC_User.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.GenerateResource.cache
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.CoreCompileInputs.cache
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.CopyComplete
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.exe
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.pdb

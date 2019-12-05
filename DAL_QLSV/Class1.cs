@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DTO_QLSV
+namespace BUS_QLSV
 {
     static class Program
     {
@@ -16,7 +17,8 @@ namespace DTO_QLSV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
         }
     }
 }
+

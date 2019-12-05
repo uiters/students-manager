@@ -30,3 +30,19 @@ E:\NMCNPM\QuanLySinhVien\BUS_QLSV\bin\Debug\DTO_QLSV.exe.config
 E:\NMCNPM\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.csproj.CopyComplete
 E:\NMCNPM\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.exe
 E:\NMCNPM\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.pdb
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.csprojAssemblyReference.cache
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.Properties.Resources.resources
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.csproj.GenerateResource.cache
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.csproj.CoreCompileInputs.cache
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.exe
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.pdb
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\BUS_QLSV.exe.config
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\BUS_QLSV.exe
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\BUS_QLSV.pdb
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DAL_QLSV.exe
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DAL_QLSV.pdb
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DAL_QLSV.exe.config
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\BUS_QLSV\bin\Debug\DTO_QLSV.exe.config
+D:\New folder\QuanLySinhVien\BUS_QLSV\obj\Debug\BUS_QLSV.csproj.CopyComplete

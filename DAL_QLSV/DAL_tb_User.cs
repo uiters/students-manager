@@ -6,104 +6,80 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using DTO_QLSV;
+using System.Windows.Forms;
+
 
 namespace DAL_QLSV
 {
-    public class DAL_tb_User : DBConnect
+    public class DAL_tb_User 
     {
-        public DataTable getUser()
+       
+        DAL_Xuly xuly = new DAL_Xuly();
+
+        public void CreateUser(string User, string pass, bool ID)
         {
-            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            _conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tb_User", _conn);
-            DataTable dtUser = new DataTable();
-            da.Fill(dtUser);
-            _conn.Close();
-            return dtUser;
-        }
-
-        public void ThemUser(DTO_tb_User user)
-        {
-            try
+            SqlParameter u = new SqlParameter();//user
+            SqlParameter p = new SqlParameter();//pass
+            SqlParameter i = new SqlParameter();//ID check
+            if (User == "" || pass == "")
             {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("ThemUser", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@Usertype", SqlDbType.Bit);
-                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@Pass", SqlDbType.NVarChar, 50);
-
-
-                cmd.Parameters["@usertype"].Value = user.tb_User_Usertype;
-                cmd.Parameters["@username"].Value = user.tb_User_Username;
-                cmd.Parameters["@pass"].Value = user.tb_User_Pass;
-
-                cmd.ExecuteNonQuery();
+                MessageBox.Show("Mời nhập user và pass ");
             }
-            catch (Exception e)
+            else
             {
+                u.SqlValue = User;
+                p.SqlValue = pass;
+                i.SqlValue = ID;
+                u.ParameterName = "@Username";
+                p.ParameterName = "@Pass";
+                i.ParameterName = "@ID";
 
-            }
-            finally
-            {
-                _conn.Close();
+                xuly.ThaoTacDuLieu("qlsv_AddNewUser", CommandType.StoredProcedure, u, p, i);
             }
         }
 
-        public void SuaUser(DTO_tb_User user)
+        public void DeleteUser(string User)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("SuaUser", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@Usertype", SqlDbType.Bit);
-                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@Pass", SqlDbType.NVarChar, 50);
-
-
-                cmd.Parameters["@usertype"].Value = user.tb_User_Usertype;
-                cmd.Parameters["@username"].Value = user.tb_User_Username;
-                cmd.Parameters["@pass"].Value = user.tb_User_Pass;
-
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            SqlParameter u = new SqlParameter();
+            u.SqlValue = User;
+            u.ParameterName = "@Username";
+            xuly.ThaoTacDuLieu("qlsv_DeleteUser", CommandType.StoredProcedure, u);
         }
-        public void XoaUser(DTO_tb_User user)
+
+        public void UpdateUser(String User, string Pass, bool ID)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("XoaUser", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@Username", SqlDbType.NVarChar,50);
-
-
-                cmd.Parameters["@username"].Value = user.tb_User_Username;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            SqlParameter u = new SqlParameter();
+            SqlParameter p = new SqlParameter();
+            SqlParameter i = new SqlParameter();//ID check
+            u.SqlValue = User;
+            p.SqlValue = Pass;
+            i.SqlValue = ID;
+            u.ParameterName = "@Username";
+            p.ParameterName = "@Pass";
+            i.ParameterName = "@ID";
+            xuly.ThaoTacDuLieu("qlsv_UpdateUser", CommandType.StoredProcedure, u, p, i);
         }
+
+        public DataTable GetOldPass(string User)
+        {
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select Pass from tb_user where Username = '" + User + "'");
+            return dt;
+        }
+
+        public DataTable LoadDL(string tableName)//tableName = tb_User
+        {
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select Username,Pass from " + tableName + "");
+            return dt;
+        }
+
+        public DataTable TimKiem(string User)
+        {
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select Username,Pass from  tb_User where Username ='" + User + "'");
+            return dt;
+        }
+
     }
 }

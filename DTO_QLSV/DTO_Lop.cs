@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
@@ -10,12 +11,57 @@ namespace DTO_QLSV
     {
         private string _Lop_MaLop;
         private string _Lop_TenLop;
-        private int _Lop_LoaiLop;
+        private bool _Lop_LoaiLop;
         private string _Lop_NienKhoa;
-        private string _Lop_NgayBatDau;
-        private string _Lop_NgayKetThuc;
+        private DateTime _Lop_NgayBatDau;
+        private DateTime _Lop_NgayKetThuc;
         private string _Lop_MaMonHoc;
         private string _Lop_MaGiaoVien;
+
+        private string CotTimKiem;
+        private string DKTim;
+        private int cotGoiY;
+        private TextBox txtGoiy;
+        private ComboBox cmbMaKhoaHoc;
+        private ComboBox cmbMaNganh;
+
+        public TextBox TXTGOIY
+        {
+            get { return txtGoiy; }
+            set { txtGoiy = value; }
+        }
+
+        public int COTGOIY
+        {
+            get { return cotGoiY; }
+            set { cotGoiY = value; }
+        }
+
+
+        public string COTIMKIEM
+        {
+            get { return CotTimKiem; }
+            set { CotTimKiem = value; }
+        }
+
+
+        public string DKTIM
+        {
+            get { return DKTim; }
+            set { DKTim = value; }
+        }
+        public ComboBox cmbMAKHOAHOC
+        {
+            get { return cmbMaKhoaHoc; }
+            set { cmbMaKhoaHoc = value; }
+        }
+
+
+        public ComboBox cmbMANGANH
+        {
+            get { return cmbMaNganh; }
+            set { cmbMaNganh = value; }
+        }
 
         public string Lop_MaLop
         {
@@ -38,7 +84,7 @@ namespace DTO_QLSV
                 _Lop_TenLop = value;
             }
         }
-        public int Lop_LoaiLop
+        public bool Lop_LoaiLop
         {
             get
             {
@@ -60,7 +106,7 @@ namespace DTO_QLSV
                 _Lop_NienKhoa = value;
             }
         }
-        public string Lop_NgayBatDau
+        public DateTime Lop_NgayBatDau
         {
             get
             {
@@ -71,7 +117,7 @@ namespace DTO_QLSV
                 _Lop_NgayBatDau = value;
             }
         }
-        public string Lop_NgayKetThuc
+        public DateTime Lop_NgayKetThuc
         {
             get
             {
@@ -104,7 +150,11 @@ namespace DTO_QLSV
                 _Lop_MaGiaoVien = value;
             }
         }
-        public DTO_Lop(string MaLop, string TenLop, int LoaiLop, string NienKhoa, string NgayBatDau, string NgayKetThuc, string MaMonHoc, string MaGiaoVien)
+        public DTO_Lop()
+        {
+
+        }
+        public DTO_Lop(string MaLop, string TenLop, bool LoaiLop, string NienKhoa, DateTime NgayBatDau, DateTime NgayKetThuc, string MaMonHoc, string MaGiaoVien)
         {
             this.Lop_MaLop = MaLop;
             this.Lop_TenLop = TenLop;

@@ -6,106 +6,39 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using DTO_QLSV;
+using System.Windows.Forms;
 
 namespace DAL_QLSV
 {
-    public class DAL_DKMH : DBConnect
+    public class DAL_DKMH
     {
-        public DataTable getDKMH()
+        DAL_Xuly xuly = new DAL_Xuly();
+        public DataTable LoadDL_DKMonHoc()
         {
-            SqlCommand cmd = new SqlCommand("Diem", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            _conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DKMH", _conn);
-            da.SelectCommand = cmd;
-            DataTable dtDK = new DataTable();
-            da.Fill(dtDK);
-            _conn.Close();
-            return dtDK;
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from DK_MonHoc");
+            return dt;
         }
 
-        public void ThemDKMH(DTO_DKMH dk)
+        public DataTable TimKiemMHDK(string MaSV)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("ThemDKMH", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
-                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                // Dong ket noi
-                _conn.Close();
-            }
-
-
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from DK_MonHoc where MaSinhVien = '" + MaSV + "'");
+            return dt;
         }
-        public void SuaDKMH(DTO_DKMH dk)
+
+        public void LoadDLVaoCombobox(ComboBox cmb)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("SuaDKMH", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
-                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                // Dong ket noi
-                _conn.Close();
-            }
-
-
+            xuly.LoadDLVaoCombobox("Select * from MonHoc", cmb, "TenMonHoc", "MaMonHoc");
         }
-        public void XoaDKMH(DTO_DKMH dk)
+
+
+
+        public string LayTenSV(string Masv)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("XoaDKMH", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@MaMonHoc", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@MaSinhVien", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaMonHoc"].Value = dk.DKMH_MaMonHoc;
-                cmd.Parameters["@MaSinhVien"].Value = dk.DKMH_MaSinhVien;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                // Dong ket noi
-                _conn.Close();
-            }
-
+            string ten = "";
+            ten = xuly.LayTen("Select Hoten from SinhVien Where MaSinhVien = '" + Masv + "'");
+            return ten;
         }
     }
 }

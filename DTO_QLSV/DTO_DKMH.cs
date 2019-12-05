@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
@@ -10,17 +11,38 @@ namespace DTO_QLSV
     {
         private string _DKMH_MaSinhVien;
         private string _DKMH_MaMonHoc;
+        private ComboBox cmb;
+        private TextBox txtTim;
+        private TextBox txtMsv;
 
+
+        public TextBox TXTMSV
+        {
+            get { return txtMsv; }
+            set { txtMsv = value; }
+        }
+        public TextBox TXTTIM
+        {
+            get { return txtTim; }
+            set { txtTim = value; }
+        }
+        public ComboBox CMB
+        {
+            get { return cmb; }
+            set { cmb = value; }
+        }
         public string DKMH_MaSinhVien
         {
-            get => _DKMH_MaSinhVien;
-            set => _DKMH_MaSinhVien = value;
+            get { return _DKMH_MaSinhVien; }
+            set { _DKMH_MaSinhVien = value; }
         }
         public string DKMH_MaMonHoc
         {
-            get => _DKMH_MaMonHoc;
-            set => _DKMH_MaMonHoc = value;
+            get { return _DKMH_MaMonHoc; }
+            set { _DKMH_MaMonHoc = value; }
         }
+        public DTO_DKMH()
+        { }
         public DTO_DKMH(string MaSinhVien, string MaMonHoc )
         {
             this.DKMH_MaSinhVien = MaSinhVien;

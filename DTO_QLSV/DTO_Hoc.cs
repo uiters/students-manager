@@ -13,13 +13,17 @@ namespace DTO_QLSV
 
         public string Hoc_MaSinhVien
         {
-            get => _Hoc_MaSinhVien;
-            set => _Hoc_MaSinhVien = value;
+            get { return _Hoc_MaSinhVien; }
+            set { _Hoc_MaSinhVien = value; }
         }
         public string Hoc_MaLop
         {
-            get => _Hoc_MaLop;
-            set => _Hoc_MaLop = value;
+            get { return _Hoc_MaLop; }
+            set { _Hoc_MaLop = value; }
+        }
+        public DTO_Hoc()
+        {
+
         }
         public DTO_Hoc(string MaSinhVien,string MaLop)
         {

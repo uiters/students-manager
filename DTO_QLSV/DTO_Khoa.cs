@@ -15,23 +15,27 @@ namespace DTO_QLSV
 
         public string Khoa_MaKhoa
         {
-            get => _Khoa_MaKhoa;
-            set => _Khoa_MaKhoa = value;
+            get { return _Khoa_MaKhoa; }
+            set { _Khoa_MaKhoa = value; }
         }
         public string Khoa_TenKhoa
         {
-            get => _Khoa_TenKhoa;
-            set => _Khoa_TenKhoa = value;
+            get { return _Khoa_TenKhoa; }
+            set { _Khoa_TenKhoa = value; }
         }
         public string Khoa_GhiChu
         {
-            get => _Khoa_GhiChu;
-            set => _Khoa_GhiChu = value;
+            get { return _Khoa_GhiChu; }
+            set { _Khoa_GhiChu = value; }
         }
         public string Khoa_Username
         {
-            get => _Khoa_Username;
-            set => _Khoa_Username = value;
+            get { return _Khoa_Username; }
+            set { _Khoa_Username = value; }
+        }
+        public DTO_Khoa()
+        {
+
         }
         public DTO_Khoa(string MaKhoa,string TenKhoa, string GhiChu,string Username)
         {

@@ -6,28 +6,61 @@ using System.Threading.Tasks;
 using System.Data;
 using DAL_QLSV;
 using DTO_QLSV;
+using System.Windows.Forms;
 
 namespace BUS_QLSV
 {
+    
     public class BUS_DKMH
     {
         DAL_DKMH DalDK = new DAL_DKMH();
+        BUS_Xuly BUS_xuly = new BUS_Xuly();
+        DTO_DKMH DTO_DKMH = new DTO_DKMH();
 
-        public DataTable getDKMH()
+        public DataTable LoadDL_DKMonHoc()
         {
-            return DalDK.getDKMH();
+            DataTable dt = new DataTable();
+            dt = DalDK.LoadDL_DKMonHoc();
+            return dt;
         }
-        public void ThemDKMH(DTO_DKMH dk)
+
+        public DataTable TimKiemSVDK()
         {
-            DalDK.ThemDKMH(dk);
+            DataTable dt = new DataTable();
+            dt = DalDK.TimKiemMHDK(DTO_DKMH.DKMH_MaSinhVien);
+            return dt;
         }
-        public void SuaDKMH(DTO_DKMH dk)
+
+        public void LoadDLVao_cmbMaMonHoc_DK()
         {
-           DalDK.SuaDKMH(dk);
+            DalDK.LoadDLVaoCombobox(DTO_DKMH.CMB);
         }
-        public void XoaDKMH(DTO_DKMH dk)
+
+
+        public void GoiYTimKiem()
         {
-            DalDK.XoaDKMH(dk);
+            GoiYTimKiem(DTO_DKMH.TXTTIM);
+        }
+
+        public void GoiYMSSV()
+        {
+            GoiYTimMSSV(DTO_DKMH.TXTMSV);
+        }
+
+        public string LayTenSV()
+        {
+            string ten = "";
+            ten = DalDK.LayTenSV(DTO_DKMH.DKMH_MaSinhVien);
+            return ten;
+        }
+        public void GoiYTimKiem(TextBox txt)
+        {
+            BUS_xuly.TextBox_AutoComplete(txt, "DK_MonHoc", 1);
+        }
+
+        public void GoiYTimMSSV(TextBox txt)
+        {
+            BUS_xuly.TextBox_AutoComplete(txt, "SinhVien", 0);
         }
     }
 }

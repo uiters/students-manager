@@ -11,23 +11,67 @@ namespace BUS_QLSV
 {
     public class BUS_Nganh
     {
-        DAL_Nganh DalNganh = new DAL_Nganh();
-        public DataTable getNganh()
+        DAL_Nganh DAL_Nganh = new DAL_Nganh();
+        DTO_Nganh DTO_Nganh = new DTO_Nganh();
+        public void ThemNganh()
         {
-            return DalNganh.getNganh();
+            try
+            {
+                DAL_Nganh.ThemNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);
+            }
+            catch
+            {
+
+            }
         }
-        
-        public void ThemKhoa(DTO_Nganh nganh)
+
+        public void CapNhatNganh()
         {
-            DalNganh.ThemNganh(nganh);
+            try
+            {
+                DAL_Nganh.CapNhatNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);            
+            }
+            catch
+            {
+
+            }
         }
-        public void SuaNganh(DTO_Nganh nganh)
+
+        public void XoaNganh()
         {
-            DalNganh.SuaNganh(nganh);
+            try
+            {
+                DAL_Nganh.XoaNganh(DTO_Nganh.Nganh_MaNganh);
+            }
+            catch
+            {
+
+            }
         }
-        public void XoaNganh(DTO_Nganh nganh)
+
+        public DataTable LoadDL()
         {
-           DalNganh.XoaNganh(nganh);
+            DataTable dt = new DataTable();
+            try
+            {
+
+                dt = DAL_Nganh.LoadDL();
+            }
+            catch
+
+            {
+
+            }
+            return dt;
+        }
+
+        public string TaoMaNganh()
+        {
+
+            string maNG = "";
+            maNG = DAL_Nganh.TaoMaNganh();
+            return maNG;
+
         }
     }
 }

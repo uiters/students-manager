@@ -15,3 +15,12 @@ E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.GenerateResource.cac
 E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.CoreCompileInputs.cache
 E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.exe
 E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csprojAssemblyReference.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.Properties.Resources.resources
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.GenerateResource.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.CoreCompileInputs.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe.config
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.pdb

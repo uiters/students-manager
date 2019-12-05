@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
@@ -10,34 +11,55 @@ namespace DTO_QLSV
     {
         private string _Diem_MaMonHoc;
         private string _Diem_MaSinhVien;
-        private int _Diem_SoDiem;
+        private float _Diem_SoDiem;
         private int _Diem_LanThi;
+
+        private ListBox lb;
+        private TextBox txtMSV;
+        private TextBox txtTimMsv;
+        public TextBox txtTIMMSV
+        {
+            get { return txtTimMsv; }
+            set { txtTimMsv = value; }
+        }
+        public TextBox TXTMSV
+        {
+            get { return txtMSV; }
+            set { txtMSV = value; }
+        }
+
+        public ListBox LISTBOX
+        {
+            get { return lb; }
+            set { lb = value; }
+        }
 
         public string Diem_MaMonHoc
         {
-            get => _Diem_MaMonHoc;
-            set => _Diem_MaMonHoc = value;
+            get { return _Diem_MaMonHoc; }
+            set { _Diem_MaMonHoc = value; }
         }
         public string Diem_MaSinhVien
         {
-            get => _Diem_MaSinhVien;
-            set => _Diem_MaSinhVien = value;
+            get { return Diem_MaSinhVien; }
+            set { Diem_MaSinhVien = value; }
         }
-        public int Diem_SoDiem
+        public float Diem_SoDiem
         {
-            get => _Diem_SoDiem;
-            set => _Diem_SoDiem = value;
+            get { return Diem_SoDiem; }
+            set { Diem_SoDiem = value; }
         }
         public int Diem_LanThi
         {
-            get => _Diem_LanThi;
-            set => _Diem_LanThi = value;
+            get { return Diem_LanThi; }
+            set { Diem_LanThi = value; }
         }
-        public DTO_Diem(string MaMonHoc, string MaSinhVien, int SoDien, int LanThi)
+        public DTO_Diem() {  }
+        public DTO_Diem(string MaMonHoc, string MaSinhVien, float SoDiem, int LanThi)
         {
             this.Diem_MaMonHoc = MaMonHoc;
             this.Diem_MaSinhVien = MaSinhVien;
-            this.Diem_SoDiem = SoDien;
+            this.Diem_SoDiem = SoDiem;
             this.Diem_LanThi = LanThi;
         }
 

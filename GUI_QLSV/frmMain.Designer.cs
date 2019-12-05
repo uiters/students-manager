@@ -121,6 +121,7 @@
             this.DangNhapToolStripMenuItem.Name = "DangNhapToolStripMenuItem";
             this.DangNhapToolStripMenuItem.Size = new System.Drawing.Size(243, 32);
             this.DangNhapToolStripMenuItem.Text = "Đăng nhập";
+            this.DangNhapToolStripMenuItem.Click += new System.EventHandler(this.DangNhapToolStripMenuItem_Click);
             // 
             // quanlyTK_ToolStripMenuItem
             // 

@@ -15,23 +15,26 @@ namespace DTO_QLSV
 
         public string Nganh_MaNganh
         {
-            get => _Nganh_MaNganh;
-            set => _Nganh_MaNganh = value;
+            get { return _Nganh_MaNganh; }
+            set { _Nganh_MaNganh = value; }
         }
         public string Nganh_TenNganh
         {
-            get => _Nganh_TenNganh;
-            set => _Nganh_TenNganh = value;
+            get { return _Nganh_TenNganh; }
+            set { _Nganh_TenNganh = value; }
         }
         public string Nganh_GhiChu
         {
-            get => _Nganh_GhiChu;
-            set => _Nganh_GhiChu = value;
+            get { return _Nganh_GhiChu; }
+            set { _Nganh_GhiChu = value; }
         }
         public string Nganh_MaKhoa
         {
-            get => _Nganh_MaKhoa;
-            set => _Nganh_MaKhoa = value;
+            get { return _Nganh_MaKhoa; }
+            set { _Nganh_MaKhoa = value; }
+        }
+        public DTO_Nganh()
+        {
         }
         public DTO_Nganh(string MaNganh, string TenNganh, string GhiChu, string MaKhoa)
         {

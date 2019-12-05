@@ -11,99 +11,67 @@ namespace DAL_QLSV
 {
     public class DAL_Khoa : DBConnect
     {
-        public DataTable getKhoa()
+        DAL_Xuly xuly = new DAL_Xuly();
+        SqlParameter _MaKhoa = new SqlParameter();
+        SqlParameter _TenKhoa = new SqlParameter();
+        SqlParameter _Ghichu = new SqlParameter();
+        SqlParameter _MaKhoa_UserName = new SqlParameter();
+        public void ThemKhoa(string makhoa, string tenkhoa, string ghichu,string username)
         {
-            SqlCommand cmd = new SqlCommand("Khoa", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            _conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Khoa", _conn);
-            DataTable dtKhoa = new DataTable();
-            da.Fill(dtKhoa);
-            _conn.Close();
-            return dtKhoa;
+            _MaKhoa.SqlValue = makhoa;
+            _MaKhoa.ParameterName = "@MaKhoa";
+
+            _TenKhoa.SqlValue = tenkhoa;
+            _TenKhoa.ParameterName = "@TenKhoa";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@GhiChu";
+
+            _MaKhoa_UserName.SqlValue = username;
+            _MaKhoa_UserName.ParameterName = "@KhoaUsername";
+
+            xuly.ThaoTacDuLieu("qlsv_ThemKhoa", CommandType.StoredProcedure, _MaKhoa, _TenKhoa, _Ghichu,_MaKhoa_UserName);
         }
 
-        public void ThemKhoa(DTO_Khoa khoa)
+
+
+        public void CapNhatKhoa(string makhoa, string tenkhoa, string ghichu,string username)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("ThemKhoa", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            _MaKhoa.SqlValue = makhoa;
+            _MaKhoa.ParameterName = "@MaKhoa";
 
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenKhoa", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
+            _TenKhoa.SqlValue = tenkhoa;
+            _TenKhoa.ParameterName = "@TenKhoa";
 
-                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
-                cmd.Parameters["@TenKhoa"].Value = khoa.Khoa_TenKhoa;
-                cmd.Parameters["@GhiChu"].Value = khoa.Khoa_GhiChu;
-                cmd.Parameters["@Username"].Value = khoa.Khoa_Username;
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@GhiChu";
 
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
+            _MaKhoa_UserName.SqlValue = username;
+            _MaKhoa_UserName.ParameterName = "@KhoaUsername";
 
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            xuly.ThaoTacDuLieu("qlsv_CapNhatKhoa", CommandType.StoredProcedure, _MaKhoa, _TenKhoa, _Ghichu, _MaKhoa_UserName);
         }
 
-        public void SuaKhoa(DTO_Khoa khoa)
+        public void XoaKhoa(string makhoa)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("SuaKhoa", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            _MaKhoa.SqlValue = makhoa;
+            _MaKhoa.ParameterName = "@MaKhoa";
 
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenKhoa", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50);
-
-                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
-                cmd.Parameters["@TenKhoa"].Value = khoa.Khoa_TenKhoa;
-                cmd.Parameters["@GhiChu"].Value = khoa.Khoa_GhiChu;
-                cmd.Parameters["@Username"].Value = khoa.Khoa_Username;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            xuly.ThaoTacDuLieu("qlsv_XoaKhoa", CommandType.StoredProcedure, _MaKhoa);
         }
-        public void XoaKhoa(DTO_Khoa khoa)
+
+        public DataTable LoadDLKhoa()
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("XoaKhoa", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from Khoa");
+            return dt;
+        }
 
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaKhoa"].Value = khoa.Khoa_MaKhoa;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+        public string TaoMaKhoa()
+        {
+            string ma;
+            ma = xuly.SinhMaTuDong("KA", "Select * from Khoa");
+            return ma;
         }
     }
 }

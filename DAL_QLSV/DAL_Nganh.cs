@@ -9,108 +9,72 @@ using DTO_QLSV;
 
 namespace DAL_QLSV
 {
-    public class DAL_Nganh : DBConnect
+    public class DAL_Nganh 
     {
-        public DataTable getNganh()
+        DAL_Xuly xuly = new DAL_Xuly();
+
+        SqlParameter _MaNganh = new SqlParameter();
+        SqlParameter _TenNganh = new SqlParameter();
+        SqlParameter _Ghichu = new SqlParameter();
+        SqlParameter _MaKhoa = new SqlParameter();
+
+        public void ThemNganh(string manganh, string tennganh, string ghichu,string makhoa)
         {
-            SqlCommand cmd = new SqlCommand("GiaoVien", _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            _conn.Open();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Nganh", _conn);
-            DataTable dtNganh = new DataTable();
-            da.Fill(dtNganh);
-            _conn.Close();
-            return dtNganh;
+            _MaNganh.SqlValue = manganh;
+            _MaNganh.ParameterName = "@MaNganh";
+
+            _TenNganh.SqlValue = tennganh;
+            _TenNganh.ParameterName = "@TenNganh";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@Ghichu";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@MaKhoa";
+
+            xuly.ThaoTacDuLieu("qlsv_ThemNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu,_MaKhoa);
+
+        }
+        public void CapNhatNganh(string manganh, string tennganh, string ghichu, string makhoa)
+        {
+            _MaNganh.SqlValue = manganh;
+            _MaNganh.ParameterName = "@MaNganh";
+
+            _TenNganh.SqlValue = tennganh;
+            _TenNganh.ParameterName = "@TenNganh";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@Ghichu";
+
+            _Ghichu.SqlValue = ghichu;
+            _Ghichu.ParameterName = "@MaKhoa";
+
+            xuly.ThaoTacDuLieu("qlsv_CapNhatNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu, _MaKhoa);
+
+
         }
 
-        public void ThemNganh(DTO_Nganh nganh)
+        public void XoaNganh(string manganh)
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("ThemNganh", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            _MaNganh.SqlValue = manganh;
+            _MaNganh.ParameterName = "@MaNganh";
 
-                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
-                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
-                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
-                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            xuly.ThaoTacDuLieu("qlsv_XoaNganh", CommandType.StoredProcedure, _MaNganh);
         }
 
-        public void SuaNganh(DTO_Nganh nganh)
+        public DataTable LoadDL()
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("SuaNganh", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("Select * from Nganh");
 
-                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
-                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
-                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
-                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            return dt;
         }
 
-        public void XoaNganh(DTO_Nganh nganh)
+        public string TaoMaNganh()
         {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand("XoaNganh", _conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@MaNganh", SqlDbType.VarChar, 50);
-                cmd.Parameters.Add("@TenNganh", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 50);
-                cmd.Parameters.Add("@MaKhoa", SqlDbType.VarChar, 50);
-
-                cmd.Parameters["@MaNganh"].Value = nganh.Nganh_MaKhoa;
-                cmd.Parameters["@TenNganh"].Value = nganh.Nganh_TenNganh;
-                cmd.Parameters["@GhiChu"].Value = nganh.Nganh_GhiChu;
-                cmd.Parameters["@MaKhoa"].Value = nganh.Nganh_MaKhoa;
-
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-            }
-            finally
-            {
-                _conn.Close();
-            }
+            string maNG = "";
+            maNG = xuly.SinhMaTuDong("NG", "Select * from Nganh");
+            return maNG;
         }
     }
 }
