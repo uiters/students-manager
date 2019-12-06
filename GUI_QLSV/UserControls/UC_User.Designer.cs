@@ -79,6 +79,7 @@
             this.groupBox1.Controls.Add(this.dgvUser);
             this.groupBox1.Controls.Add(this.txtUserName);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -95,7 +96,7 @@
             this.chk_Usertype.Location = new System.Drawing.Point(148, 585);
             this.chk_Usertype.Name = "chk_Usertype";
             this.chk_Usertype.Size = new System.Drawing.Size(98, 24);
-            this.chk_Usertype.TabIndex = 15;
+            this.chk_Usertype.TabIndex = 9;
             this.chk_Usertype.Text = "Usertype";
             this.chk_Usertype.UseVisualStyleBackColor = true;
             // 
@@ -107,7 +108,7 @@
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(263, 27);
-            this.txtNewPass.TabIndex = 8;
+            this.txtNewPass.TabIndex = 12;
             this.txtNewPass.Visible = false;
             // 
             // lblMatkhaumoi
@@ -135,6 +136,7 @@
             this.btnSua.TabIndex = 10;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -148,6 +150,7 @@
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // lblTacvu
             // 
@@ -185,10 +188,11 @@
             this.rdXoa.Location = new System.Drawing.Point(532, 27);
             this.rdXoa.Margin = new System.Windows.Forms.Padding(4);
             this.rdXoa.Name = "rdXoa";
-            this.rdXoa.Size = new System.Drawing.Size(88, 21);
-            this.rdXoa.TabIndex = 5;
+            this.rdXoa.Size = new System.Drawing.Size(92, 22);
+            this.rdXoa.TabIndex = 6;
             this.rdXoa.Text = "Xóa User";
             this.rdXoa.UseVisualStyleBackColor = true;
+            this.rdXoa.CheckedChanged += new System.EventHandler(this.rdXoa_CheckedChanged);
             // 
             // rdDoiMatkhau
             // 
@@ -196,10 +200,11 @@
             this.rdDoiMatkhau.Location = new System.Drawing.Point(289, 27);
             this.rdDoiMatkhau.Margin = new System.Windows.Forms.Padding(4);
             this.rdDoiMatkhau.Name = "rdDoiMatkhau";
-            this.rdDoiMatkhau.Size = new System.Drawing.Size(112, 21);
-            this.rdDoiMatkhau.TabIndex = 4;
+            this.rdDoiMatkhau.Size = new System.Drawing.Size(117, 22);
+            this.rdDoiMatkhau.TabIndex = 5;
             this.rdDoiMatkhau.Text = "Đổi mật khẩu";
             this.rdDoiMatkhau.UseVisualStyleBackColor = true;
+            this.rdDoiMatkhau.CheckedChanged += new System.EventHandler(this.rdDoiMatkhau_CheckedChanged);
             // 
             // rdTaoUser
             // 
@@ -208,11 +213,12 @@
             this.rdTaoUser.Location = new System.Drawing.Point(56, 27);
             this.rdTaoUser.Margin = new System.Windows.Forms.Padding(4);
             this.rdTaoUser.Name = "rdTaoUser";
-            this.rdTaoUser.Size = new System.Drawing.Size(88, 21);
-            this.rdTaoUser.TabIndex = 3;
+            this.rdTaoUser.Size = new System.Drawing.Size(91, 22);
+            this.rdTaoUser.TabIndex = 4;
             this.rdTaoUser.TabStop = true;
             this.rdTaoUser.Text = "Tạo User";
             this.rdTaoUser.UseVisualStyleBackColor = true;
+            this.rdTaoUser.CheckedChanged += new System.EventHandler(this.rdTaoUser_CheckedChanged);
             // 
             // btnThoat
             // 
@@ -226,6 +232,7 @@
             this.btnThoat.TabIndex = 12;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnThem
             // 
@@ -239,6 +246,7 @@
             this.btnThem.TabIndex = 9;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox2
             // 
@@ -247,6 +255,7 @@
             this.groupBox2.Controls.Add(this.btnTim);
             this.groupBox2.Controls.Add(this.txtTenTimKiem);
             this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(31, 26);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -263,10 +272,11 @@
             this.btnRefresh.Location = new System.Drawing.Point(732, 20);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(67, 50);
+            this.btnRefresh.Size = new System.Drawing.Size(81, 50);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refesh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnTim
             // 
@@ -279,13 +289,14 @@
             this.btnTim.TabIndex = 1;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTenTimKiem
             // 
             this.txtTenTimKiem.Location = new System.Drawing.Point(180, 34);
             this.txtTenTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenTimKiem.Name = "txtTenTimKiem";
-            this.txtTenTimKiem.Size = new System.Drawing.Size(385, 22);
+            this.txtTenTimKiem.Size = new System.Drawing.Size(385, 24);
             this.txtTenTimKiem.TabIndex = 0;
             // 
             // label3
@@ -294,7 +305,7 @@
             this.label3.Location = new System.Drawing.Point(53, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 17);
+            this.label3.Size = new System.Drawing.Size(117, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên người dùng: ";
             // 
@@ -318,7 +329,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(263, 27);
-            this.txtPass.TabIndex = 7;
+            this.txtPass.TabIndex = 8;
             // 
             // d
             // 
@@ -352,7 +363,8 @@
             this.dgvUser.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.Size = new System.Drawing.Size(857, 159);
-            this.dgvUser.TabIndex = 2;
+            this.dgvUser.TabIndex = 3;
+            this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
             // 
             // Username
             // 
@@ -377,7 +389,7 @@
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(263, 27);
-            this.txtUserName.TabIndex = 6;
+            this.txtUserName.TabIndex = 7;
             // 
             // UC_User
             // 
@@ -386,6 +398,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_User";
             this.Size = new System.Drawing.Size(920, 640);
+            this.Load += new System.EventHandler(this.UC_User_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

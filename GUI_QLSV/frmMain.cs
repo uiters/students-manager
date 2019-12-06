@@ -440,8 +440,8 @@ namespace GUI_QLSV
             {
                 if (grB_leftMenu.Enabled == true)
                 {
-                    quanlyTK_ToolStripMenuItem.Enabled = true;
-                    lnkTaiKhoan.Enabled = true;
+                    quanlyTK_ToolStripMenuItem.Enabled = false;
+                    lnkTaiKhoan.Enabled = false;
 
                     DangNhapToolStripMenuItem.Enabled = false;
                     DangXuatToolStripMenuItem.Enabled = true;

@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GUI_QLSV")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Team CPT")]
+[assembly: AssemblyDescription("Phần mềm quản lý sinh viên")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GUI_QLSV")]
+[assembly: AssemblyCompany("Trường đại học công nghệ thông tin")]
+[assembly: AssemblyProduct("Quản lý sinh viên")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("https://github.com/ThienUIT")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

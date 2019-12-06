@@ -114,72 +114,7 @@ namespace DAL_QLSV
                 throw new Exception("Có lỗi khi truy vấn dữ liệu " + ex.ToString());
             }
             return ten;
-        }
-        //thêm, xóa sửa.
-        public void CreateUser(string User, string pass, bool ID)
-        {
-            SqlParameter u = new SqlParameter();//user
-            SqlParameter p = new SqlParameter();//pass
-            SqlParameter i = new SqlParameter();//ID check
-            if (User == "" || pass == "")
-            {
-                MessageBox.Show("Mời nhập user và pass ");
-            }
-            else
-            {
-                u.SqlValue = User;
-                p.SqlValue = pass;
-                i.SqlValue = ID;
-                u.ParameterName = "@Username";
-                p.ParameterName = "@Pass";
-                i.ParameterName = "@ID";
-
-                ThaoTacDuLieu("qlsv_AddNewUser", CommandType.StoredProcedure, u, p, i);
-            }
-        }
-       
-        public void DeleteUser(string User)
-        {
-            SqlParameter u = new SqlParameter();
-            u.SqlValue = User;
-            u.ParameterName = "@Username";
-            ThaoTacDuLieu("qlsv_DeleteUser", CommandType.StoredProcedure, u);
-        }
-        
-        public void UpdateUser(String User, string Pass, bool ID)
-        {
-            SqlParameter u = new SqlParameter();
-            SqlParameter p = new SqlParameter();
-            SqlParameter i = new SqlParameter();//ID check
-            u.SqlValue = User;
-            p.SqlValue = Pass;
-            i.SqlValue = ID;
-            u.ParameterName = "@Username";
-            p.ParameterName = "@Pass";
-            i.ParameterName = "@ID";
-           ThaoTacDuLieu("qlsv_UpdateUser", CommandType.StoredProcedure, u, p, i);
-        }
-        // lấy pass cũ để đổi mật khẩu
-        public DataTable GetOldPass(string User)
-        {
-            DataTable dt = new DataTable();
-            dt = LayDanhSach("Select Pass from tb_user where Username = '" + User + "'");
-            return dt;
-        }
-        // load dữ liệu
-        public DataTable LoadDL(string tableName)//tableName = tb_User
-        {
-            DataTable dt = new DataTable();
-            dt = LayDanhSach("Select Username,Pass from " + tableName + "");
-            return dt;
-        }
-        
-        public DataTable TimKiem(string User)
-        {
-            DataTable dt = new DataTable();
-            dt = LayDanhSach("Select Username,Pass from  tb_User where Username ='" + User + "'");
-            return dt;
-        }
+        }     
         //ham tao ma so tu dong
         public string SinhMaTuDong(string KyTuBatDau, string strSQL)
         {

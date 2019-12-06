@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
-    public class DTO_tb_User
+    public class DTO_tb_User 
     {
 
         // TÀI KHOẢN
@@ -16,10 +16,11 @@ namespace DTO_QLSV
         private string Pass;
         private string newPass;
         private bool Id;
-        //DTO
+
         //sử dụng để gọi ý tìm kiếm
         private TextBox txt = new TextBox();
-        
+        private string table = "tb_User";
+        private int column = 0;
 
 
         public TextBox TXT
@@ -27,7 +28,8 @@ namespace DTO_QLSV
             get { return txt; }
             set { txt = value; }
         }
-
+        public string Table { get { return table; }  }
+        public int Column { get {return column; } }
         public string NEWPASS
         {
             get { return newPass; }
@@ -56,11 +58,14 @@ namespace DTO_QLSV
         }
         public string USER
         {
-            get { return User; }
+            get
+            {
+                return User ;
+            }
             set
             {
                 User = value;
-                if (this.USER == "")
+                if (User == "")
                 {
 
                     MessageBox.Show("Chưa nhập Username");
@@ -72,6 +77,22 @@ namespace DTO_QLSV
             get { return Id; }
             set { Id = value; }
 
+        }
+        public DTO_tb_User()
+        {
+
+        } 
+        public DTO_tb_User(string username,string pass,bool id)
+        {
+            User = username;
+            Pass = pass;
+            Id = id;
+        }
+        public DTO_tb_User(string username, string pass)
+        {
+            User = username;
+            Pass = pass;
+            Id = false;
         }
 
     }

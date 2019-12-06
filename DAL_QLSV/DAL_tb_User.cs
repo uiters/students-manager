@@ -32,9 +32,9 @@ namespace DAL_QLSV
                 i.SqlValue = ID;
                 u.ParameterName = "@Username";
                 p.ParameterName = "@Pass";
-                i.ParameterName = "@ID";
+                i.ParameterName = "@Usertype";
 
-                xuly.ThaoTacDuLieu("qlsv_AddNewUser", CommandType.StoredProcedure, u, p, i);
+                xuly.ThaoTacDuLieu("qlsv_AddNewUser", CommandType.StoredProcedure, i,u,p);
             }
         }
 
@@ -56,8 +56,8 @@ namespace DAL_QLSV
             i.SqlValue = ID;
             u.ParameterName = "@Username";
             p.ParameterName = "@Pass";
-            i.ParameterName = "@ID";
-            xuly.ThaoTacDuLieu("qlsv_UpdateUser", CommandType.StoredProcedure, u, p, i);
+            i.ParameterName = "@Usertype";
+            xuly.ThaoTacDuLieu("qlsv_UpdateUser", CommandType.StoredProcedure, i, u, p);
         }
 
         public DataTable GetOldPass(string User)
@@ -71,9 +71,10 @@ namespace DAL_QLSV
         {
             DataTable dt = new DataTable();
             dt = xuly.LayDanhSach("Select Username,Pass from " + tableName + "");
+
             return dt;
         }
-
+     
         public DataTable TimKiem(string User)
         {
             DataTable dt = new DataTable();
