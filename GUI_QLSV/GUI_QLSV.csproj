@@ -78,6 +78,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\frmBaoCaoDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBaoCaoDiem.Designer.cs">
+      <DependentUpon>frmBaoCaoDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmBaoCaoMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBaoCaoMonHoc.Designer.cs">
+      <DependentUpon>frmBaoCaoMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmBaoCaoSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBaoCaoSinhVien.Designer.cs">
+      <DependentUpon>frmBaoCaoSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_GiaoVien_Khoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +150,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\frmBaoCaoDiem.resx">
+      <DependentUpon>frmBaoCaoDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmBaoCaoMonHoc.resx">
+      <DependentUpon>frmBaoCaoMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmBaoCaoSinhVien.resx">
+      <DependentUpon>frmBaoCaoSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_GiaoVien_Khoa.resx">
       <DependentUpon>UC_GiaoVien_Khoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,9 +189,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BUS_QLSV\BUS_QLSV.csproj">
       <Project>{e39f052a-4ec5-4a94-b733-787209de5322}</Project>

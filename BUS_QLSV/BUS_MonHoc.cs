@@ -17,13 +17,13 @@ namespace BUS_QLSV
         DTO_MonHoc DTO_MonHoc = new DTO_MonHoc();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
 
-        public void ThemMonHoc()
+        public void ThemMonHoc(string mamh,string tenmh,bool loaimonhoc,int lythuyet,int thuchanh,string makhoa)
         {
             try
             {
-                if (KiemTraTenMonHoc(DTO_MonHoc.MonHoc_TenMonHoc) == false)
+                if (KiemTraTenMonHoc(tenmh) == false)
                 {
-                    DAL_MonHoc.ThemMonHoc(DTO_MonHoc.MonHoc_MaMonHoc, DTO_MonHoc.MonHoc_TenMonHoc, DTO_MonHoc.MonHoc_LoaiMonHoc, DTO_MonHoc.MonHoc_TinChiLyThuyet, DTO_MonHoc.MonHoc_TinChiThucHanh, DTO_MonHoc.MonHoc_MaKhoa);
+                    DAL_MonHoc.ThemMonHoc(mamh, tenmh, loaimonhoc, lythuyet, thuchanh, makhoa);
                 }
 
 
@@ -34,14 +34,14 @@ namespace BUS_QLSV
             }
         }
 
-        public void CapNhatMonHoc()
+        public void CapNhatMonHoc(string mamh, string tenmh, bool loaimonhoc, int lythuyet, int thuchanh, string makhoa)
         {
             try
             {
-                if (KiemTraTenMonHoc(DTO_MonHoc.MonHoc_TenMonHoc) == false )
+                if (KiemTraTenMonHoc(tenmh) == false )
                 {
 
-                    DAL_MonHoc.CapNhatMonHoc(DTO_MonHoc.MonHoc_MaMonHoc,DTO_MonHoc.MonHoc_TenMonHoc, DTO_MonHoc.MonHoc_LoaiMonHoc, DTO_MonHoc.MonHoc_TinChiLyThuyet, DTO_MonHoc.MonHoc_TinChiThucHanh, DTO_MonHoc.MonHoc_MaKhoa);
+                    DAL_MonHoc.CapNhatMonHoc(mamh, tenmh, loaimonhoc, lythuyet, thuchanh, makhoa);
                 }
 
             }
@@ -51,11 +51,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void XoaMonHoc()
+        public void XoaMonHoc(string mamh)
         {
             try
             {
-                DAL_MonHoc.XoaMonHoc(DTO_MonHoc.MonHoc_MaMonHoc);
+                DAL_MonHoc.XoaMonHoc(mamh);
             }
             catch (Exception ex)
             {
@@ -77,9 +77,9 @@ namespace BUS_QLSV
             return ma;
         }
 
-        public void LoadDLVaoCombobox_cmbMaKhoa_MH()
+        public void LoadDLVaoCombobox_cmbMaKhoa_MH(ComboBox CMB)
         {
-            DAL_MonHoc.LoadDLVaoComboboxMaKhoa_MH(DTO_MonHoc.CMB);
+            DAL_MonHoc.LoadDLVaoComboboxMaKhoa_MH(CMB);
         }
 
         //hàm kiểm tra tên mon hoc đã tồn tai trong csdl hay chua
@@ -88,7 +88,7 @@ namespace BUS_QLSV
             bool kq = false;
             try
             {
-                if (tenmonhoc == DAL_MonHoc.LayTenMonHoc(DTO_MonHoc.MonHoc_TenMonHoc))
+                if (tenmonhoc == DAL_MonHoc.LayTenMonHoc(tenmonhoc))
                 {
                     kq = true;
                     MessageBox.Show("Môn học này đã có trong danh sách");

@@ -96,6 +96,7 @@
             this.tabGV_Khoa.SelectedIndex = 0;
             this.tabGV_Khoa.Size = new System.Drawing.Size(920, 640);
             this.tabGV_Khoa.TabIndex = 1;
+            this.tabGV_Khoa.Click += new System.EventHandler(this.tabGV_Khoa_Click);
             // 
             // tabGiaoVien
             // 
@@ -139,6 +140,7 @@
             this.btnTim.Size = new System.Drawing.Size(100, 67);
             this.btnTim.TabIndex = 4;
             this.btnTim.UseVisualStyleBackColor = false;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click_1);
             // 
             // cmbDieuKienTim
             // 
@@ -152,6 +154,7 @@
             this.cmbDieuKienTim.Size = new System.Drawing.Size(249, 24);
             this.cmbDieuKienTim.TabIndex = 3;
             this.cmbDieuKienTim.Text = "-- Chọn điều kiện --";
+            this.cmbDieuKienTim.TextChanged += new System.EventHandler(this.cmbDieuKienTim_TextChanged);
             // 
             // label6
             // 
@@ -208,6 +211,7 @@
             this.dgvGiaoVien.ReadOnly = true;
             this.dgvGiaoVien.Size = new System.Drawing.Size(867, 198);
             this.dgvGiaoVien.TabIndex = 0;
+            this.dgvGiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGiaoVien_CellClick_1);
             // 
             // MaGiaoVien
             // 
@@ -270,36 +274,39 @@
             this.btnXoa_GV.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa_GV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnXoa_GV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXoa_GV.Location = new System.Drawing.Point(267, 223);
+            this.btnXoa_GV.Location = new System.Drawing.Point(275, 223);
             this.btnXoa_GV.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa_GV.Name = "btnXoa_GV";
             this.btnXoa_GV.Size = new System.Drawing.Size(100, 30);
             this.btnXoa_GV.TabIndex = 15;
             this.btnXoa_GV.UseVisualStyleBackColor = false;
+            this.btnXoa_GV.Click += new System.EventHandler(this.btnXoa_GV_Click_1);
             // 
             // btnLuuGV
             // 
             this.btnLuuGV.BackColor = System.Drawing.Color.Transparent;
             this.btnLuuGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuuGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuuGV.Location = new System.Drawing.Point(21, 223);
+            this.btnLuuGV.Location = new System.Drawing.Point(16, 201);
             this.btnLuuGV.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuuGV.Name = "btnLuuGV";
             this.btnLuuGV.Size = new System.Drawing.Size(100, 30);
             this.btnLuuGV.TabIndex = 14;
             this.btnLuuGV.UseVisualStyleBackColor = false;
+            this.btnLuuGV.Click += new System.EventHandler(this.btnLuuGV_Click_1);
             // 
             // btnLamlai
             // 
             this.btnLamlai.BackColor = System.Drawing.Color.Transparent;
             this.btnLamlai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLamlai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLamlai.Location = new System.Drawing.Point(147, 223);
+            this.btnLamlai.Location = new System.Drawing.Point(149, 223);
             this.btnLamlai.Margin = new System.Windows.Forms.Padding(4);
             this.btnLamlai.Name = "btnLamlai";
             this.btnLamlai.Size = new System.Drawing.Size(100, 30);
             this.btnLamlai.TabIndex = 13;
             this.btnLamlai.UseVisualStyleBackColor = false;
+            this.btnLamlai.Click += new System.EventHandler(this.btnLamlai_Click_1);
             // 
             // btnThem
             // 
@@ -312,6 +319,7 @@
             this.btnThem.Size = new System.Drawing.Size(100, 30);
             this.btnThem.TabIndex = 12;
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // cmbMaKhoa
             // 
@@ -329,6 +337,7 @@
             this.txtTenGiaoVien.Name = "txtTenGiaoVien";
             this.txtTenGiaoVien.Size = new System.Drawing.Size(267, 22);
             this.txtTenGiaoVien.TabIndex = 10;
+            this.txtTenGiaoVien.TextChanged += new System.EventHandler(this.txtTenGiaoVien_TextChanged_1);
             // 
             // txtGhiChu
             // 
@@ -426,6 +435,7 @@
             this.dgvKhoa.ReadOnly = true;
             this.dgvKhoa.Size = new System.Drawing.Size(875, 329);
             this.dgvKhoa.TabIndex = 0;
+            this.dgvKhoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoa_CellClick);
             // 
             // Ma_Khoa
             // 
@@ -483,6 +493,7 @@
             this.btndelete_K.Size = new System.Drawing.Size(100, 61);
             this.btndelete_K.TabIndex = 10;
             this.btndelete_K.UseVisualStyleBackColor = false;
+            this.btndelete_K.Click += new System.EventHandler(this.btndelete_K_Click);
             // 
             // btnLuuKhoa
             // 
@@ -495,6 +506,7 @@
             this.btnLuuKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnLuuKhoa.TabIndex = 9;
             this.btnLuuKhoa.UseVisualStyleBackColor = false;
+            this.btnLuuKhoa.Click += new System.EventHandler(this.btnLuuKhoa_Click);
             // 
             // btnNhaplaiKhoa
             // 
@@ -507,6 +519,7 @@
             this.btnNhaplaiKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnNhaplaiKhoa.TabIndex = 8;
             this.btnNhaplaiKhoa.UseVisualStyleBackColor = false;
+            this.btnNhaplaiKhoa.Click += new System.EventHandler(this.btnNhaplaiKhoa_Click);
             // 
             // btnThemKhoa
             // 
@@ -520,6 +533,7 @@
             this.btnThemKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnThemKhoa.TabIndex = 7;
             this.btnThemKhoa.UseVisualStyleBackColor = false;
+            this.btnThemKhoa.Click += new System.EventHandler(this.btnThemKhoa_Click);
             // 
             // txtGhiChu_Khoa
             // 
@@ -537,6 +551,7 @@
             this.txtTenKhoa.Name = "txtTenKhoa";
             this.txtTenKhoa.Size = new System.Drawing.Size(295, 22);
             this.txtTenKhoa.TabIndex = 5;
+            this.txtTenKhoa.TextChanged += new System.EventHandler(this.txtTenKhoa_TextChanged_1);
             // 
             // txtMaKhoa
             // 
@@ -584,6 +599,7 @@
             this.Controls.Add(this.tabGV_Khoa);
             this.Name = "UC_GiaoVien_Khoa";
             this.Size = new System.Drawing.Size(920, 640);
+            this.Load += new System.EventHandler(this.UC_GiaoVien_Khoa_Load);
             this.tabGV_Khoa.ResumeLayout(false);
             this.tabGiaoVien.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -600,6 +616,7 @@
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 

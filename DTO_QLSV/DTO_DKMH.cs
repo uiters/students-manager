@@ -10,8 +10,7 @@ namespace DTO_QLSV
     public class DTO_DKMH
     {
         private string _DKMH_MaSinhVien;
-        private string _DKMH_MaMonHoc;
-        private ComboBox cmb;
+        private string _DKMH_MaMonHoc;       
         private TextBox txtTim;
         private TextBox txtMsv;
 
@@ -25,11 +24,6 @@ namespace DTO_QLSV
         {
             get { return txtTim; }
             set { txtTim = value; }
-        }
-        public ComboBox CMB
-        {
-            get { return cmb; }
-            set { cmb = value; }
         }
         public string DKMH_MaSinhVien
         {

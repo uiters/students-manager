@@ -115,7 +115,24 @@ namespace DAL_QLSV
             }
             return ten;
         }     
-        //ham tao ma so tu dong
+
+        // strSQL : chuỗi kết nối, 
+        public void LoadDLVaoCombobox(string strSQL, ComboBox cmb, string DisplayMember, string ValueMember)
+        {
+             SqlConnection cn = conn.OpenCN();
+            try
+            {
+                cmb.DataSource = LayDanhSach(strSQL);
+                cmb.DisplayMember = DisplayMember;
+                cmb.ValueMember = ValueMember;
+
+                 conn.CloseCN(cn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi Load dữ liệu! \n" + ex.ToString());
+            }
+        }
         public string SinhMaTuDong(string KyTuBatDau, string strSQL)
         {
             string maso = "";
@@ -150,22 +167,5 @@ namespace DAL_QLSV
             }
 
         }
-        public void LoadDLVaoCombobox(string strSQL, ComboBox cmb, string DisplayMember, string ValueMember)
-        {
-            // SqlConnection cn = conn.OpenCN();
-            try
-            {
-                cmb.DataSource = LayDanhSach(strSQL);
-                cmb.DisplayMember = DisplayMember;
-                cmb.ValueMember = ValueMember;
-
-                // conn.CloseCN(cn);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Có lỗi khi Load dữ liệu! \n" + ex.ToString());
-            }
-        }
-
     }
 }

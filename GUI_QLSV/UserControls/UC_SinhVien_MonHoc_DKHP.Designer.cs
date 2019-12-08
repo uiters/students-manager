@@ -39,7 +39,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancel_SV = new System.Windows.Forms.Button();
             this.btnLuu_SV = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnThem_SV = new System.Windows.Forms.Button();
             this.pcHinhSV = new System.Windows.Forms.PictureBox();
             this.btnBrowseHinh = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCancel_MH = new System.Windows.Forms.Button();
             this.btnLuu_MH = new System.Windows.Forms.Button();
-            this.btnLamlai = new System.Windows.Forms.Button();
             this.btnQLMH = new System.Windows.Forms.Button();
             this.btnThem_MH = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -94,6 +92,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDangkyMH = new System.Windows.Forms.DataGridView();
             this.groupBoxDKMH = new System.Windows.Forms.GroupBox();
+            this.txtTinChi_DKMH = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTenSV_DKMH = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -105,7 +104,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtMSV_DKMH = new System.Windows.Forms.TextBox();
-            this.txtTinChi_DKMH = new System.Windows.Forms.TextBox();
             this.tabSV_Mon_DKMH.SuspendLayout();
             this.tabSinhVien.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -141,6 +139,7 @@
             this.tabSV_Mon_DKMH.SelectedIndex = 0;
             this.tabSV_Mon_DKMH.Size = new System.Drawing.Size(920, 640);
             this.tabSV_Mon_DKMH.TabIndex = 1;
+            this.tabSV_Mon_DKMH.Click += new System.EventHandler(this.tabSV_Mon_DKMH_Click);
             // 
             // tabSinhVien
             // 
@@ -204,6 +203,7 @@
             this.btnTakePhoto.TabIndex = 38;
             this.btnTakePhoto.Text = "Chụp Ảnh";
             this.btnTakePhoto.UseVisualStyleBackColor = false;
+            this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
             // 
             // button1
             // 
@@ -227,6 +227,7 @@
             this.btnQuanLySV.TabIndex = 36;
             this.btnQuanLySV.Text = "Quản lý Sinh Viên";
             this.btnQuanLySV.UseVisualStyleBackColor = false;
+            this.btnQuanLySV.Click += new System.EventHandler(this.btnQuanLySV_Click);
             // 
             // dgv_SV
             // 
@@ -238,6 +239,7 @@
             this.dgv_SV.ReadOnly = true;
             this.dgv_SV.Size = new System.Drawing.Size(860, 155);
             this.dgv_SV.TabIndex = 35;
+            this.dgv_SV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_SV_CellClick);
             // 
             // cbMaNganh
             // 
@@ -253,7 +255,6 @@
             // 
             this.groupBox2.Controls.Add(this.btnCancel_SV);
             this.groupBox2.Controls.Add(this.btnLuu_SV);
-            this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnThem_SV);
             this.groupBox2.Location = new System.Drawing.Point(673, 252);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -268,46 +269,39 @@
             this.btnCancel_SV.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel_SV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCancel_SV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel_SV.Location = new System.Drawing.Point(60, 103);
+            this.btnCancel_SV.Location = new System.Drawing.Point(56, 103);
             this.btnCancel_SV.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_SV.Name = "btnCancel_SV";
             this.btnCancel_SV.Size = new System.Drawing.Size(87, 48);
             this.btnCancel_SV.TabIndex = 4;
             this.btnCancel_SV.UseVisualStyleBackColor = false;
+            this.btnCancel_SV.Click += new System.EventHandler(this.btnCancel_SV_Click);
             // 
             // btnLuu_SV
             // 
             this.btnLuu_SV.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu_SV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuu_SV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu_SV.Location = new System.Drawing.Point(60, 26);
+            this.btnLuu_SV.Location = new System.Drawing.Point(56, 25);
             this.btnLuu_SV.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu_SV.Name = "btnLuu_SV";
             this.btnLuu_SV.Size = new System.Drawing.Size(87, 52);
             this.btnLuu_SV.TabIndex = 3;
             this.btnLuu_SV.UseVisualStyleBackColor = false;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClear.Location = new System.Drawing.Point(60, 103);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(87, 48);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnLuu_SV.Click += new System.EventHandler(this.btnLuu_SV_Click);
             // 
             // btnThem_SV
             // 
             this.btnThem_SV.BackColor = System.Drawing.Color.Transparent;
             this.btnThem_SV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThem_SV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnThem_SV.Location = new System.Drawing.Point(60, 26);
+            this.btnThem_SV.Location = new System.Drawing.Point(56, 25);
             this.btnThem_SV.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem_SV.Name = "btnThem_SV";
             this.btnThem_SV.Size = new System.Drawing.Size(87, 52);
             this.btnThem_SV.TabIndex = 0;
             this.btnThem_SV.UseVisualStyleBackColor = false;
+            this.btnThem_SV.Click += new System.EventHandler(this.btnThem_SV_Click);
             // 
             // pcHinhSV
             // 
@@ -321,13 +315,14 @@
             // 
             // btnBrowseHinh
             // 
-            this.btnBrowseHinh.Location = new System.Drawing.Point(413, 244);
+            this.btnBrowseHinh.Location = new System.Drawing.Point(414, 240);
             this.btnBrowseHinh.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowseHinh.Name = "btnBrowseHinh";
-            this.btnBrowseHinh.Size = new System.Drawing.Size(77, 33);
+            this.btnBrowseHinh.Size = new System.Drawing.Size(77, 28);
             this.btnBrowseHinh.TabIndex = 40;
             this.btnBrowseHinh.Text = "Browse";
             this.btnBrowseHinh.UseVisualStyleBackColor = true;
+            this.btnBrowseHinh.Click += new System.EventHandler(this.btnBrowseHinh_Click);
             // 
             // txtHinh
             // 
@@ -347,6 +342,7 @@
             this.txtQueQuan.Size = new System.Drawing.Size(360, 24);
             this.txtQueQuan.TabIndex = 26;
             this.txtQueQuan.TabStop = false;
+            this.txtQueQuan.TextChanged += new System.EventHandler(this.txtQueQuan_TextChanged_1);
             // 
             // dtp_NgaySinh
             // 
@@ -391,6 +387,7 @@
             this.txtHotenSv.Size = new System.Drawing.Size(237, 24);
             this.txtHotenSv.TabIndex = 20;
             this.txtHotenSv.TabStop = false;
+            this.txtHotenSv.TextChanged += new System.EventHandler(this.txtHotenSv_TextChanged_1);
             // 
             // txtNoiSinh
             // 
@@ -400,6 +397,7 @@
             this.txtNoiSinh.Size = new System.Drawing.Size(287, 24);
             this.txtNoiSinh.TabIndex = 24;
             this.txtNoiSinh.TabStop = false;
+            this.txtNoiSinh.TextChanged += new System.EventHandler(this.txtNoiSinh_TextChanged_1);
             // 
             // txtMSSV
             // 
@@ -508,7 +506,6 @@
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.btnCancel_MH);
             this.groupBox3.Controls.Add(this.btnLuu_MH);
-            this.groupBox3.Controls.Add(this.btnLamlai);
             this.groupBox3.Controls.Add(this.btnQLMH);
             this.groupBox3.Controls.Add(this.btnThem_MH);
             this.groupBox3.Controls.Add(this.label7);
@@ -539,34 +536,26 @@
             this.btnCancel_MH.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCancel_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel_MH.Location = new System.Drawing.Point(368, 304);
+            this.btnCancel_MH.Location = new System.Drawing.Point(413, 304);
             this.btnCancel_MH.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_MH.Name = "btnCancel_MH";
             this.btnCancel_MH.Size = new System.Drawing.Size(100, 39);
             this.btnCancel_MH.TabIndex = 32;
             this.btnCancel_MH.UseVisualStyleBackColor = false;
+            this.btnCancel_MH.Click += new System.EventHandler(this.btnCancel_MH_Click);
             // 
             // btnLuu_MH
             // 
             this.btnLuu_MH.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuu_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu_MH.Location = new System.Drawing.Point(243, 304);
+            this.btnLuu_MH.Location = new System.Drawing.Point(189, 304);
             this.btnLuu_MH.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu_MH.Name = "btnLuu_MH";
             this.btnLuu_MH.Size = new System.Drawing.Size(100, 41);
             this.btnLuu_MH.TabIndex = 31;
             this.btnLuu_MH.UseVisualStyleBackColor = false;
-            // 
-            // btnLamlai
-            // 
-            this.btnLamlai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLamlai.Location = new System.Drawing.Point(368, 305);
-            this.btnLamlai.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLamlai.Name = "btnLamlai";
-            this.btnLamlai.Size = new System.Drawing.Size(100, 39);
-            this.btnLamlai.TabIndex = 30;
-            this.btnLamlai.UseVisualStyleBackColor = true;
+            this.btnLuu_MH.Click += new System.EventHandler(this.btnLuu_MH_Click);
             // 
             // btnQLMH
             // 
@@ -578,6 +567,7 @@
             this.btnQLMH.TabIndex = 29;
             this.btnQLMH.Text = "Quản lí môn học";
             this.btnQLMH.UseVisualStyleBackColor = true;
+            this.btnQLMH.Click += new System.EventHandler(this.btnQLMH_Click);
             // 
             // btnThem_MH
             // 
@@ -590,6 +580,7 @@
             this.btnThem_MH.Size = new System.Drawing.Size(100, 41);
             this.btnThem_MH.TabIndex = 27;
             this.btnThem_MH.UseVisualStyleBackColor = false;
+            this.btnThem_MH.Click += new System.EventHandler(this.btnThem_MH_Click);
             // 
             // label7
             // 
@@ -613,6 +604,7 @@
             this.dgvMonhoc.ReadOnly = true;
             this.dgvMonhoc.Size = new System.Drawing.Size(852, 197);
             this.dgvMonhoc.TabIndex = 25;
+            this.dgvMonhoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonhoc_CellClick);
             // 
             // groupBox5
             // 
@@ -806,6 +798,7 @@
             this.btnTimDKMH.Size = new System.Drawing.Size(81, 42);
             this.btnTimDKMH.TabIndex = 2;
             this.btnTimDKMH.UseVisualStyleBackColor = false;
+            this.btnTimDKMH.Click += new System.EventHandler(this.btnTimDKMH_Click);
             // 
             // txtTim_MSSV
             // 
@@ -883,6 +876,7 @@
             this.dgvDangkyMH.ReadOnly = true;
             this.dgvDangkyMH.Size = new System.Drawing.Size(855, 244);
             this.dgvDangkyMH.TabIndex = 0;
+            this.dgvDangkyMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDangkyMH_CellClick);
             // 
             // groupBoxDKMH
             // 
@@ -904,6 +898,14 @@
             this.groupBoxDKMH.TabIndex = 17;
             this.groupBoxDKMH.TabStop = false;
             this.groupBoxDKMH.Text = " Thông Tin Đăng Ký Môn Học";
+            // 
+            // txtTinChi_DKMH
+            // 
+            this.txtTinChi_DKMH.Location = new System.Drawing.Point(498, 72);
+            this.txtTinChi_DKMH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTinChi_DKMH.Name = "txtTinChi_DKMH";
+            this.txtTinChi_DKMH.Size = new System.Drawing.Size(78, 24);
+            this.txtTinChi_DKMH.TabIndex = 29;
             // 
             // label15
             // 
@@ -1016,14 +1018,6 @@
             this.txtMSV_DKMH.Size = new System.Drawing.Size(200, 24);
             this.txtMSV_DKMH.TabIndex = 10;
             // 
-            // txtTinChi_DKMH
-            // 
-            this.txtTinChi_DKMH.Location = new System.Drawing.Point(498, 72);
-            this.txtTinChi_DKMH.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTinChi_DKMH.Name = "txtTinChi_DKMH";
-            this.txtTinChi_DKMH.Size = new System.Drawing.Size(78, 24);
-            this.txtTinChi_DKMH.TabIndex = 29;
-            // 
             // UC_SinhVien_MonHoc_DKHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1031,6 +1025,7 @@
             this.Controls.Add(this.tabSV_Mon_DKMH);
             this.Name = "UC_SinhVien_MonHoc_DKHP";
             this.Size = new System.Drawing.Size(920, 640);
+            this.Load += new System.EventHandler(this.UC_SinhVien_MonHoc_DKHP_Load);
             this.tabSV_Mon_DKMH.ResumeLayout(false);
             this.tabSinhVien.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -1074,7 +1069,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancel_SV;
         private System.Windows.Forms.Button btnLuu_SV;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnThem_SV;
         private System.Windows.Forms.PictureBox pcHinhSV;
         private System.Windows.Forms.Button btnBrowseHinh;
@@ -1098,7 +1092,6 @@
         public System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnCancel_MH;
         private System.Windows.Forms.Button btnLuu_MH;
-        private System.Windows.Forms.Button btnLamlai;
         public System.Windows.Forms.Button btnQLMH;
         private System.Windows.Forms.Button btnThem_MH;
         public System.Windows.Forms.Label label7;

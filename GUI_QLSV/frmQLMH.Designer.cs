@@ -137,7 +137,7 @@
             this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu.Location = new System.Drawing.Point(788, 177);
+            this.btnLuu.Location = new System.Drawing.Point(809, 143);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(100, 41);
@@ -169,7 +169,7 @@
             this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXoa.Location = new System.Drawing.Point(788, 246);
+            this.btnXoa.Location = new System.Drawing.Point(893, 235);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 39);

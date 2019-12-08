@@ -23,7 +23,7 @@ namespace DAL_QLSV
         SqlParameter _Lop_MaMonHoc = new SqlParameter();
         SqlParameter _Lop_MaGiaoVien = new SqlParameter();
 
-        public void ThemLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD,DateTime KT,string maMH,string MaGV)
+        public void ThemLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD,DateTime KT)
         {
             _Lop_MaLop.SqlValue = malop;
             _Lop_MaLop.ParameterName = "@Malop";
@@ -43,19 +43,14 @@ namespace DAL_QLSV
             _Lop_NgayKetThuc.SqlValue = KT;
             _Lop_NgayKetThuc.ParameterName = "@NgayKetThuc";
 
-            _Lop_MaMonHoc.SqlValue = maMH;
-            _Lop_MaMonHoc.ParameterName = "@MaMonHoc";
-
-            _Lop_MaGiaoVien.SqlValue = MaGV;
-            _Lop_MaGiaoVien.ParameterName = "@MaGiaoVien";
 
 
-            xuly.ThaoTacDuLieu("qlsv_ThemLop", CommandType.StoredProcedure, _Lop_MaLop, _Lop_TenLop, _Lop_LoaiLop, _Lop_NienKhoa, _Lop_NgayBatDau, _Lop_NgayKetThuc, _Lop_MaMonHoc, _Lop_MaGiaoVien);
+            xuly.ThaoTacDuLieu("qlsv_ThemLop", CommandType.StoredProcedure, _Lop_MaLop, _Lop_TenLop, _Lop_LoaiLop, _Lop_NienKhoa, _Lop_NgayBatDau, _Lop_NgayKetThuc);
 
 
         }
 
-        public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT, string maMH, string MaGV)
+        public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT)
         {
             _Lop_MaLop.SqlValue = malop;
             _Lop_MaLop.ParameterName = "@Malop";
@@ -75,14 +70,9 @@ namespace DAL_QLSV
             _Lop_NgayKetThuc.SqlValue = KT;
             _Lop_NgayKetThuc.ParameterName = "@NgayKetThuc";
 
-            _Lop_MaMonHoc.SqlValue = maMH;
-            _Lop_MaMonHoc.ParameterName = "@MaMonHoc";
-
-            _Lop_MaGiaoVien.SqlValue = MaGV;
-            _Lop_MaGiaoVien.ParameterName = "@MaGiaoVien";
 
 
-            xuly.ThaoTacDuLieu("qlsv_CapNhatLop", CommandType.StoredProcedure, _Lop_MaLop, _Lop_TenLop, _Lop_LoaiLop, _Lop_NienKhoa, _Lop_NgayBatDau, _Lop_NgayKetThuc, _Lop_MaMonHoc, _Lop_MaGiaoVien);
+            xuly.ThaoTacDuLieu("qlsv_CapNhatLop", CommandType.StoredProcedure, _Lop_MaLop, _Lop_TenLop, _Lop_LoaiLop, _Lop_NienKhoa, _Lop_NgayBatDau, _Lop_NgayKetThuc);
 
 
         }

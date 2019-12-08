@@ -104,3 +104,6 @@ D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.CoreCompileInput
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.csproj.CopyComplete
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.exe
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.pdb
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoDiem.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoMonHoc.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoSinhVien.resources

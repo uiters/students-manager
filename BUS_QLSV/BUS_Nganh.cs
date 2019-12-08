@@ -13,11 +13,11 @@ namespace BUS_QLSV
     {
         DAL_Nganh DAL_Nganh = new DAL_Nganh();
         DTO_Nganh DTO_Nganh = new DTO_Nganh();
-        public void ThemNganh()
+        public void ThemNganh(string manganh,string tenlop,string ghichu)
         {
             try
             {
-                DAL_Nganh.ThemNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);
+                DAL_Nganh.ThemNganh(manganh,tenlop,ghichu);
             }
             catch
             {
@@ -25,11 +25,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void CapNhatNganh()
+        public void CapNhatNganh(string manganh, string tenlop, string ghichu)
         {
             try
             {
-                DAL_Nganh.CapNhatNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);            
+                DAL_Nganh.CapNhatNganh(manganh, tenlop, ghichu);            
             }
             catch
             {
@@ -37,11 +37,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void XoaNganh()
+        public void XoaNganh(string manganh)
         {
             try
             {
-                DAL_Nganh.XoaNganh(DTO_Nganh.Nganh_MaNganh);
+                DAL_Nganh.XoaNganh(manganh);
             }
             catch
             {

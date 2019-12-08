@@ -59,7 +59,6 @@
             this.dtpNgayBatDau_Lop = new System.Windows.Forms.DateTimePicker();
             this.txtNienKhoa_Lop = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtLoaiLop_Lop = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel_LOP = new System.Windows.Forms.Button();
             this.btnLuu_Lop = new System.Windows.Forms.Button();
@@ -71,6 +70,8 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
+            this.rdb_1 = new System.Windows.Forms.RadioButton();
+            this.rdb_2 = new System.Windows.Forms.RadioButton();
             this.tabKhoaHoc_Nganh_Lop.SuspendLayout();
             this.tabNganh.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -95,6 +96,7 @@
             this.tabKhoaHoc_Nganh_Lop.SelectedIndex = 0;
             this.tabKhoaHoc_Nganh_Lop.Size = new System.Drawing.Size(920, 640);
             this.tabKhoaHoc_Nganh_Lop.TabIndex = 1;
+            this.tabKhoaHoc_Nganh_Lop.Click += new System.EventHandler(this.tabKhoaHoc_Nganh_Lop_Click);
             // 
             // tabNganh
             // 
@@ -386,11 +388,12 @@
             // groupboxLOP
             // 
             this.groupboxLOP.BackColor = System.Drawing.Color.Transparent;
+            this.groupboxLOP.Controls.Add(this.rdb_2);
+            this.groupboxLOP.Controls.Add(this.rdb_1);
             this.groupboxLOP.Controls.Add(this.dtpNgayKetThuc_Lop);
             this.groupboxLOP.Controls.Add(this.dtpNgayBatDau_Lop);
             this.groupboxLOP.Controls.Add(this.txtNienKhoa_Lop);
             this.groupboxLOP.Controls.Add(this.label2);
-            this.groupboxLOP.Controls.Add(this.txtLoaiLop_Lop);
             this.groupboxLOP.Controls.Add(this.label1);
             this.groupboxLOP.Controls.Add(this.btnCancel_LOP);
             this.groupboxLOP.Controls.Add(this.btnLuu_Lop);
@@ -444,14 +447,6 @@
             this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Niên Khóa";
-            // 
-            // txtLoaiLop_Lop
-            // 
-            this.txtLoaiLop_Lop.Location = new System.Drawing.Point(114, 108);
-            this.txtLoaiLop_Lop.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLoaiLop_Lop.Name = "txtLoaiLop_Lop";
-            this.txtLoaiLop_Lop.Size = new System.Drawing.Size(277, 22);
-            this.txtLoaiLop_Lop.TabIndex = 15;
             // 
             // label1
             // 
@@ -568,6 +563,28 @@
             this.label32.TabIndex = 0;
             this.label32.Text = "Mã Lớp:";
             // 
+            // rdb_1
+            // 
+            this.rdb_1.AutoSize = true;
+            this.rdb_1.Location = new System.Drawing.Point(123, 106);
+            this.rdb_1.Name = "rdb_1";
+            this.rdb_1.Size = new System.Drawing.Size(124, 21);
+            this.rdb_1.TabIndex = 20;
+            this.rdb_1.TabStop = true;
+            this.rdb_1.Text = "Chất lượng cao";
+            this.rdb_1.UseVisualStyleBackColor = true;
+            // 
+            // rdb_2
+            // 
+            this.rdb_2.AutoSize = true;
+            this.rdb_2.Location = new System.Drawing.Point(270, 105);
+            this.rdb_2.Name = "rdb_2";
+            this.rdb_2.Size = new System.Drawing.Size(71, 21);
+            this.rdb_2.TabIndex = 21;
+            this.rdb_2.TabStop = true;
+            this.rdb_2.Text = "Đại trà";
+            this.rdb_2.UseVisualStyleBackColor = true;
+            // 
             // UC_Nganh_Lop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -575,6 +592,7 @@
             this.Controls.Add(this.tabKhoaHoc_Nganh_Lop);
             this.Name = "UC_Nganh_Lop";
             this.Size = new System.Drawing.Size(920, 640);
+            this.Load += new System.EventHandler(this.UC_Nganh_Lop_Load);
             this.tabKhoaHoc_Nganh_Lop.ResumeLayout(false);
             this.tabNganh.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -634,7 +652,8 @@
         private System.Windows.Forms.DateTimePicker dtpNgayBatDau_Lop;
         private System.Windows.Forms.TextBox txtNienKhoa_Lop;
         public System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLoaiLop_Lop;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rdb_2;
+        private System.Windows.Forms.RadioButton rdb_1;
     }
 }

@@ -15,21 +15,23 @@ namespace BUS_QLSV
         DAL_SinhVien DalSinhVien = new DAL_SinhVien();
         DTO_SinhVien DtoSinhVien = new DTO_SinhVien();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
+
         private string table = "SinhVien";
         
-        public void ThemSinhVien()
+        public void ThemSinhVien(string masv,string hoten,string quequan,DateTime ngaysinh,string noisinh,string hinh,string gioitinh,string manganh)
         {
-            DalSinhVien.ThemSinhVien(DtoSinhVien.SinhVien_MaSinhVien, DtoSinhVien.SinhVien_HoTen, DtoSinhVien.SinhVien_QueQuan, DtoSinhVien.SinhVien_NgaySinh, DtoSinhVien.SinhVien_NoiSinh, DtoSinhVien.SinhVien_GioiTinh, DtoSinhVien.SinhVien_MaNganh, DtoSinhVien.SinhVien_Hinh);
+            // DtoSinhVien.SinhVien_MaSinhVien, DtoSinhVien.SinhVien_HoTen, DtoSinhVien.SinhVien_QueQuan, DtoSinhVien.SinhVien_NgaySinh, DtoSinhVien.SinhVien_NoiSinh, DtoSinhVien.SinhVien_GioiTinh, DtoSinhVien.SinhVien_MaNganh, DtoSinhVien.SinhVien_Hinh
+            DalSinhVien.ThemSinhVien(masv,hoten,quequan,ngaysinh,noisinh,hinh,gioitinh,manganh);
         }
 
-        public void CapNhatSinhVien()
+        public void CapNhatSinhVien(string masv, string hoten, string quequan, DateTime ngaysinh, string noisinh, string hinh, string gioitinh, string manganh)
         {
-            DalSinhVien.CapNhatSinhVien(DtoSinhVien.SinhVien_MaSinhVien, DtoSinhVien.SinhVien_HoTen, DtoSinhVien.SinhVien_QueQuan, DtoSinhVien.SinhVien_NgaySinh, DtoSinhVien.SinhVien_NoiSinh, DtoSinhVien.SinhVien_GioiTinh, DtoSinhVien.SinhVien_MaNganh, DtoSinhVien.SinhVien_Hinh);
+            DalSinhVien.CapNhatSinhVien(masv, hoten, quequan, ngaysinh, noisinh, hinh, gioitinh, manganh);
         }
 
-        public void XoaSinhVien()
+        public void XoaSinhVien(string masv)
         {
-            DalSinhVien.XoaSinhVien(DtoSinhVien.SinhVien_MaSinhVien);
+            DalSinhVien.XoaSinhVien(masv);
         }
 
         public string TaoMaSinhVien()
@@ -45,9 +47,10 @@ namespace BUS_QLSV
             return dt;
         }
 
-        public void TextBoxAutoComplete()
+        public void TextBoxAutoComplete(TextBox TXT,string table,int column)
         {
-            BUS_xuly.TextBox_AutoComplete(DtoSinhVien.TXT, table, DtoSinhVien.COLUMN);
+            this.table = table;
+            BUS_xuly.TextBox_AutoComplete(TXT, table, column);
         }
 
         public DataTable TimKiemSV()
@@ -57,9 +60,9 @@ namespace BUS_QLSV
             return dt;
         }
 
-        public void LayDLVaoComboboxMaLop()
+        public void LayDLVaoComboboxMaNganh(ComboBox CMB)
         {
-            DalSinhVien.LayMaLopVaoComBoboxMaLop(DtoSinhVien.CMB);
+            DalSinhVien.LayMaNganhVaoComBoboxMaNganh(CMB);
         }
     }
 }

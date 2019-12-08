@@ -15,11 +15,11 @@ namespace BUS_QLSV
         DAL_Lop Dal_Lop = new DAL_Lop();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
         DTO_Lop DTO_Lop = new DTO_Lop();
-        public void ThemLop()
+        public void ThemLop(string malop,string tenlop,bool loailop,string nienkhoa,DateTime BD,DateTime KT)
         {
             try
             {
-                Dal_Lop.ThemLop(DTO_Lop.Lop_MaLop, DTO_Lop.Lop_TenLop, DTO_Lop.Lop_LoaiLop, DTO_Lop.Lop_NienKhoa, DTO_Lop.Lop_NgayBatDau, DTO_Lop.Lop_NgayKetThuc, DTO_Lop.Lop_MaMonHoc, DTO_Lop.Lop_MaGiaoVien);
+                Dal_Lop.ThemLop(malop,tenlop,loailop,nienkhoa,BD,KT);
             }
             catch
 
@@ -28,11 +28,11 @@ namespace BUS_QLSV
             }
 
         }
-        public void CapNhatLop()
+        public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT)
         {
             try
             {
-                Dal_Lop.CapNhatLop(DTO_Lop.Lop_MaLop, DTO_Lop.Lop_TenLop, DTO_Lop.Lop_LoaiLop, DTO_Lop.Lop_NienKhoa, DTO_Lop.Lop_NgayBatDau, DTO_Lop.Lop_NgayKetThuc, DTO_Lop.Lop_MaMonHoc, DTO_Lop.Lop_MaGiaoVien);
+                Dal_Lop.CapNhatLop(malop, tenlop, loailop, nienkhoa, BD, KT);
             }
             catch
             {
@@ -41,11 +41,11 @@ namespace BUS_QLSV
 
         }
 
-        public void XoaLop()
+        public void XoaLop(string malop)
         {
             try
             {
-                Dal_Lop.XoaLop(DTO_Lop.Lop_MaLop);
+                Dal_Lop.XoaLop(malop);
             }
             catch
             {

@@ -96,7 +96,7 @@ namespace DAL_QLSV
         }
 
 
-        //sử dụng cho hàm kiểm tra tên môn học đã tồn tại hay chưa bên class qlsv_xMonhoc.cs
+        //sử dụng cho hàm kiểm tra tên môn học đã tồn tại hay chưa
         public string LayTenMonHoc(string Tenmonhoc)
         {
             string ten = "";

@@ -24,16 +24,16 @@ namespace BUS_QLSV
             return dt;
         }
 
-        public DataTable TimKiemSVDK()
+        public DataTable TimKiemSVDK(string masv)
         {
             DataTable dt = new DataTable();
-            dt = DalDK.TimKiemMHDK(DTO_DKMH.DKMH_MaSinhVien);
+            dt = DalDK.TimKiemMHDK(masv);
             return dt;
         }
 
-        public void LoadDLVao_cmbMaMonHoc_DK()
+        public void LoadDLVao_cmbMaMonHoc_DK(ComboBox CMB)
         {
-            DalDK.LoadDLVaoCombobox(DTO_DKMH.CMB);
+            DalDK.LoadDLVaoCombobox(CMB);
         }
 
 

@@ -18,7 +18,7 @@ namespace DAL_QLSV
         SqlParameter _Ghichu = new SqlParameter();
         SqlParameter _MaKhoa = new SqlParameter();
 
-        public void ThemNganh(string manganh, string tennganh, string ghichu,string makhoa)
+        public void ThemNganh(string manganh, string tennganh, string ghichu)
         {
             _MaNganh.SqlValue = manganh;
             _MaNganh.ParameterName = "@MaNganh";
@@ -29,13 +29,11 @@ namespace DAL_QLSV
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@Ghichu";
 
-            _Ghichu.SqlValue = ghichu;
-            _Ghichu.ParameterName = "@MaKhoa";
 
-            xuly.ThaoTacDuLieu("qlsv_ThemNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu,_MaKhoa);
+            xuly.ThaoTacDuLieu("qlsv_ThemNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu);
 
         }
-        public void CapNhatNganh(string manganh, string tennganh, string ghichu, string makhoa)
+        public void CapNhatNganh(string manganh, string tennganh, string ghichu)
         {
             _MaNganh.SqlValue = manganh;
             _MaNganh.ParameterName = "@MaNganh";
@@ -46,10 +44,9 @@ namespace DAL_QLSV
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@Ghichu";
 
-            _Ghichu.SqlValue = ghichu;
-            _Ghichu.ParameterName = "@MaKhoa";
 
-            xuly.ThaoTacDuLieu("qlsv_CapNhatNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu, _MaKhoa);
+
+            xuly.ThaoTacDuLieu("qlsv_CapNhatNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu);
 
 
         }

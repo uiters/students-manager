@@ -87,7 +87,7 @@ namespace DAL_QLSV
 
             xuly.ThaoTacDuLieu("qlsv_CapNhatSinhVien", CommandType.StoredProcedure, _SinhVien_MaSinhVien, _SinhVien_HoTen, _SinhVien_QueQuan, _SinhVien_NgaySinh, _SinhVien_NoiSinh, _SinhVien_GioiTinh, _SinhVien_MaNganh, _SinhVien_Hinh);
         }
-            public void XoaSinhVien(String MaSv)
+        public void XoaSinhVien(String MaSv)
         {
 
              _SinhVien_MaSinhVien.SqlValue = MaSv;
@@ -118,9 +118,9 @@ namespace DAL_QLSV
             return dt;
         }
 
-        public void LayMaLopVaoComBoboxMaLop(ComboBox cmb)
+        public void LayMaNganhVaoComBoboxMaNganh(ComboBox cmb)
         {
-            xuly.LoadDLVaoCombobox("Select * from Lop", cmb, "TenLop", "MaLop");
+            xuly.LoadDLVaoCombobox("Select * from Nganh", cmb, "TenNganh", "MaNganh");
         }
 
     }

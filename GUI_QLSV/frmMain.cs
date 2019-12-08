@@ -30,7 +30,7 @@ namespace GUI_QLSV
         static UC_Nganh_Lop nganh_lop = new UC_Nganh_Lop();
         static UC_Nhapdiem nhapdiem = new UC_Nhapdiem();
        
-        bool Flag;// cờ đổi ngôn ngữ, true= english, false= VN
+        bool Flag=false;// cờ đổi ngôn ngữ, true= english, false= VN
         #endregion
 
         #region Add user control
