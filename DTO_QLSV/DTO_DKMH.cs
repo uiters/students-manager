@@ -39,8 +39,8 @@ namespace DTO_QLSV
         { }
         public DTO_DKMH(string MaSinhVien, string MaMonHoc )
         {
-            this.DKMH_MaSinhVien = MaSinhVien;
-            this.DKMH_MaMonHoc = MaMonHoc;
+            this._DKMH_MaSinhVien = MaSinhVien;
+            this._DKMH_MaMonHoc = MaMonHoc;
         }
     }
 }

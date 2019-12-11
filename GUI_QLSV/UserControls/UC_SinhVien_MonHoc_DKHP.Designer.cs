@@ -60,9 +60,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabMonHoc = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSua_MH = new System.Windows.Forms.Button();
             this.btnCancel_MH = new System.Windows.Forms.Button();
             this.btnLuu_MH = new System.Windows.Forms.Button();
-            this.btnQLMH = new System.Windows.Forms.Button();
             this.btnThem_MH = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvMonhoc = new System.Windows.Forms.DataGridView();
@@ -83,11 +83,11 @@
             this.tabDKMH = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTimKiem_DKMH = new System.Windows.Forms.TextBox();
+            this.cmbTimKiem_DKMH = new System.Windows.Forms.ComboBox();
             this.btnTimDKMH = new System.Windows.Forms.Button();
-            this.txtTim_MSSV = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.groupboxSVDKMH = new System.Windows.Forms.GroupBox();
-            this.lblTenSV = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDangkyMH = new System.Windows.Forms.DataGridView();
@@ -104,6 +104,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtMSV_DKMH = new System.Windows.Forms.TextBox();
+            this.oFD_Pic = new System.Windows.Forms.OpenFileDialog();
+            this.lblTenSV = new System.Windows.Forms.Label();
             this.tabSV_Mon_DKMH.SuspendLayout();
             this.tabSinhVien.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -269,11 +271,12 @@
             this.btnCancel_SV.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel_SV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCancel_SV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel_SV.Location = new System.Drawing.Point(56, 103);
+            this.btnCancel_SV.Location = new System.Drawing.Point(56, 102);
             this.btnCancel_SV.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_SV.Name = "btnCancel_SV";
             this.btnCancel_SV.Size = new System.Drawing.Size(87, 48);
             this.btnCancel_SV.TabIndex = 4;
+            this.btnCancel_SV.Text = "Xóa";
             this.btnCancel_SV.UseVisualStyleBackColor = false;
             this.btnCancel_SV.Click += new System.EventHandler(this.btnCancel_SV_Click);
             // 
@@ -287,6 +290,7 @@
             this.btnLuu_SV.Name = "btnLuu_SV";
             this.btnLuu_SV.Size = new System.Drawing.Size(87, 52);
             this.btnLuu_SV.TabIndex = 3;
+            this.btnLuu_SV.Text = "Lưu";
             this.btnLuu_SV.UseVisualStyleBackColor = false;
             this.btnLuu_SV.Click += new System.EventHandler(this.btnLuu_SV_Click);
             // 
@@ -300,6 +304,7 @@
             this.btnThem_SV.Name = "btnThem_SV";
             this.btnThem_SV.Size = new System.Drawing.Size(87, 52);
             this.btnThem_SV.TabIndex = 0;
+            this.btnThem_SV.Text = "Thêm";
             this.btnThem_SV.UseVisualStyleBackColor = false;
             this.btnThem_SV.Click += new System.EventHandler(this.btnThem_SV_Click);
             // 
@@ -504,9 +509,9 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.btnSua_MH);
             this.groupBox3.Controls.Add(this.btnCancel_MH);
             this.groupBox3.Controls.Add(this.btnLuu_MH);
-            this.groupBox3.Controls.Add(this.btnQLMH);
             this.groupBox3.Controls.Add(this.btnThem_MH);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.dgvMonhoc);
@@ -531,16 +536,31 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Nhập Môn Học";
             // 
+            // btnSua_MH
+            // 
+            this.btnSua_MH.BackColor = System.Drawing.Color.Transparent;
+            this.btnSua_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSua_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSua_MH.Location = new System.Drawing.Point(404, 254);
+            this.btnSua_MH.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSua_MH.Name = "btnSua_MH";
+            this.btnSua_MH.Size = new System.Drawing.Size(100, 41);
+            this.btnSua_MH.TabIndex = 33;
+            this.btnSua_MH.Text = "Sửa";
+            this.btnSua_MH.UseVisualStyleBackColor = false;
+            this.btnSua_MH.Click += new System.EventHandler(this.btnSua_MH_Click);
+            // 
             // btnCancel_MH
             // 
             this.btnCancel_MH.BackColor = System.Drawing.Color.Transparent;
             this.btnCancel_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCancel_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel_MH.Location = new System.Drawing.Point(413, 304);
+            this.btnCancel_MH.Location = new System.Drawing.Point(541, 254);
             this.btnCancel_MH.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel_MH.Name = "btnCancel_MH";
             this.btnCancel_MH.Size = new System.Drawing.Size(100, 39);
             this.btnCancel_MH.TabIndex = 32;
+            this.btnCancel_MH.Text = "Xóa";
             this.btnCancel_MH.UseVisualStyleBackColor = false;
             this.btnCancel_MH.Click += new System.EventHandler(this.btnCancel_MH_Click);
             // 
@@ -549,36 +569,26 @@
             this.btnLuu_MH.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuu_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu_MH.Location = new System.Drawing.Point(189, 304);
+            this.btnLuu_MH.Location = new System.Drawing.Point(260, 254);
             this.btnLuu_MH.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu_MH.Name = "btnLuu_MH";
             this.btnLuu_MH.Size = new System.Drawing.Size(100, 41);
             this.btnLuu_MH.TabIndex = 31;
+            this.btnLuu_MH.Text = "Lưu";
             this.btnLuu_MH.UseVisualStyleBackColor = false;
             this.btnLuu_MH.Click += new System.EventHandler(this.btnLuu_MH_Click);
-            // 
-            // btnQLMH
-            // 
-            this.btnQLMH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnQLMH.Location = new System.Drawing.Point(715, 210);
-            this.btnQLMH.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQLMH.Name = "btnQLMH";
-            this.btnQLMH.Size = new System.Drawing.Size(149, 85);
-            this.btnQLMH.TabIndex = 29;
-            this.btnQLMH.Text = "Quản lí môn học";
-            this.btnQLMH.UseVisualStyleBackColor = true;
-            this.btnQLMH.Click += new System.EventHandler(this.btnQLMH_Click);
             // 
             // btnThem_MH
             // 
             this.btnThem_MH.BackColor = System.Drawing.Color.Transparent;
             this.btnThem_MH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThem_MH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnThem_MH.Location = new System.Drawing.Point(243, 304);
+            this.btnThem_MH.Location = new System.Drawing.Point(260, 254);
             this.btnThem_MH.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem_MH.Name = "btnThem_MH";
             this.btnThem_MH.Size = new System.Drawing.Size(100, 41);
             this.btnThem_MH.TabIndex = 27;
+            this.btnThem_MH.Text = "Thêm";
             this.btnThem_MH.UseVisualStyleBackColor = false;
             this.btnThem_MH.Click += new System.EventHandler(this.btnThem_MH_Click);
             // 
@@ -587,7 +597,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(275, 359);
+            this.label7.Location = new System.Drawing.Point(277, 330);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(313, 25);
@@ -598,11 +608,11 @@
             // 
             this.dgvMonhoc.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvMonhoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMonhoc.Location = new System.Drawing.Point(12, 389);
+            this.dgvMonhoc.Location = new System.Drawing.Point(12, 359);
             this.dgvMonhoc.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMonhoc.Name = "dgvMonhoc";
             this.dgvMonhoc.ReadOnly = true;
-            this.dgvMonhoc.Size = new System.Drawing.Size(852, 197);
+            this.dgvMonhoc.Size = new System.Drawing.Size(852, 227);
             this.dgvMonhoc.TabIndex = 25;
             this.dgvMonhoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonhoc_CellClick);
             // 
@@ -775,43 +785,58 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTimKiem_DKMH);
+            this.groupBox4.Controls.Add(this.cmbTimKiem_DKMH);
             this.groupBox4.Controls.Add(this.btnTimDKMH);
-            this.groupBox4.Controls.Add(this.txtTim_MSSV);
             this.groupBox4.Controls.Add(this.label37);
             this.groupBox4.Location = new System.Drawing.Point(8, 25);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(565, 73);
+            this.groupBox4.Size = new System.Drawing.Size(845, 73);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm môn học sinh viên đã đăng ký";
+            // 
+            // txtTimKiem_DKMH
+            // 
+            this.txtTimKiem_DKMH.Location = new System.Drawing.Point(524, 30);
+            this.txtTimKiem_DKMH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTimKiem_DKMH.Name = "txtTimKiem_DKMH";
+            this.txtTimKiem_DKMH.Size = new System.Drawing.Size(200, 24);
+            this.txtTimKiem_DKMH.TabIndex = 30;
+            this.txtTimKiem_DKMH.TextChanged += new System.EventHandler(this.txtTimKiem_DKMH_TextChanged);
+            // 
+            // cmbTimKiem_DKMH
+            // 
+            this.cmbTimKiem_DKMH.FormattingEnabled = true;
+            this.cmbTimKiem_DKMH.Items.AddRange(new object[] {
+            "Mã số sinh viên",
+            "Tên sinh viên"});
+            this.cmbTimKiem_DKMH.Location = new System.Drawing.Point(168, 26);
+            this.cmbTimKiem_DKMH.Name = "cmbTimKiem_DKMH";
+            this.cmbTimKiem_DKMH.Size = new System.Drawing.Size(135, 25);
+            this.cmbTimKiem_DKMH.TabIndex = 3;
+            this.cmbTimKiem_DKMH.Text = "--Điều kiện tìm--";
             // 
             // btnTimDKMH
             // 
             this.btnTimDKMH.BackColor = System.Drawing.Color.Transparent;
             this.btnTimDKMH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTimDKMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTimDKMH.Location = new System.Drawing.Point(445, 23);
+            this.btnTimDKMH.Location = new System.Drawing.Point(745, 20);
             this.btnTimDKMH.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimDKMH.Name = "btnTimDKMH";
             this.btnTimDKMH.Size = new System.Drawing.Size(81, 42);
             this.btnTimDKMH.TabIndex = 2;
+            this.btnTimDKMH.Text = "Tìm";
             this.btnTimDKMH.UseVisualStyleBackColor = false;
             this.btnTimDKMH.Click += new System.EventHandler(this.btnTimDKMH_Click);
-            // 
-            // txtTim_MSSV
-            // 
-            this.txtTim_MSSV.Location = new System.Drawing.Point(153, 30);
-            this.txtTim_MSSV.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTim_MSSV.Name = "txtTim_MSSV";
-            this.txtTim_MSSV.Size = new System.Drawing.Size(260, 24);
-            this.txtTim_MSSV.TabIndex = 1;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(52, 33);
+            this.label37.Location = new System.Drawing.Point(398, 33);
             this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(95, 18);
@@ -832,19 +857,6 @@
             this.groupboxSVDKMH.TabIndex = 18;
             this.groupboxSVDKMH.TabStop = false;
             this.groupboxSVDKMH.Text = "Các môn học đã đăng ký";
-            this.groupboxSVDKMH.Visible = false;
-            // 
-            // lblTenSV
-            // 
-            this.lblTenSV.AutoSize = true;
-            this.lblTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSV.ForeColor = System.Drawing.Color.Red;
-            this.lblTenSV.Location = new System.Drawing.Point(397, 32);
-            this.lblTenSV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTenSV.Name = "lblTenSV";
-            this.lblTenSV.Size = new System.Drawing.Size(61, 17);
-            this.lblTenSV.TabIndex = 3;
-            this.lblTenSV.Text = "label37";
             // 
             // label25
             // 
@@ -1018,6 +1030,23 @@
             this.txtMSV_DKMH.Size = new System.Drawing.Size(200, 24);
             this.txtMSV_DKMH.TabIndex = 10;
             // 
+            // oFD_Pic
+            // 
+            this.oFD_Pic.FileName = "openFileDialog1";
+            this.oFD_Pic.FileOk += new System.ComponentModel.CancelEventHandler(this.oFD_Pic_FileOk);
+            // 
+            // lblTenSV
+            // 
+            this.lblTenSV.AutoSize = true;
+            this.lblTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenSV.ForeColor = System.Drawing.Color.Red;
+            this.lblTenSV.Location = new System.Drawing.Point(415, 32);
+            this.lblTenSV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTenSV.Name = "lblTenSV";
+            this.lblTenSV.Size = new System.Drawing.Size(61, 17);
+            this.lblTenSV.TabIndex = 3;
+            this.lblTenSV.Text = "label37";
+            // 
             // UC_SinhVien_MonHoc_DKHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1092,7 +1121,6 @@
         public System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnCancel_MH;
         private System.Windows.Forms.Button btnLuu_MH;
-        public System.Windows.Forms.Button btnQLMH;
         private System.Windows.Forms.Button btnThem_MH;
         public System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvMonhoc;
@@ -1114,10 +1142,8 @@
         public System.Windows.Forms.GroupBox groupBox6;
         public System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnTimDKMH;
-        private System.Windows.Forms.TextBox txtTim_MSSV;
         public System.Windows.Forms.Label label37;
         public System.Windows.Forms.GroupBox groupboxSVDKMH;
-        private System.Windows.Forms.Label lblTenSV;
         public System.Windows.Forms.Label label25;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.DataGridView dgvDangkyMH;
@@ -1134,5 +1160,10 @@
         public System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtMonHoc_DKMH;
         private System.Windows.Forms.TextBox txtTinChi_DKMH;
+        private System.Windows.Forms.OpenFileDialog oFD_Pic;
+        private System.Windows.Forms.Button btnSua_MH;
+        private System.Windows.Forms.ComboBox cmbTimKiem_DKMH;
+        private System.Windows.Forms.TextBox txtTimKiem_DKMH;
+        private System.Windows.Forms.Label lblTenSV;
     }
 }

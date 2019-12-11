@@ -32,6 +32,7 @@ namespace GUI_QLSV.UserControls
 
         public void DisEnable_LOP()
         {
+
             btnLuu_Lop.Visible = false;
             txtMaLop.Enabled = false;
             txtTenLop.Enabled = false;
@@ -40,25 +41,28 @@ namespace GUI_QLSV.UserControls
             txtNienKhoa_Lop.Enabled = false;
             dtpNgayBatDau_Lop.Enabled = false;
             dtpNgayKetThuc_Lop.Enabled = false;
+            cmbGiaoVien_Lop.Enabled = false;
+            cmbMonHoc_Lop.Enabled = false;
 
         }
         public void Enable_LOP()
         {
-            btnLuu_Lop.Visible = true;
-            txtMaLop.Enabled = true;
+            btnLuu_Lop.Visible = true;            
             txtTenLop.Enabled = true;
             rdb_1.Enabled = true;
             rdb_2.Enabled = true;
             txtNienKhoa_Lop.Enabled = true;
             dtpNgayBatDau_Lop.Enabled = true;
             dtpNgayKetThuc_Lop.Enabled = true;
+            cmbGiaoVien_Lop.Enabled = true;
+            cmbMonHoc_Lop.Enabled = true;
             btnCancel_LOP.Visible = true;
         }
         public void Enable_NGANH()
         {
             btnLuu_NGANH.Visible = true;
             txtTenNganh.Enabled = true;
-
+            cmbMaKhoa.Enabled = true;
             txtGhiChu_Nganh.Enabled = true;
             btnCancel_NGANH.Visible = true;
         }
@@ -66,6 +70,7 @@ namespace GUI_QLSV.UserControls
         {
             btnLuu_NGANH.Visible = false;
             txtTenNganh.Enabled = false;
+            cmbMaKhoa.Enabled = false;
             txtMaNganh.Enabled = false;
             txtGhiChu_Nganh.Enabled = false;
         }
@@ -74,10 +79,11 @@ namespace GUI_QLSV.UserControls
         #region UC_Load
         private void UC_Nganh_Lop_Load(object sender, EventArgs e)
         {
-          
 
             dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
-  
+
+            DTO_Nganh.Nganh_cmbMaKhoa = cmbMaKhoa;
+            Bus_Nganh.LoadDLVao_cmbMaKhoa(DTO_Nganh.Nganh_cmbMaKhoa);
             dgvNganh.DataSource = Bus_Nganh.LoadDL();
 
             //ko cho thao tác 
@@ -90,7 +96,18 @@ namespace GUI_QLSV.UserControls
         }
 
         private void tabKhoaHoc_Nganh_Lop_Click(object sender, EventArgs e)
-        {           
+        {
+            DTO_lop.cmbMaGiaoVien = cmbGiaoVien_Lop;
+            BUS_Lop.LoadDLVaoCombobox_GiaoVien(DTO_lop.cmbMaGiaoVien);
+            DTO_lop.cmbMaMonHoc = cmbMonHoc_Lop;
+            BUS_Lop.LoadDLVaoCombobox_MonHoc(DTO_lop.cmbMaMonHoc);
+            dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
+
+            DTO_Nganh.Nganh_cmbMaKhoa = cmbMaKhoa;
+            Bus_Nganh.LoadDLVao_cmbMaKhoa(DTO_Nganh.Nganh_cmbMaKhoa);
+            dgvNganh.DataSource = Bus_Nganh.LoadDL();
+
+            btnThemLop.Visible = true;
             DisEnable_LOP();
             DisEnable_NGANH();
         }
@@ -102,7 +119,7 @@ namespace GUI_QLSV.UserControls
             bool loailop = false;
             if (flag == "thêm")
             {
-                txtMaLop.Text = BUS_Lop.TaoMaLop();
+              
                 DTO_lop.Lop_MaLop = txtMaLop.Text;
                 DTO_lop.Lop_TenLop = txtTenLop.Text;
 
@@ -119,8 +136,19 @@ namespace GUI_QLSV.UserControls
                 DTO_lop.Lop_NienKhoa = txtNienKhoa_Lop.Text;
                 DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
                 DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
-
-                BUS_Lop.ThemLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop,DTO_lop.Lop_NienKhoa,DTO_lop.Lop_NgayBatDau,DTO_lop.Lop_NgayKetThuc);
+                DTO_lop.Lop_MaGiaoVien = cmbGiaoVien_Lop.SelectedValue.ToString();
+                DTO_lop.Lop_MaMonHoc = cmbGiaoVien_Lop.SelectedValue.ToString();
+                if (dtpNgayKetThuc_Lop.Value.Day- dtpNgayBatDau_Lop.Value.Day>0)
+                {
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu ");
+                    DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
+                    DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
+                }
+                BUS_Lop.ThemLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop, DTO_lop.Lop_NienKhoa, DTO_lop.Lop_NgayBatDau, DTO_lop.Lop_NgayKetThuc, DTO_lop.Lop_MaMonHoc,DTO_lop.Lop_MaGiaoVien);
 
                 dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
                 BUS_xuly.ClearAllTextBox(groupboxLOP);
@@ -155,11 +183,20 @@ namespace GUI_QLSV.UserControls
                     loailop = true;
 
                 DTO_lop.Lop_LoaiLop = loailop;
-
                 DTO_lop.Lop_NienKhoa = txtNienKhoa_Lop.Text;
                 DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
                 DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
-                BUS_Lop.CapNhatLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop, DTO_lop.Lop_NienKhoa, DTO_lop.Lop_NgayBatDau, DTO_lop.Lop_NgayKetThuc);
+                if (dtpNgayKetThuc_Lop.Value.Day - dtpNgayBatDau_Lop.Value.Day > 0)
+                {
+                 
+                }
+                else
+                {
+                    MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu ");
+                    DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
+                    DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
+                }
+                BUS_Lop.CapNhatLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop, DTO_lop.Lop_NienKhoa, DTO_lop.Lop_NgayBatDau, DTO_lop.Lop_NgayKetThuc, DTO_lop.Lop_MaMonHoc, DTO_lop.Lop_MaGiaoVien);
                 dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
                 BUS_xuly.ClearAllTextBox(groupboxLOP);
                 DisEnable_LOP();
@@ -176,6 +213,7 @@ namespace GUI_QLSV.UserControls
 
         private void btnThemLop_Click(object sender, EventArgs e)
         {
+           
             flag = "thêm";
             //button
             btnThemLop.Visible = false;
@@ -184,7 +222,7 @@ namespace GUI_QLSV.UserControls
             dgvLop.Enabled = false;
 
             BUS_xuly.ClearAllTextBox(groupboxLOP);
-
+            txtMaLop.Text = BUS_Lop.TaoMaLop();
             Enable_LOP();
         }
 
@@ -225,8 +263,8 @@ namespace GUI_QLSV.UserControls
                 else
                 {
                     DTO_lop.DKTIM = txtTimLop.Text;
-                    dgvLop.DataSource = BUS_Lop.TimKiemLop();
-                    int n = BUS_Lop.TimKiemLop().Rows.Count;
+                    dgvLop.DataSource = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM);
+                    int n = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM).Rows.Count;
                     MessageBox.Show("Tìm thấy " + n + " kết quả");
                 }
             }
@@ -270,6 +308,7 @@ namespace GUI_QLSV.UserControls
         private void cmbTimLop_SelectedIndexChanged(object sender, EventArgs e)
         {
             int cotgoiy = 0;
+            string table = "";
             if (cmbTimLop.SelectedItem.ToString() == "Tên Lớp")
             {
                 cotgoiy = 3;
@@ -277,7 +316,7 @@ namespace GUI_QLSV.UserControls
                 DTO_lop.COTIMKIEM = "TenLop";
 
                 DTO_lop.TXTGOIY = txtTimLop;
-                BUS_Lop.GoiYTimKiem();
+                BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY,table,cotgoiy);
             }
             else if (cmbTimLop.SelectedItem.ToString() == "Mã Ngành")
             {
@@ -286,7 +325,7 @@ namespace GUI_QLSV.UserControls
                 DTO_lop.COTIMKIEM = "MaNganh";
 
                 DTO_lop.TXTGOIY = txtTimLop;
-                BUS_Lop.GoiYTimKiem();
+                BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY, table, cotgoiy);
             }
 
         }
@@ -298,11 +337,24 @@ namespace GUI_QLSV.UserControls
         {
             if (flag == "thêm")
             {
-                txtMaNganh.Text = Bus_Nganh.TaoMaNganh();
+              
                 DTO_Nganh.Nganh_MaNganh = txtMaNganh.Text;
                 DTO_Nganh.Nganh_TenNganh = txtTenNganh.Text;
                 DTO_Nganh.Nganh_GhiChu = txtGhiChu_Nganh.Text;
-                Bus_Nganh.ThemNganh(DTO_Nganh.Nganh_MaNganh,DTO_Nganh.Nganh_TenNganh,DTO_Nganh.Nganh_GhiChu);
+                if (cmbMaKhoa.Text.ToString() == "")
+                {
+                    MessageBox.Show("Bạn chưa chọn Khoa");
+                    DisEnable_NGANH();
+                    dgvNganh.Enabled = true;
+                    btnLamlai_Nganh.Enabled = true;
+                    btnCancel_NGANH.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    DTO_Nganh.Nganh_MaKhoa = cmbMaKhoa.SelectedValue.ToString();
+                }
+                Bus_Nganh.ThemNganh(DTO_Nganh.Nganh_MaNganh,DTO_Nganh.Nganh_TenNganh,DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);
                 dgvNganh.DataSource = Bus_Nganh.LoadDL();
                 BUS_xuly.ClearAllTextBox(groupBox7);
 
@@ -323,11 +375,23 @@ namespace GUI_QLSV.UserControls
             else if (flag == "sửa")
             {
 
-                txtMaNganh.Text = Bus_Nganh.TaoMaNganh();
                 DTO_Nganh.Nganh_MaNganh = txtMaNganh.Text;
                 DTO_Nganh.Nganh_TenNganh = txtTenNganh.Text;
                 DTO_Nganh.Nganh_GhiChu = txtGhiChu_Nganh.Text;
-                Bus_Nganh.CapNhatNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu);                
+                if (cmbMaKhoa.Text.ToString() == "")
+                {
+                    MessageBox.Show("Bạn chưa chọn Khoa");
+                    DisEnable_NGANH();
+                    dgvNganh.Enabled = true;
+                    btnLamlai_Nganh.Enabled = true;
+                    btnCancel_NGANH.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    DTO_Nganh.Nganh_MaKhoa = cmbMaKhoa.SelectedValue.ToString();
+                }
+                Bus_Nganh.CapNhatNganh(DTO_Nganh.Nganh_MaNganh, DTO_Nganh.Nganh_TenNganh, DTO_Nganh.Nganh_GhiChu, DTO_Nganh.Nganh_MaKhoa);                
                 dgvNganh.DataSource = Bus_Nganh.LoadDL();
                 BUS_xuly.ClearAllTextBox(groupBox7);
 
@@ -353,6 +417,7 @@ namespace GUI_QLSV.UserControls
             BUS_xuly.ClearAllTextBox(groupBox7);
 
             Enable_NGANH();
+            txtMaNganh.Text = Bus_Nganh.TaoMaNganh();
         }
 
         private void btnLamlai_Nganh_Click(object sender, EventArgs e)
@@ -373,7 +438,6 @@ namespace GUI_QLSV.UserControls
             Bus_Nganh.XoaNganh(DTO_Nganh.Nganh_MaNganh);
             dgvNganh.DataSource = Bus_Nganh.LoadDL();
             BUS_xuly.ClearAllTextBox(groupBox7);
-            //xlc.ClearAllTextBox(groupBox7);
             DisEnable_NGANH();
         }
 
@@ -383,6 +447,7 @@ namespace GUI_QLSV.UserControls
             txtMaNganh.Text = dgvNganh.CurrentRow.Cells[0].Value.ToString();
             txtTenNganh.Text = dgvNganh.CurrentRow.Cells[1].Value.ToString();
             txtGhiChu_Nganh.Text = dgvNganh.CurrentRow.Cells[2].Value.ToString();
+            cmbMaKhoa.Text = dgvNganh.CurrentRow.Cells[3].Value.ToString();
             //
         
         }

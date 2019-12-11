@@ -16,5 +16,10 @@ namespace GUI_QLSV
         {
             InitializeComponent();
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

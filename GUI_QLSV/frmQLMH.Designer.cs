@@ -137,12 +137,14 @@
             this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu.Location = new System.Drawing.Point(809, 143);
+            this.btnLuu.Location = new System.Drawing.Point(837, 143);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(100, 41);
             this.btnLuu.TabIndex = 32;
+            this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // label20
             // 
@@ -174,6 +176,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 39);
             this.btnXoa.TabIndex = 30;
+            this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             // 
             // btnCapNhat
@@ -181,11 +184,12 @@
             this.btnCapNhat.BackColor = System.Drawing.Color.Transparent;
             this.btnCapNhat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCapNhat.Location = new System.Drawing.Point(788, 177);
+            this.btnCapNhat.Location = new System.Drawing.Point(893, 143);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(100, 41);
             this.btnCapNhat.TabIndex = 27;
+            this.btnCapNhat.Text = "Cập nhập";
             this.btnCapNhat.UseVisualStyleBackColor = false;
             // 
             // label14
@@ -285,9 +289,9 @@
             this.label13.Location = new System.Drawing.Point(490, 18);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 17);
+            this.label13.Size = new System.Drawing.Size(87, 17);
             this.label13.TabIndex = 14;
-            this.label13.Text = "Thuộc Khoa:";
+            this.label13.Text = "Thuộc khoa:";
             // 
             // numSoTietTH
             // 

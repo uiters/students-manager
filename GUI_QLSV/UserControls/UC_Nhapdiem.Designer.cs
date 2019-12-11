@@ -114,12 +114,13 @@
             // 
             this.btnTim.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTim.ForeColor = System.Drawing.Color.Transparent;
-            this.btnTim.Location = new System.Drawing.Point(444, 12);
+            this.btnTim.ForeColor = System.Drawing.Color.Black;
+            this.btnTim.Location = new System.Drawing.Point(447, 10);
             this.btnTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(100, 42);
             this.btnTim.TabIndex = 2;
+            this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -151,11 +152,12 @@
             this.btnSua.BackColor = System.Drawing.Color.Transparent;
             this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSua.Location = new System.Drawing.Point(389, 481);
+            this.btnSua.Location = new System.Drawing.Point(388, 481);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(100, 36);
             this.btnSua.TabIndex = 17;
+            this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             // 
             // btnXoa
@@ -163,11 +165,12 @@
             this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXoa.Location = new System.Drawing.Point(224, 481);
+            this.btnXoa.Location = new System.Drawing.Point(237, 483);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 36);
             this.btnXoa.TabIndex = 16;
+            this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             // 
             // btnThem
@@ -175,11 +178,12 @@
             this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnThem.Location = new System.Drawing.Point(71, 481);
+            this.btnThem.Location = new System.Drawing.Point(77, 483);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 36);
             this.btnThem.TabIndex = 15;
+            this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             // 
             // dgvDiem

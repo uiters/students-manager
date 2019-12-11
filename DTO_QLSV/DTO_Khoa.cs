@@ -13,6 +13,7 @@ namespace DTO_QLSV
         private string _Khoa_GhiChu;
         private string _Khoa_Username;
 
+
         public string Khoa_MaKhoa
         {
             get { return _Khoa_MaKhoa; }
@@ -39,10 +40,10 @@ namespace DTO_QLSV
         }
         public DTO_Khoa(string MaKhoa,string TenKhoa, string GhiChu,string Username)
         {
-            this.Khoa_MaKhoa = MaKhoa;
-            this.Khoa_TenKhoa = TenKhoa;
-            this.Khoa_GhiChu = GhiChu;
-            this.Khoa_Username = Username;
+            this._Khoa_MaKhoa = MaKhoa;
+            this._Khoa_TenKhoa = TenKhoa;
+            this._Khoa_GhiChu = GhiChu;
+            this._Khoa_Username = Username;
         }
     }
 }

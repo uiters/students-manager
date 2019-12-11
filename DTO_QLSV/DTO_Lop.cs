@@ -22,8 +22,8 @@ namespace DTO_QLSV
         private string DKTim;
         private int cotGoiY;
         private TextBox txtGoiy;
-        private ComboBox cmbMaKhoaHoc;
-        private ComboBox cmbMaNganh;
+        private ComboBox _cmbMaGiaoVien;
+        private ComboBox _cmbMaMonHoc;
 
         public TextBox TXTGOIY
         {
@@ -50,17 +50,17 @@ namespace DTO_QLSV
             get { return DKTim; }
             set { DKTim = value; }
         }
-        public ComboBox cmbMAKHOAHOC
+        public ComboBox cmbMaMonHoc
         {
-            get { return cmbMaKhoaHoc; }
-            set { cmbMaKhoaHoc = value; }
+            get { return _cmbMaMonHoc; }
+            set { _cmbMaMonHoc = value; }
         }
 
 
-        public ComboBox cmbMANGANH
+        public ComboBox cmbMaGiaoVien
         {
-            get { return cmbMaNganh; }
-            set { cmbMaNganh = value; }
+            get { return _cmbMaGiaoVien; }
+            set { _cmbMaGiaoVien = value; }
         }
 
         public string Lop_MaLop
@@ -154,16 +154,16 @@ namespace DTO_QLSV
         {
 
         }
-        public DTO_Lop(string MaLop, string TenLop, bool LoaiLop, string NienKhoa, DateTime NgayBatDau, DateTime NgayKetThuc, string MaMonHoc, string MaGiaoVien)
+        public DTO_Lop(string MaLop, string TenLop, bool LoaiLop, string NienKhoa, DateTime NgayBatDau, DateTime NgayKetThuc, string MaMonHoc, string MaGiaoVien,string mamonhoc,string magiaovien)
         {
-            this.Lop_MaLop = MaLop;
-            this.Lop_TenLop = TenLop;
-            this.Lop_LoaiLop = LoaiLop;
-            this.Lop_NienKhoa = NienKhoa;
-            this.Lop_NgayBatDau = NgayBatDau;
-            this.Lop_NgayKetThuc = NgayKetThuc;
-            this.Lop_MaMonHoc = MaMonHoc;
-            this.Lop_MaGiaoVien = MaGiaoVien;
+            this._Lop_MaLop = MaLop;
+            this._Lop_TenLop = TenLop;
+            this._Lop_LoaiLop = LoaiLop;
+            this._Lop_NienKhoa = NienKhoa;
+            this._Lop_NgayBatDau = NgayBatDau;
+            this._Lop_NgayKetThuc = NgayKetThuc;
+            this._Lop_MaMonHoc = MaMonHoc;
+            this._Lop_MaGiaoVien = MaGiaoVien;
         }
     }
 

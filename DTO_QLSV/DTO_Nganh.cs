@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DTO_QLSV
 {
@@ -12,6 +13,16 @@ namespace DTO_QLSV
         private string _Nganh_TenNganh;
         private string _Nganh_GhiChu;
         private string _Nganh_MaKhoa;
+        private ComboBox _Nganh_cmbMaKhoa;
+
+        public ComboBox Nganh_cmbMaKhoa
+        {
+            get { return _Nganh_cmbMaKhoa; }
+            set { _Nganh_cmbMaKhoa = value; }
+
+        }
+
+
 
         public string Nganh_MaNganh
         {
@@ -38,10 +49,10 @@ namespace DTO_QLSV
         }
         public DTO_Nganh(string MaNganh, string TenNganh, string GhiChu, string MaKhoa)
         {
-            this.Nganh_MaNganh = MaNganh;
-            this.Nganh_TenNganh = TenNganh;
-            this.Nganh_GhiChu = GhiChu;
-            this.Nganh_MaKhoa = MaKhoa;
+            this._Nganh_MaNganh = MaNganh;
+            this._Nganh_TenNganh = TenNganh;
+            this._Nganh_GhiChu = GhiChu;
+            this._Nganh_MaKhoa = MaKhoa;
         }
     }
 }

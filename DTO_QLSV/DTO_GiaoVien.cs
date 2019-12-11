@@ -73,10 +73,10 @@ namespace DTO_QLSV
         public DTO_GiaoVien() { }
         public DTO_GiaoVien(string MaGiaoVien, string TenGiaoVien, string GhiChu, string MaKhoa)
         {
-            this.GiaoVien_MaGiaoVien = MaGiaoVien;
-            this.GiaoVien_TenGiaoVien = TenGiaoVien;
-            this.GiaoVien_GhiChu = GhiChu;
-            this.GiaoVien_MaKhoa = MaKhoa;
+            this._GiaoVien_MaGiaoVien = MaGiaoVien;
+            this._GiaoVien_TenGiaoVien = TenGiaoVien;
+            this._GiaoVien_GhiChu = GhiChu;
+            this._GiaoVien_MaKhoa = MaKhoa;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace DAL_QLSV
         SqlParameter _Makhoa = new SqlParameter();
         SqlParameter _Ghichu = new SqlParameter();
 
-        public void ThemGiaoVien(string magv, string tengv, string makhoa, string ghichu)
+        public void ThemGiaoVien(string magv, string tengv,  string ghichu,string makhoa)
         {
             _Magiaovien.SqlValue = magv;
             _Magiaovien.ParameterName = "@Magiaovien";
@@ -27,16 +27,17 @@ namespace DAL_QLSV
             _Tengiaovien.SqlValue = tengv;
             _Tengiaovien.ParameterName = "@TenGiaoVien";
 
-            _Makhoa.SqlValue = makhoa;
-            _Makhoa.ParameterName = "@MaKhoa";
-
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@GhiChu";
 
-            xuly.ThaoTacDuLieu("qlsv_ThemGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien, _Makhoa, _Ghichu);
+
+            _Makhoa.SqlValue = makhoa;
+            _Makhoa.ParameterName = "@MaKhoa";
+
+            xuly.ThaoTacDuLieu("qlsv_ThemGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien, _Ghichu, _Makhoa);
         }
 
-        public void CapNhatGiaoVien(string magv, string tengv, string makhoa, string ghichu)
+        public void CapNhatGiaoVien(string magv, string tengv,  string ghichu, string makhoa)
         {
             _Magiaovien.SqlValue = magv;
             _Magiaovien.ParameterName = "@Magiaovien";
@@ -44,13 +45,13 @@ namespace DAL_QLSV
             _Tengiaovien.SqlValue = tengv;
             _Tengiaovien.ParameterName = "@TenGiaoVien";
 
-            _Makhoa.SqlValue = makhoa;
-            _Makhoa.ParameterName = "@MaKhoa";
-
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@GhiChu";
 
-            xuly.ThaoTacDuLieu("qlsv_CapNhatGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien, _Makhoa, _Ghichu);
+            _Makhoa.SqlValue = makhoa;
+            _Makhoa.ParameterName = "@MaKhoa";
+
+            xuly.ThaoTacDuLieu("qlsv_CapNhatGiaoVien", CommandType.StoredProcedure, _Magiaovien, _Tengiaovien,  _Ghichu, _Makhoa);
         }
 
         public void XoaGiaoVien(string magv)
@@ -81,7 +82,7 @@ namespace DAL_QLSV
 
         }
 
-        public DataTable TimKiemGiaoVien(string columnName, string DuLieuTim)
+        public DataTable TimKiemGiaoVien(string columnName, string DuLieuTim)   
         {
             DataTable dt = new DataTable();
             dt = xuly.LayDanhSach("Select * from GiaoVien where " + columnName + " = N'" + DuLieuTim + "'");

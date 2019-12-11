@@ -21,7 +21,8 @@ namespace GUI_QLSV.UserControls
         DTO_GiaoVien DTO_GV = new DTO_GiaoVien();
         DTO_Khoa DTO_khoa = new DTO_Khoa();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
-
+        int col = 0;
+        string table;
 
         public UC_GiaoVien_Khoa()
         {
@@ -69,7 +70,7 @@ namespace GUI_QLSV.UserControls
             DisEnable_khoa();
 
             DTO_GV.cmbMAKHOA = cmbMaKhoa;
-            Bus_GV.LoadDLVao_cmbMaKhoa();
+            Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
         }
 
         private void UC_GiaoVien_Khoa_Load(object sender, EventArgs e)
@@ -77,7 +78,9 @@ namespace GUI_QLSV.UserControls
             dgvKhoa.DataSource = Bus_Khoa.LoadDLKhoa();
             dgvGiaoVien.DataSource = Bus_GV.LoadDLGiaoVien();
             DTO_GV.cmbMAKHOA = cmbMaKhoa;
-            Bus_GV.LoadDLVao_cmbMaKhoa();
+            Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
+            DTO_GV.TXT = txtThongTinTimKiem_GV;
+            Bus_GV.GoiYTimKiem(DTO_GV.TXT,table, DTO_GV.COLUMN);
             //khoá thao tác txt
             DisEnable_GiaoVien();
             DisEnable_khoa();
@@ -91,7 +94,7 @@ namespace GUI_QLSV.UserControls
         {
             if (flag == "thêm")
             {
-                txtMaGiaoVien.Text = Bus_GV.TaoMaGV();
+               
 
                 DTO_GV.GiaoVien_MaGiaoVien = txtMaGiaoVien.Text;
                 DTO_GV.GiaoVien_TenGiaoVien = txtTenGiaoVien.Text;
@@ -109,12 +112,12 @@ namespace GUI_QLSV.UserControls
                 {
                     DTO_GV.GiaoVien_MaKhoa = cmbMaKhoa.SelectedValue.ToString();
                 }
-                Bus_GV.ThemGiaoVien();
+                Bus_GV.ThemGiaoVien(DTO_GV.GiaoVien_MaGiaoVien, DTO_GV.GiaoVien_TenGiaoVien, DTO_GV.GiaoVien_GhiChu, DTO_GV.GiaoVien_MaKhoa);
                 dgvGiaoVien.DataSource = Bus_GV.LoadDLGiaoVien();
                 BUS_xuly.ClearAllTextBox(groupboxGV);
 
-                DTO_GV.TXT = txtThongTinTimKiem_GV;
-                Bus_GV.GoiYGiaoVien();
+                //DTO_GV.TXT = txtThongTinTimKiem_GV;
+                //Bus_GV.GoiYGiaoVien(DTO_GV.TXT);
 
 
                 int i;
@@ -139,12 +142,12 @@ namespace GUI_QLSV.UserControls
                 DTO_GV.GiaoVien_GhiChu = txtGhiChu.Text;
                 DTO_GV.GiaoVien_MaKhoa = cmbMaKhoa.SelectedValue.ToString();
 
-                Bus_GV.CapNhatGiaoVien();
+                Bus_GV.CapNhatGiaoVien(DTO_GV.GiaoVien_MaGiaoVien, DTO_GV.GiaoVien_TenGiaoVien, DTO_GV.GiaoVien_GhiChu, DTO_GV.GiaoVien_MaKhoa);
                 dgvGiaoVien.DataSource = Bus_GV.LoadDLGiaoVien();
                 BUS_xuly.ClearAllTextBox(groupboxGV);
 
-                DTO_GV.TXT = txtThongTinTimKiem_GV;
-                Bus_GV.GoiYGiaoVien();
+                //DTO_GV.TXT = txtThongTinTimKiem_GV;
+                //Bus_GV.GoiYGiaoVien();
 
                 dgvGiaoVien.CurrentCell = dgvGiaoVien[0, index];
 
@@ -157,10 +160,13 @@ namespace GUI_QLSV.UserControls
 
         private void btnThem_Click_1(object sender, EventArgs e)
         {
+           
+
             flag = "thêm";
             Enable_Giaovien();
             txtTenGiaoVien.Focus();
             BUS_xuly.ClearAllTextBox(groupboxGV);
+            txtMaGiaoVien.Text = Bus_GV.TaoMaGV();
 
             btnLamlai.Enabled = false;
             btnXoa_GV.Enabled = false;
@@ -181,12 +187,12 @@ namespace GUI_QLSV.UserControls
 
         private void btnXoa_GV_Click_1(object sender, EventArgs e)
         {
-            Bus_GV.XoaGiaoVien();
+            Bus_GV.XoaGiaoVien(DTO_GV.GiaoVien_MaGiaoVien);
             dgvGiaoVien.DataSource = Bus_GV.LoadDLGiaoVien();
             BUS_xuly.ClearAllTextBox(groupboxGV);
 
             DTO_GV.cmbMAKHOA = cmbMaKhoa;
-            Bus_GV.LoadDLVao_cmbMaKhoa();
+            Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
         }
 
         private void btnTim_Click_1(object sender, EventArgs e)
@@ -198,35 +204,41 @@ namespace GUI_QLSV.UserControls
             }
             else
             {
-                DTO_GV.TENTIMKIEM = txtThongTinTimKiem_GV.Text;
-                Bus_GV.TimKiemGV();
-                dgvGiaoVien.DataSource = Bus_GV.TimKiemGV();
+
+                if (cmbDieuKienTim.Text == "Tên Giáo Viên")
+                {
+                    DTO_GV.TENTIMKIEM = txtThongTinTimKiem_GV.Text;
+                   // DTO_GV.TXT = txtThongTinTimKiem_GV;
+                    dgvGiaoVien.DataSource = Bus_GV.TimKiemGV("TenGiaoVien", DTO_GV.TENTIMKIEM);// where 'column_name' = 'value'
+                }
+                else
+                {
+                    DTO_GV.TENTIMKIEM = txtThongTinTimKiem_GV.Text;
+                   // DTO_GV.TXT = txtThongTinTimKiem_GV;
+                    dgvGiaoVien.DataSource = Bus_GV.TimKiemGV("MaGiaoVien", DTO_GV.TENTIMKIEM);// where 'column_name' = 'value'
+
+                }
                 int n = dgvGiaoVien.Rows.Count - 1;
                 MessageBox.Show("Tìm thấy " + n + " kết quả! ");
             }
         }
 
-        int col = 0;
         private void cmbDieuKienTim_TextChanged(object sender, EventArgs e)
         {
             DTO_GV.TXT = txtThongTinTimKiem_GV;
 
-
             if (cmbDieuKienTim.SelectedItem.ToString() == "Mã Giáo Viên")
-            {
-                DTO_GV.COTTIMKIEM = "MaGiaoVien";
+            {                   
                 col = 0;
                 DTO_GV.COLUMN = col;
-                Bus_GV.GoiYGiaoVien();
+                Bus_GV.GoiYTimKiem(DTO_GV.TXT,table, DTO_GV.COLUMN);
             }
             if (cmbDieuKienTim.SelectedItem.ToString() == "Tên Giáo Viên")
-            {
-                DTO_GV.COTTIMKIEM = "TenGiaoVien";
+            {                
                 col = 1;
-                DTO_GV.COLUMN = col;
-                Bus_GV.GoiYGiaoVien();
+                DTO_GV.COLUMN = col; 
+                Bus_GV.GoiYTimKiem(DTO_GV.TXT, table,DTO_GV.COLUMN);
             }
-
         }
 
         private void dgvGiaoVien_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -235,23 +247,24 @@ namespace GUI_QLSV.UserControls
 
             txtMaGiaoVien.Text = dgvGiaoVien.CurrentRow.Cells[0].Value.ToString();
             txtTenGiaoVien.Text = dgvGiaoVien.CurrentRow.Cells[1].Value.ToString();
-            if (dgvGiaoVien.CurrentRow.Cells[2].Value.ToString() != "")
+            txtGhiChu.Text = dgvGiaoVien.CurrentRow.Cells[2].Value.ToString();
+
+            if (dgvGiaoVien.CurrentRow.Cells[3].Value.ToString() != "")
             {
-                cmbMaKhoa.SelectedValue = dgvGiaoVien.CurrentRow.Cells[2].Value;
-                DTO_GV.GiaoVien_MaGiaoVien = cmbMaKhoa.SelectedValue.ToString();
+                cmbMaKhoa.SelectedValue = dgvGiaoVien.CurrentRow.Cells[3].Value;
+                
             }
             else
             {
                 cmbMaKhoa.SelectedValue = "";
             }
 
-            txtGhiChu.Text = dgvGiaoVien.CurrentRow.Cells[3].Value.ToString();
-            DTO_GV.GiaoVien_MaGiaoVien = txtMaGiaoVien.Text;
-            DTO_GV.GiaoVien_TenGiaoVien = txtTenGiaoVien.Text;
-            DTO_GV.GiaoVien_GhiChu = txtGhiChu.Text;
+            //DTO_GV.GiaoVien_MaKhoa = cmbMaKhoa.SelectedValue.ToString();
+            //DTO_GV.GiaoVien_MaGiaoVien = txtMaGiaoVien.Text;
+            //DTO_GV.GiaoVien_TenGiaoVien = txtTenGiaoVien.Text;
+            //DTO_GV.GiaoVien_GhiChu = txtGhiChu.Text;
 
         }
-     
 
         #endregion
 
@@ -260,13 +273,14 @@ namespace GUI_QLSV.UserControls
       
 
         private void btnThemKhoa_Click(object sender, EventArgs e)
-        {
+        {          
             flag = "thêm";
             Enable_khoa();
             BUS_xuly.ClearAllTextBox(groupboxKhoa);
             txtTenKhoa.Focus();
             btnNhaplaiKhoa.Enabled = false;
             btndelete_K.Enabled = false;
+            txtMaKhoa.Text = Bus_Khoa.TaoMaKhoa();
 
         }
 
@@ -282,18 +296,17 @@ namespace GUI_QLSV.UserControls
         {
             if (flag == "thêm")
             {
-                txtMaKhoa.Text = Bus_Khoa.TaoMaKhoa();
 
                 DTO_khoa.Khoa_MaKhoa = txtMaKhoa.Text;
-                DTO_khoa.Khoa_TenKhoa = txtTenKhoa.Text;
+                DTO_khoa.Khoa_TenKhoa = txtTenKhoa.Text;                    
                 DTO_khoa.Khoa_GhiChu = txtGhiChu_Khoa.Text;
 
-                Bus_Khoa.ThemKhoa();
+                Bus_Khoa.ThemKhoa(DTO_khoa.Khoa_MaKhoa, DTO_khoa.Khoa_TenKhoa, DTO_khoa.Khoa_GhiChu);
                 dgvKhoa.DataSource = Bus_Khoa.LoadDLKhoa();
 
 
                 DTO_GV.cmbMAKHOA = cmbMaKhoa;
-                Bus_GV.LoadDLVao_cmbMaKhoa();
+                Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
 
                 int i;
                 for (i = 0; i < dgvKhoa.RowCount - 1; i++)
@@ -314,12 +327,12 @@ namespace GUI_QLSV.UserControls
                 DTO_khoa.Khoa_TenKhoa = txtTenKhoa.Text;
                 DTO_khoa.Khoa_GhiChu = txtGhiChu_Khoa.Text;
 
-                Bus_Khoa.CapNhatKhoa();
+                Bus_Khoa.CapNhatKhoa(DTO_khoa.Khoa_MaKhoa, DTO_khoa.Khoa_TenKhoa, DTO_khoa.Khoa_GhiChu);
                 dgvKhoa.DataSource = Bus_Khoa.LoadDLKhoa();
                 BUS_xuly.ClearAllTextBox(groupboxKhoa);
 
                 DTO_GV.cmbMAKHOA = cmbMaKhoa;
-                Bus_GV.LoadDLVao_cmbMaKhoa();
+                Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
 
                 dgvKhoa.CurrentCell = dgvKhoa[0, index];
 
@@ -330,12 +343,12 @@ namespace GUI_QLSV.UserControls
         }
         private void btndelete_K_Click(object sender, EventArgs e)
         {
-            Bus_Khoa.XoaKhoa();
+            Bus_Khoa.XoaKhoa(DTO_khoa.Khoa_MaKhoa);
             dgvKhoa.DataSource = Bus_Khoa.LoadDLKhoa();
             BUS_xuly.ClearAllTextBox(groupboxKhoa);
 
             DTO_GV.cmbMAKHOA = cmbMaKhoa;
-            Bus_GV.LoadDLVao_cmbMaKhoa();
+            Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
 
 
         }
@@ -370,9 +383,14 @@ namespace GUI_QLSV.UserControls
             txtTenKhoa.Select(txtTenKhoa.Text.Length, 0);
         }
 
-
+        private void txtThongTinTimKiem_GV_TextChanged(object sender, EventArgs e)
+        {
+            txtThongTinTimKiem_GV.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(txtThongTinTimKiem_GV.Text);
+            txtThongTinTimKiem_GV.Select(txtThongTinTimKiem_GV.Text.Length, 0);
+        }
 
         #endregion
+
 
     }
 }

@@ -33,13 +33,13 @@ namespace DAL_QLSV
             _MonHoc_MaKhoa.ParameterName = "@MaKhoa";
 
             _MonHoc_LoaiMonHoc.SqlValue = hinhthuc;
-            _MonHoc_LoaiMonHoc.ParameterName = "@HinhThuc";
+            _MonHoc_LoaiMonHoc.ParameterName = "@LoaiMonHoc";
 
             _MonHoc_TinChiLyThuyet.SqlValue = sotietLT;
-            _MonHoc_TinChiLyThuyet.ParameterName = "@SoTietLyThuyet";
+            _MonHoc_TinChiLyThuyet.ParameterName = "@TinChiLyThuyet";
 
             _MonHoc_TinChiThucHanh.SqlValue = sotietTH;
-            _MonHoc_TinChiThucHanh.ParameterName = "@SoTietThucHanh";
+            _MonHoc_TinChiThucHanh.ParameterName = "@TinChiThucHanh";
 
             xuly.ThaoTacDuLieu("qlsv_ThemMonHoc", CommandType.StoredProcedure, _MonHoc_MaMonHoc, _MonHoc_TenMonHoc, _MonHoc_LoaiMonHoc, _MonHoc_TinChiLyThuyet, _MonHoc_TinChiThucHanh,_MonHoc_MaKhoa);
         }
@@ -57,13 +57,13 @@ namespace DAL_QLSV
             _MonHoc_MaKhoa.ParameterName = "@MaKhoa";
 
             _MonHoc_LoaiMonHoc.SqlValue = hinhthuc;
-            _MonHoc_LoaiMonHoc.ParameterName = "@HinhThuc";
+            _MonHoc_LoaiMonHoc.ParameterName = "@LoaiMonHoc";
 
             _MonHoc_TinChiLyThuyet.SqlValue = sotietLT;
-            _MonHoc_TinChiLyThuyet.ParameterName = "@SoTietLyThuyet";
+            _MonHoc_TinChiLyThuyet.ParameterName = "@TinChiLyThuyet";
 
             _MonHoc_TinChiThucHanh.SqlValue = sotietTH;
-            _MonHoc_TinChiThucHanh.ParameterName = "@SoTietThucHanh";
+            _MonHoc_TinChiThucHanh.ParameterName = "@TinChiThucHanh";
 
             xuly.ThaoTacDuLieu("qlsv_CapNhatMonHoc", CommandType.StoredProcedure, _MonHoc_MaMonHoc, _MonHoc_TenMonHoc, _MonHoc_LoaiMonHoc, _MonHoc_TinChiLyThuyet, _MonHoc_TinChiThucHanh, _MonHoc_MaKhoa);
         }

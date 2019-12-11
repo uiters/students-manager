@@ -30,37 +30,18 @@ namespace BUS_QLSV
             dt = DalDK.TimKiemMHDK(masv);
             return dt;
         }
-
-        public void LoadDLVao_cmbMaMonHoc_DK(ComboBox CMB)
+        public void TuDongHoanThanh(TextBox TXT, string table, int column)
         {
-            DalDK.LoadDLVaoCombobox(CMB);
+            table = "SinhVien";
+            BUS_xuly.TextBox_AutoComplete(TXT, table, column);
         }
 
-
-        public void GoiYTimKiem()
-        {
-            GoiYTimKiem(DTO_DKMH.TXTTIM);
-        }
-
-        public void GoiYMSSV()
-        {
-            GoiYTimMSSV(DTO_DKMH.TXTMSV);
-        }
-
-        public string LayTenSV()
+        public string LayTenSV(string hoten)
         {
             string ten = "";
-            ten = DalDK.LayTenSV(DTO_DKMH.DKMH_MaSinhVien);
+            ten = DalDK.LayTenSV(hoten);
             return ten;
         }
-        public void GoiYTimKiem(TextBox txt)
-        {
-            BUS_xuly.TextBox_AutoComplete(txt, "DK_MonHoc", 1);
-        }
 
-        public void GoiYTimMSSV(TextBox txt)
-        {
-            BUS_xuly.TextBox_AutoComplete(txt, "SinhVien", 0);
-        }
     }
 }

@@ -28,14 +28,15 @@ namespace DAL_QLSV
             _Ghichu.ParameterName = "@GhiChu";
 
             _MaKhoa_UserName.SqlValue = username;
-            _MaKhoa_UserName.ParameterName = "@KhoaUsername";
+            _MaKhoa_UserName.ParameterName = "@Username";
+
 
             xuly.ThaoTacDuLieu("qlsv_ThemKhoa", CommandType.StoredProcedure, _MaKhoa, _TenKhoa, _Ghichu,_MaKhoa_UserName);
         }
 
 
 
-        public void CapNhatKhoa(string makhoa, string tenkhoa, string ghichu,string username)
+        public void CapNhatKhoa(string makhoa, string tenkhoa, string ghichu, string username)
         {
             _MaKhoa.SqlValue = makhoa;
             _MaKhoa.ParameterName = "@MaKhoa";
@@ -47,7 +48,8 @@ namespace DAL_QLSV
             _Ghichu.ParameterName = "@GhiChu";
 
             _MaKhoa_UserName.SqlValue = username;
-            _MaKhoa_UserName.ParameterName = "@KhoaUsername";
+            _MaKhoa_UserName.ParameterName = "@Username";
+
 
             xuly.ThaoTacDuLieu("qlsv_CapNhatKhoa", CommandType.StoredProcedure, _MaKhoa, _TenKhoa, _Ghichu, _MaKhoa_UserName);
         }
@@ -63,7 +65,7 @@ namespace DAL_QLSV
         public DataTable LoadDLKhoa()
         {
             DataTable dt = new DataTable();
-            dt = xuly.LayDanhSach("Select * from Khoa");
+            dt = xuly.LayDanhSach("Select MaKhoa,TenKhoa,GhiChu from Khoa");
             return dt;
         }
 

@@ -107,3 +107,10 @@ D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.pdb
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoDiem.resources
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoMonHoc.resources
 D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.Reports.frmBaoCaoSinhVien.resources
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.Video.DirectShow.dll
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.Video.dll
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.dll
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.Video.xml
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.Video.DirectShow.xml
+D:\New folder\QuanLySinhVien\GUI_QLSV\bin\Debug\AForge.xml
+D:\New folder\QuanLySinhVien\GUI_QLSV\obj\Debug\GUI_QLSV.frmWebCam.resources

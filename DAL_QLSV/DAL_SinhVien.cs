@@ -27,7 +27,7 @@ namespace DAL_QLSV
 
       
 
-        public void ThemSinhVien(String MaSv, String Hoten, String Quequan, DateTime Ngaysinh, string noisinh, string gioitinh, string manganh, string hinh)
+        public void ThemSinhVien(string MaSv, string Hoten, string Quequan, DateTime Ngaysinh, string noisinh, string gioitinh, string hinh, string manganh)
         {
 
 
@@ -50,15 +50,15 @@ namespace DAL_QLSV
             _SinhVien_GioiTinh.ParameterName = "@Gioitinh";
 
             _SinhVien_MaNganh.SqlValue = manganh;
-            _SinhVien_MaNganh.ParameterName = "@Malop";
+            _SinhVien_MaNganh.ParameterName = "@MaNganh";
 
             _SinhVien_Hinh.SqlValue = hinh;
             _SinhVien_Hinh.ParameterName = "@Hinh";     
 
-            xuly.ThaoTacDuLieu("qlsv_ThemSinhVien", CommandType.StoredProcedure, _SinhVien_MaSinhVien, _SinhVien_HoTen, _SinhVien_QueQuan, _SinhVien_NgaySinh, _SinhVien_NoiSinh, _SinhVien_GioiTinh, _SinhVien_MaNganh, _SinhVien_Hinh);
+            xuly.ThaoTacDuLieu("qlsv_ThemSinhVien", CommandType.StoredProcedure, _SinhVien_MaSinhVien, _SinhVien_HoTen, _SinhVien_QueQuan, _SinhVien_NgaySinh, _SinhVien_NoiSinh, _SinhVien_GioiTinh, _SinhVien_Hinh, _SinhVien_MaNganh);
         }
 
-        public void CapNhatSinhVien(String MaSv, String Hoten, String Quequan, DateTime Ngaysinh, string noisinh, string gioitinh, string manganh, string hinh)
+        public void CapNhatSinhVien(String MaSv, String Hoten, String Quequan, DateTime Ngaysinh, string noisinh, string gioitinh, string hinh, string manganh)
         {
 
             _SinhVien_MaSinhVien.SqlValue = MaSv;
@@ -80,12 +80,12 @@ namespace DAL_QLSV
             _SinhVien_GioiTinh.ParameterName = "@Gioitinh";
 
             _SinhVien_MaNganh.SqlValue = manganh;
-            _SinhVien_MaNganh.ParameterName = "@Malop";
+            _SinhVien_MaNganh.ParameterName = "@MaNganh";
 
             _SinhVien_Hinh.SqlValue = hinh;
             _SinhVien_Hinh.ParameterName = "@Hinh";
 
-            xuly.ThaoTacDuLieu("qlsv_CapNhatSinhVien", CommandType.StoredProcedure, _SinhVien_MaSinhVien, _SinhVien_HoTen, _SinhVien_QueQuan, _SinhVien_NgaySinh, _SinhVien_NoiSinh, _SinhVien_GioiTinh, _SinhVien_MaNganh, _SinhVien_Hinh);
+            xuly.ThaoTacDuLieu("qlsv_CapNhatSinhVien", CommandType.StoredProcedure, _SinhVien_MaSinhVien, _SinhVien_HoTen, _SinhVien_QueQuan, _SinhVien_NgaySinh, _SinhVien_NoiSinh, _SinhVien_GioiTinh, _SinhVien_Hinh, _SinhVien_MaNganh);
         }
         public void XoaSinhVien(String MaSv)
         {

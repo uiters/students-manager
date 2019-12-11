@@ -27,8 +27,8 @@ namespace DTO_QLSV
         }
         public DTO_Hoc(string MaSinhVien,string MaLop)
         {
-            this.Hoc_MaSinhVien = MaSinhVien;
-            this.Hoc_MaLop = MaLop;
+            this._Hoc_MaSinhVien = MaSinhVien;
+            this._Hoc_MaLop = MaLop;
         }
     }
 }

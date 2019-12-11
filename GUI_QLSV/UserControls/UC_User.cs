@@ -72,6 +72,8 @@ namespace GUI_QLSV.UserControls
             if (txtTenTimKiem.Text != "")
             {
                 DTO_tb_user.USER = txtTenTimKiem.Text;
+                DTO_tb_user.TXT = txtTenTimKiem;
+                BUS_user.TextBoxAutoComplete(DTO_tb_user.TXT, DTO_tb_user.Table, DTO_tb_user.Column);
                 dgvUser.DataSource = BUS_user.TimKiem(DTO_tb_user.USER);
                 int n = BUS_user.TimKiem(DTO_tb_user.USER).Rows.Count;
 
@@ -88,6 +90,7 @@ namespace GUI_QLSV.UserControls
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvUser.DataSource = BUS_user.LoadDL();
+            
         }
 
         private void UC_User_Load(object sender, EventArgs e)

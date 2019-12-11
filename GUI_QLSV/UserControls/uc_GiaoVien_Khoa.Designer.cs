@@ -139,6 +139,7 @@
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(100, 67);
             this.btnTim.TabIndex = 4;
+            this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = false;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click_1);
             // 
@@ -173,6 +174,7 @@
             this.txtThongTinTimKiem_GV.Name = "txtThongTinTimKiem_GV";
             this.txtThongTinTimKiem_GV.Size = new System.Drawing.Size(249, 22);
             this.txtThongTinTimKiem_GV.TabIndex = 1;
+            this.txtThongTinTimKiem_GV.TextChanged += new System.EventHandler(this.txtThongTinTimKiem_GV_TextChanged);
             // 
             // label4
             // 
@@ -279,6 +281,7 @@
             this.btnXoa_GV.Name = "btnXoa_GV";
             this.btnXoa_GV.Size = new System.Drawing.Size(100, 30);
             this.btnXoa_GV.TabIndex = 15;
+            this.btnXoa_GV.Text = "xóa";
             this.btnXoa_GV.UseVisualStyleBackColor = false;
             this.btnXoa_GV.Click += new System.EventHandler(this.btnXoa_GV_Click_1);
             // 
@@ -287,11 +290,12 @@
             this.btnLuuGV.BackColor = System.Drawing.Color.Transparent;
             this.btnLuuGV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLuuGV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuuGV.Location = new System.Drawing.Point(16, 201);
+            this.btnLuuGV.Location = new System.Drawing.Point(21, 223);
             this.btnLuuGV.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuuGV.Name = "btnLuuGV";
             this.btnLuuGV.Size = new System.Drawing.Size(100, 30);
             this.btnLuuGV.TabIndex = 14;
+            this.btnLuuGV.Text = "Lưu";
             this.btnLuuGV.UseVisualStyleBackColor = false;
             this.btnLuuGV.Click += new System.EventHandler(this.btnLuuGV_Click_1);
             // 
@@ -305,6 +309,7 @@
             this.btnLamlai.Name = "btnLamlai";
             this.btnLamlai.Size = new System.Drawing.Size(100, 30);
             this.btnLamlai.TabIndex = 13;
+            this.btnLamlai.Text = "Làm lại";
             this.btnLamlai.UseVisualStyleBackColor = false;
             this.btnLamlai.Click += new System.EventHandler(this.btnLamlai_Click_1);
             // 
@@ -318,6 +323,7 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 30);
             this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
@@ -492,6 +498,7 @@
             this.btndelete_K.Name = "btndelete_K";
             this.btndelete_K.Size = new System.Drawing.Size(100, 61);
             this.btndelete_K.TabIndex = 10;
+            this.btndelete_K.Text = "xóa";
             this.btndelete_K.UseVisualStyleBackColor = false;
             this.btndelete_K.Click += new System.EventHandler(this.btndelete_K_Click);
             // 
@@ -505,6 +512,7 @@
             this.btnLuuKhoa.Name = "btnLuuKhoa";
             this.btnLuuKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnLuuKhoa.TabIndex = 9;
+            this.btnLuuKhoa.Text = "Lưu";
             this.btnLuuKhoa.UseVisualStyleBackColor = false;
             this.btnLuuKhoa.Click += new System.EventHandler(this.btnLuuKhoa_Click);
             // 
@@ -518,6 +526,7 @@
             this.btnNhaplaiKhoa.Name = "btnNhaplaiKhoa";
             this.btnNhaplaiKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnNhaplaiKhoa.TabIndex = 8;
+            this.btnNhaplaiKhoa.Text = "Làm lại";
             this.btnNhaplaiKhoa.UseVisualStyleBackColor = false;
             this.btnNhaplaiKhoa.Click += new System.EventHandler(this.btnNhaplaiKhoa_Click);
             // 
@@ -526,12 +535,13 @@
             this.btnThemKhoa.BackColor = System.Drawing.Color.Transparent;
             this.btnThemKhoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnThemKhoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnThemKhoa.ForeColor = System.Drawing.Color.Transparent;
+            this.btnThemKhoa.ForeColor = System.Drawing.Color.Black;
             this.btnThemKhoa.Location = new System.Drawing.Point(475, 119);
             this.btnThemKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemKhoa.Name = "btnThemKhoa";
             this.btnThemKhoa.Size = new System.Drawing.Size(100, 61);
             this.btnThemKhoa.TabIndex = 7;
+            this.btnThemKhoa.Text = "Thêm";
             this.btnThemKhoa.UseVisualStyleBackColor = false;
             this.btnThemKhoa.Click += new System.EventHandler(this.btnThemKhoa_Click);
             // 

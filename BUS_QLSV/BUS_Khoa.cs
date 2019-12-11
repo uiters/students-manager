@@ -15,11 +15,11 @@ namespace BUS_QLSV
         DAL_Khoa DalKhoa = new DAL_Khoa();
         DTO_Khoa DTO_Khoa = new DTO_Khoa();
 
-        public void ThemKhoa()
+        public void ThemKhoa(string makhoa,string tenkhoa,string ghichu)
         {
             try
             {
-                DalKhoa.ThemKhoa(DTO_Khoa.Khoa_MaKhoa, DTO_Khoa.Khoa_TenKhoa, DTO_Khoa.Khoa_GhiChu,DTO_Khoa.Khoa_Username);
+                DalKhoa.ThemKhoa(makhoa,tenkhoa,ghichu,"admin");
             }
             catch
             {
@@ -27,11 +27,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void CapNhatKhoa()
+        public void CapNhatKhoa(string makhoa, string tenkhoa, string ghichu)
         {
             try
             {
-                DalKhoa.CapNhatKhoa(DTO_Khoa.Khoa_MaKhoa, DTO_Khoa.Khoa_TenKhoa, DTO_Khoa.Khoa_GhiChu, DTO_Khoa.Khoa_Username);
+                DalKhoa.CapNhatKhoa(makhoa, tenkhoa, ghichu, "admin");
             }
             catch
             {
@@ -39,11 +39,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void XoaKhoa()
+        public void XoaKhoa(string makhoa)
         {
             try
             {
-                DalKhoa.XoaKhoa(DTO_Khoa.Khoa_MaKhoa);
+                DalKhoa.XoaKhoa(makhoa);
             }
             catch
             {

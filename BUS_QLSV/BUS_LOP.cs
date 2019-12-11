@@ -15,11 +15,11 @@ namespace BUS_QLSV
         DAL_Lop Dal_Lop = new DAL_Lop();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
         DTO_Lop DTO_Lop = new DTO_Lop();
-        public void ThemLop(string malop,string tenlop,bool loailop,string nienkhoa,DateTime BD,DateTime KT)
+        public void ThemLop(string malop,string tenlop,bool loailop,string nienkhoa,DateTime BD,DateTime KT,string mamh,string magv)
         {
             try
             {
-                Dal_Lop.ThemLop(malop,tenlop,loailop,nienkhoa,BD,KT);
+                Dal_Lop.ThemLop(malop,tenlop,loailop,nienkhoa,BD,KT,mamh,magv);
             }
             catch
 
@@ -28,11 +28,11 @@ namespace BUS_QLSV
             }
 
         }
-        public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT)
+        public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT,string mamh,string magv)
         {
             try
             {
-                Dal_Lop.CapNhatLop(malop, tenlop, loailop, nienkhoa, BD, KT);
+                Dal_Lop.CapNhatLop(malop, tenlop, loailop, nienkhoa, BD, KT,mamh,magv);
             }
             catch
             {
@@ -69,26 +69,26 @@ namespace BUS_QLSV
         }
 
 
-
-        public void LoadDLVaoCombobox_MaNganh()
+        public void LoadDLVaoCombobox_GiaoVien(ComboBox giaovien)
         {
-            Dal_Lop.LayDLVaoCombobox_MaNganh(DTO_Lop.cmbMANGANH);
+            Dal_Lop.LayDLVaoCombobox_MaGiaoVien(giaovien);
+        }
+        public void LoadDLVaoCombobox_MonHoc(ComboBox monhoc)
+        {
+            Dal_Lop.LayDLVaoCombobox_MaMonHoc(monhoc);
         }
 
-        public DataTable TimKiemLop()
+        public DataTable TimKiemLop(string columnName,string timkiem)
         {
             DataTable dt = new DataTable();
-            dt = Dal_Lop.TimKiemLop(DTO_Lop.COTIMKIEM, DTO_Lop.DKTIM);
+            dt = Dal_Lop.TimKiemLop(columnName,timkiem);
             return dt;
         }
 
-        public void GoiYTimKiem()
+        public void GoiYTimKiem(TextBox txt,string table, int column)
         {
-            GoiYTimKiem(DTO_Lop.TXTGOIY, DTO_Lop. COTGOIY);
-        }
-        public void GoiYTimKiem(TextBox txt, int column)
-        {
-            BUS_xuly.TextBox_AutoComplete(txt, "Lop", column);
+            table = "Lop";
+            BUS_xuly.TextBox_AutoComplete(txt, table, column);
         }
     }
 }

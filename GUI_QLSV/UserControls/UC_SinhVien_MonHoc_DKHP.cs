@@ -78,8 +78,7 @@ namespace GUI_QLSV.UserControls
         }
         public void Enable_MH()
         {
-            txtTenMh.Enabled = true;
-            txtMaMH.Enabled = true;
+            txtTenMh.Enabled = true;           
             cmbMaKhoa_MH.Enabled = true;
             rdMonbatbuoc.Enabled = true;
             rdMontuchon.Enabled = true;
@@ -112,35 +111,33 @@ namespace GUI_QLSV.UserControls
 
         private void UC_SinhVien_MonHoc_DKHP_Load(object sender, EventArgs e)
         {
+           
+
             #region SinhVien
             dgv_SV.DataSource = BUS_sv.LoadDL();
             DTO_sv.CMB = cbMaNganh;
-            BUS_sv.LayDLVaoComboboxMaNganh(DTO_sv.CMB);   
+            BUS_sv.LayDLVaoComboboxMaNganh(DTO_sv.CMB);
             DisEnable_SV();
+            dtp_NgaySinh.Value = DateTime.Now;
             #endregion
 
             #region Monhoc
+            dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
             DTO_mh.CMB = cmbMaKhoa_MH;
             BUS_mh.LoadDLVaoCombobox_cmbMaKhoa_MH(DTO_mh.CMB);
-            dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
             DisEnable_MH();
-            #endregion 
+            #endregion
 
             #region DK môn học
 
-            //dto
-            //dgvDangkyMH.DataSource = BUS_dkmh.LoadDL_DKMonHoc();
-
-            //DTO_dkmh.TXTTIM = txtTim_MSSV;
-            //BUS_dkmh.GoiYTimKiem();
-            //DTO_dkmh.TXTMSV = txtMSV_DKMH;
-            //BUS_dkmh.GoiYMSSV();
-
-            //DisEnable_DKMH();
+           
+            dgvDangkyMH.DataSource = BUS_dkmh.LoadDL_DKMonHoc();
+            DisEnable_DKMH();
             #endregion
         }
         private void tabSV_Mon_DKMH_Click(object sender, EventArgs e)
         {
+
             DTO_sv.CMB = cbMaNganh;
             BUS_sv.LayDLVaoComboboxMaNganh(DTO_sv.CMB);
 
@@ -153,8 +150,9 @@ namespace GUI_QLSV.UserControls
             DisEnable_MH();
             DisEnable_SV();
 
-
             groupBox1.Focus();
+
+
         }
 
         #endregion
@@ -163,12 +161,13 @@ namespace GUI_QLSV.UserControls
         //input thông tin sv
         private void btnThem_SV_Click(object sender, EventArgs e)
         {
+           
             Enable_SV();
             txtHotenSv.Focus();
             btnTakePhoto.Enabled = true;
             BUS_xuly.ClearAllTextBox(groupBox1);
             DTO_sv.CMB = cbMaNganh;
-         //   btnLamlai.Visible = false;
+            txtMSSV.Text = BUS_sv.TaoMaSinhVien();
         }
         //lưu thông tin sv
         private void btnLuu_SV_Click(object sender, EventArgs e)
@@ -180,9 +179,8 @@ namespace GUI_QLSV.UserControls
             
             else
                 gioitinh = "Nữ";
-            txtMSSV.Text = BUS_sv.TaoMaSinhVien();
+            
             DTO_sv.SinhVien_MaSinhVien = txtMSSV.Text;
-            DTO_sv.SinhVien_MaNganh = txtMSSV.Text;
             DTO_sv.SinhVien_HoTen = txtHotenSv.Text;
             DTO_sv.SinhVien_QueQuan = txtQueQuan.Text;
             DTO_sv.SinhVien_NgaySinh = dtp_NgaySinh.Value;
@@ -191,9 +189,10 @@ namespace GUI_QLSV.UserControls
             DTO_sv.SinhVien_Hinh = txtHinh.Text;
             DTO_sv.SinhVien_GioiTinh = gioitinh;
 
-            BUS_sv.ThemSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_MaNganh, DTO_sv.SinhVien_Hinh);
+            BUS_sv.ThemSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaNganh);
             dgv_SV.DataSource = BUS_sv.LoadDL();
 
+      
             DisEnable_SV();
             btnThem_SV.Visible = true;
         //    btnLamlai.Visible = true;
@@ -201,7 +200,8 @@ namespace GUI_QLSV.UserControls
         //hủy quá trình đang thêm
         private void btnCancel_SV_Click(object sender, EventArgs e)
         {
-            BUS_xuly.ClearAllTextBox(groupBox1);
+            
+            BUS_xuly.ClearAllTextBox(groupBox1);           
             DisEnable_SV();
             btnThem_SV.Visible = true;
         }
@@ -217,16 +217,12 @@ namespace GUI_QLSV.UserControls
             txtMSSV.Text = dgv_SV.CurrentRow.Cells[0].Value.ToString();
             txtHotenSv.Text = dgv_SV.CurrentRow.Cells[1].Value.ToString();
             txtQueQuan.Text = dgv_SV.CurrentRow.Cells[2].Value.ToString();
-            cbMaNganh.SelectedValue= dgv_SV.CurrentRow.Cells[6].Value.ToString();
             if ((dgv_SV.CurrentRow.Cells[3].Value.ToString() == ""))
-            { dtp_NgaySinh.Value = DateTime.Now; }
+                dtp_NgaySinh.Value = DateTime.Now; 
             else
                 dtp_NgaySinh.Value = (DateTime)dgv_SV.CurrentRow.Cells[3].Value;
-            txtNoiSinh.Text = dgv_SV.CurrentRow.Cells[4].Value.ToString();
-            txtHinh.Text = dgv_SV.CurrentRow.Cells[7].Value.ToString();
 
-            pcHinhSV.ImageLocation = txtHinh.Text;
-            pcHinhSV.SizeMode = PictureBoxSizeMode.StretchImage;
+            txtNoiSinh.Text = dgv_SV.CurrentRow.Cells[4].Value.ToString();
 
             if (dgv_SV.CurrentRow.Cells[5].Value.ToString() == "Nam")
             {
@@ -241,6 +237,13 @@ namespace GUI_QLSV.UserControls
                 rdNam.Checked = false;
                 rdNu.Checked = false;
             }
+            txtHinh.Text = dgv_SV.CurrentRow.Cells[6].Value.ToString();
+            pcHinhSV.ImageLocation = txtHinh.Text;
+            pcHinhSV.SizeMode = PictureBoxSizeMode.StretchImage;
+            cbMaNganh.SelectedValue= dgv_SV.CurrentRow.Cells[7].Value.ToString();       
+            
+
+           
         }
 
                             #region chuẩn hoá
@@ -272,12 +275,22 @@ namespace GUI_QLSV.UserControls
                             #region WEBCAME
         private void btnTakePhoto_Click(object sender, EventArgs e)
         {
+            frmWebCam wb = new frmWebCam();
+            wb.Show();
 
         }
 
         private void btnBrowseHinh_Click(object sender, EventArgs e)
         {
+            oFD_Pic.ShowDialog();
+        }
+   
 
+        private void oFD_Pic_FileOk(object sender, CancelEventArgs e)
+        {
+            txtHinh.Text = oFD_Pic.FileName.ToString();
+            pcHinhSV.ImageLocation = txtHinh.Text;
+            pcHinhSV.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         // 1 class nữa
 
@@ -288,37 +301,105 @@ namespace GUI_QLSV.UserControls
         #region MH
         private void btnLuu_MH_Click(object sender, EventArgs e)
         {
-            txtMaMH.Text = BUS_mh.TaoMaMonHoc();
-            DTO_mh.MonHoc_MaMonHoc = txtMaMH.Text;
-            DTO_mh.MonHoc_TenMonHoc = txtTenMh.Text;
-            DTO_mh.MonHoc_MaKhoa = cmbMaKhoa_MH.SelectedValue.ToString();
-            DTO_mh.MonHoc_TinChiLyThuyet = (int)numSoTietLT.Value;
-            DTO_mh.MonHoc_TinChiThucHanh = (int)numSoTietTH.Value;
-
-            bool hinhthuc = false;
-            if (rdMonbatbuoc.Checked == true)
+            if (flag == "thêm")
             {
-                hinhthuc = true;
-            }
-            else if (rdMontuchon.Checked == true)
-            {
-                hinhthuc = false;
-            }
-            DTO_mh.MonHoc_LoaiMonHoc = hinhthuc;
-            BUS_mh.ThemMonHoc(DTO_mh.MonHoc_MaMonHoc, DTO_mh.MonHoc_TenMonHoc, DTO_mh.MonHoc_LoaiMonHoc, DTO_mh.MonHoc_TinChiLyThuyet, DTO_mh.MonHoc_TinChiThucHanh, DTO_mh.MonHoc_MaKhoa);
-            dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
-            BUS_xuly.ClearAllTextBox(groupBox3);
+                DTO_mh.MonHoc_MaMonHoc = txtMaMH.Text;
+                DTO_mh.MonHoc_TenMonHoc = txtTenMh.Text;
+                DTO_mh.MonHoc_MaKhoa = cmbMaKhoa_MH.SelectedValue.ToString();
+                DTO_mh.MonHoc_TinChiLyThuyet = (int)numSoTietLT.Value;
+                DTO_mh.MonHoc_TinChiThucHanh = (int)numSoTietTH.Value;
 
-            DisEnable_MH();
-            btnThem_MH.Visible = true;
+                bool hinhthuc = false;
+                if (rdMonbatbuoc.Checked == true)
+                {
+                    hinhthuc = true;
+                }
+                else if (rdMontuchon.Checked == true)
+                {
+                    hinhthuc = false;
+                }
+                DTO_mh.MonHoc_LoaiMonHoc = hinhthuc;
+                BUS_mh.ThemMonHoc(DTO_mh.MonHoc_MaMonHoc, DTO_mh.MonHoc_TenMonHoc, DTO_mh.MonHoc_LoaiMonHoc, DTO_mh.MonHoc_TinChiLyThuyet, DTO_mh.MonHoc_TinChiThucHanh, DTO_mh.MonHoc_MaKhoa);
+                dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
+                BUS_xuly.ClearAllTextBox(groupBox3);
+
+                int i;
+                for (i = 0; i < dgvMonhoc.RowCount - 1; i++)
+                {
+                    if (dgvMonhoc.Rows[i].Cells[1].Value.ToString() == dgvMonhoc.Text)
+                        break;
+                }
+                dgvMonhoc.CurrentCell = dgvMonhoc[0, i];
+
+
+               
+
+                DisEnable_MH();
+                dgvMonhoc.Enabled = true;
+                btnSua_MH.Enabled = true;
+                btnCancel_MH.Enabled = true;
+                btnThem_MH.Visible = true;
+            }
+            else if (flag == "sửa")
+            {
+                DTO_mh.MonHoc_MaMonHoc = txtMaMH.Text;
+                DTO_mh.MonHoc_TenMonHoc = txtTenMh.Text;
+                DTO_mh.MonHoc_MaKhoa = cmbMaKhoa_MH.SelectedValue.ToString();
+                DTO_mh.MonHoc_TinChiLyThuyet = (int)numSoTietLT.Value;
+                DTO_mh.MonHoc_TinChiThucHanh = (int)numSoTietTH.Value;
+
+                bool hinhthuc = false;
+                if (rdMonbatbuoc.Checked == true)
+                {
+                    hinhthuc = true;
+                }
+                else if (rdMontuchon.Checked == true)
+                {
+                    hinhthuc = false;
+                }
+                DTO_mh.MonHoc_LoaiMonHoc = hinhthuc;
+                BUS_mh.CapNhatMonHoc(DTO_mh.MonHoc_MaMonHoc, DTO_mh.MonHoc_TenMonHoc, DTO_mh.MonHoc_LoaiMonHoc, DTO_mh.MonHoc_TinChiLyThuyet, DTO_mh.MonHoc_TinChiThucHanh, DTO_mh.MonHoc_MaKhoa);
+                dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
+                BUS_xuly.ClearAllTextBox(groupBox3);
+
+                int i;
+                for (i = 0; i < dgvMonhoc.RowCount - 1; i++)
+                {
+                    if (dgvMonhoc.Rows[i].Cells[1].Value.ToString() == dgvMonhoc.Text)
+                        break;
+                }
+                dgvMonhoc.CurrentCell = dgvMonhoc[0, i];
+
+                DisEnable_MH();
+                dgvMonhoc.Enabled = true;
+                btnSua_MH.Enabled = true;
+                btnCancel_MH.Enabled = true;
+                btnThem_MH.Visible = true;
+            }
         }
 
         private void btnThem_MH_Click(object sender, EventArgs e)
         {
+
+            flag = "thêm";
+            BUS_xuly.ClearAllTextBox(groupBox3);
+            txtMaMH.Text = BUS_mh.TaoMaMonHoc();
             Enable_MH();
             txtTenMh.Focus();
-            BUS_xuly.ClearAllTextBox(groupBox3);
-            btnThem_MH.Visible = false;
+            btnSua_MH.Enabled = false;
+            btnCancel_MH.Enabled = false;
+            dgvMonhoc.Enabled = false;
+        }
+
+        private void btnSua_MH_Click(object sender, EventArgs e)
+        {
+            flag = "sửa";
+            Enable_MH();
+            txtTenMh.Focus();
+
+            btnSua_MH.Enabled = false;
+            btnCancel_MH.Enabled = false;
+            dgvMonhoc.Enabled = false;
         }
 
         private void btnCancel_MH_Click(object sender, EventArgs e)
@@ -331,24 +412,14 @@ namespace GUI_QLSV.UserControls
         {
             txtMaMH.Text = dgvMonhoc.CurrentRow.Cells[0].Value.ToString();
             txtTenMh.Text = dgvMonhoc.CurrentRow.Cells[1].Value.ToString();
-            cmbMaKhoa_MH.SelectedValue = dgvMonhoc.CurrentRow.Cells[2].Value.ToString();
-            //if (dgvMonhoc.CurrentRow.Cells[3].Value.ToString() == "")
-            //{
-            //    numSoTietLT.Value = 0;
-            //    numSoTietTH.Value = 0;
-            //}
-            //else
-            //{
-            //    numSoTietLT.Value = (int)dgvMonhoc.CurrentRow.Cells[6].Value;
-            //    numSoTietTH.Value = (int)dgvMonhoc.CurrentRow.Cells[7].Value;
-            //}
+            cmbMaKhoa_MH.SelectedValue = dgvMonhoc.CurrentRow.Cells[2].Value.ToString();        
             numSoTietLT.Value = (int)dgvMonhoc.CurrentRow.Cells[3].Value;
             numSoTietTH.Value = (int)dgvMonhoc.CurrentRow.Cells[4].Value;
             if ((bool)dgvMonhoc.CurrentRow.Cells[2].Value == true)
             {
                 rdMonbatbuoc.Checked = true;
             }
-            else if ((bool)dgvMonhoc.CurrentRow.Cells[2].Value == true)
+            else if ((bool)dgvMonhoc.CurrentRow.Cells[2].Value == false)
             {
                 rdMontuchon.Checked = true;
             }
@@ -357,6 +428,7 @@ namespace GUI_QLSV.UserControls
                 rdMontuchon.Checked = false;
                 rdMonbatbuoc.Checked = false;
             }
+            cmbMaKhoa_MH.SelectedValue = dgvMonhoc.CurrentRow.Cells[5].Value.ToString();
 
         }
 
@@ -369,42 +441,88 @@ namespace GUI_QLSV.UserControls
         #endregion
 
         #region QLMH
-
-
-
-        #endregion
-
         private void btnTimDKMH_Click(object sender, EventArgs e)
         {
-            DTO_dkmh.DKMH_MaSinhVien = txtTim_MSSV.Text;
-            //BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
-            dgvDangkyMH.DataSource = BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
-            lblTenSV.Text = BUS_dkmh.LayTenSV();
-            groupboxSVDKMH.Visible = true;
+            if (cmbTimKiem_DKMH.Text == "--Điều kiện tìm--")
+            {
+                MessageBox.Show("Mời bạn chọn điều kiện tìm");
+                return;
+            }
+            else
+            {
+                if (cmbTimKiem_DKMH.Text == "Mã sinh viên")
+                {
+                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.ToString();
+                    BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+                    int n = dgvDangkyMH.Rows.Count - 1;
+                    MessageBox.Show("Tìm thấy " + n + " kết quả! ");
+                    //  lblTenSV.Text = BUS_dkmh.LayTenSV();
+
+                }
+                else
+                {
+                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.ToString();
+                    BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+                    int n = dgvDangkyMH.Rows.Count - 1;
+                    MessageBox.Show("Tìm thấy " + n + " kết quả! ");
+                    //  lblTenSV.Text = BUS_dkmh.LayTenSV();
+
+                }
+                groupboxSVDKMH.Visible = true;
+            }
         }
+
+
 
         private void dgvDangkyMH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMonHoc_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[0].Value.ToString();
             txtMSV_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[1].Value.ToString();
-           /* txtTenSV_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[2].Value.ToString();
-            txtTinChi_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[3].Value.ToString();
-            if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
+            /* txtTenSV_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[2].Value.ToString();
+             txtTinChi_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[3].Value.ToString();
+             if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
+             {
+                 radioButton1.Checked = true;
+             }
+             else if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
+             {
+                 radioButton2.Checked = true;
+             }
+             else
+             {
+                 radioButton1.Checked = false;
+                 radioButton2.Checked = false;
+             }
+             txtTinChi_DKMH.Text = (int)dgvDangkyMH.CurrentRow.Cells[5].Value + (int)dgvDangkyMH.CurrentRow.Cells[6].Value;*/
+        }
+
+
+
+
+
+
+        #endregion
+
+        private void txtTimKiem_DKMH_TextChanged(object sender, EventArgs e)
+        {
+            DTO_dkmh.TXTTIM = txtTimKiem_DKMH;
+            int col;
+            string table = "";
+            if (cmbTimKiem_DKMH.SelectedItem.ToString() == "Mã sinh viên")
             {
-                radioButton1.Checked = true;
-            }
-            else if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
-            {
-                radioButton2.Checked = true;
+                col = 1;
+                DTO_sv.COLUMN = col;
+                BUS_sv.TextBoxAutoComplete(DTO_sv.TXT, table, DTO_sv.COLUMN);
             }
             else
             {
-                radioButton1.Checked = false;
-                radioButton2.Checked = false;
+                col = 2;
+                DTO_sv.COLUMN = col;
+                BUS_sv.TextBoxAutoComplete(DTO_sv.TXT, table, DTO_sv.COLUMN);
             }
-            txtTinChi_DKMH.Text = (int)dgvDangkyMH.CurrentRow.Cells[5].Value + (int)dgvDangkyMH.CurrentRow.Cells[6].Value;*/
         }
-
     }
 
 

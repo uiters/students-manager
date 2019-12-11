@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using DTO_QLSV;
+using System.Windows.Forms;
 
 namespace DAL_QLSV
 {
@@ -18,7 +19,7 @@ namespace DAL_QLSV
         SqlParameter _Ghichu = new SqlParameter();
         SqlParameter _MaKhoa = new SqlParameter();
 
-        public void ThemNganh(string manganh, string tennganh, string ghichu)
+        public void ThemNganh(string manganh, string tennganh, string ghichu,string makhoa)
         {
             _MaNganh.SqlValue = manganh;
             _MaNganh.ParameterName = "@MaNganh";
@@ -29,11 +30,12 @@ namespace DAL_QLSV
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@Ghichu";
 
+            _MaKhoa.SqlValue = makhoa;
+            _MaKhoa.ParameterName = "@MaKhoa";
 
-            xuly.ThaoTacDuLieu("qlsv_ThemNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu);
-
+            xuly.ThaoTacDuLieu("qlsv_ThemNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu,_MaKhoa);
         }
-        public void CapNhatNganh(string manganh, string tennganh, string ghichu)
+        public void CapNhatNganh(string manganh, string tennganh, string ghichu,string makhoa)
         {
             _MaNganh.SqlValue = manganh;
             _MaNganh.ParameterName = "@MaNganh";
@@ -44,11 +46,10 @@ namespace DAL_QLSV
             _Ghichu.SqlValue = ghichu;
             _Ghichu.ParameterName = "@Ghichu";
 
+            _MaKhoa.SqlValue = makhoa;
+            _MaKhoa.ParameterName = "@MaKhoa";
 
-
-            xuly.ThaoTacDuLieu("qlsv_CapNhatNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu);
-
-
+            xuly.ThaoTacDuLieu("qlsv_CapNhatNganh", CommandType.StoredProcedure, _MaNganh, _TenNganh, _Ghichu,_MaKhoa);
         }
 
         public void XoaNganh(string manganh)
@@ -72,6 +73,12 @@ namespace DAL_QLSV
             string maNG = "";
             maNG = xuly.SinhMaTuDong("NG", "Select * from Nganh");
             return maNG;
+        }
+
+        public void LayDLVaoCombobox_MaKhoa(ComboBox cmb)
+        {
+            xuly.LoadDLVaoCombobox("Select * from Khoa", cmb, "TenKhoa", "MaKhoa");
+
         }
     }
 }

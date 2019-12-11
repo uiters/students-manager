@@ -41,26 +41,26 @@ namespace DTO_QLSV
         }
         public string Diem_MaSinhVien
         {
-            get { return Diem_MaSinhVien; }
-            set { Diem_MaSinhVien = value; }
+            get { return _Diem_MaSinhVien; }
+            set { _Diem_MaSinhVien = value; }
         }
         public float Diem_SoDiem
         {
-            get { return Diem_SoDiem; }
+            get { return _Diem_SoDiem; }
             set { Diem_SoDiem = value; }
         }
         public int Diem_LanThi
         {
-            get { return Diem_LanThi; }
+            get { return _Diem_LanThi; }
             set { Diem_LanThi = value; }
         }
         public DTO_Diem() {  }
         public DTO_Diem(string MaMonHoc, string MaSinhVien, float SoDiem, int LanThi)
         {
-            this.Diem_MaMonHoc = MaMonHoc;
-            this.Diem_MaSinhVien = MaSinhVien;
-            this.Diem_SoDiem = SoDiem;
-            this.Diem_LanThi = LanThi;
+            this._Diem_MaMonHoc = MaMonHoc;
+            this._Diem_MaSinhVien = MaSinhVien;
+            this._Diem_SoDiem = SoDiem;
+            this._Diem_LanThi = LanThi;
         }
 
     }

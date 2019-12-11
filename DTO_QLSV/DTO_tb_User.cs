@@ -20,7 +20,7 @@ namespace DTO_QLSV
         //sử dụng để gọi ý tìm kiếm
         private TextBox txt = new TextBox();
         private string table = "tb_User";
-        private int column = 0;
+        private int column = 1;
 
 
         public TextBox TXT
@@ -36,11 +36,7 @@ namespace DTO_QLSV
             set
             {
                 newPass = value;
-                if (this.newPass == "")
-                {
 
-                    MessageBox.Show("Vui lòng nhập mật khẩu mới");
-                }
             }
         }
         public string PASS
@@ -49,11 +45,7 @@ namespace DTO_QLSV
             set
             {
                 Pass = value;
-                if (this.PASS == "")
-                {
 
-                    MessageBox.Show("Vui lòng nhập mật khẩu");
-                }
             }
         }
         public string USER
@@ -65,11 +57,7 @@ namespace DTO_QLSV
             set
             {
                 User = value;
-                if (User == "")
-                {
 
-                    MessageBox.Show("Chưa nhập Username");
-                }
             }
         }
         public bool ID

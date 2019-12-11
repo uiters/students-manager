@@ -15,11 +15,11 @@ namespace BUS_QLSV
         DAL_GiaoVien DalGiaoVien = new DAL_GiaoVien();
         BUS_Xuly BUS_xuly = new BUS_Xuly();
         DTO_GiaoVien DTO_GiaoVien = new DTO_GiaoVien();
-        public void ThemGiaoVien()
+        public void ThemGiaoVien(string magv,string tengv,string ghichu,string makhoa)
         {
             try
             {
-                DalGiaoVien.ThemGiaoVien(DTO_GiaoVien.GiaoVien_MaGiaoVien, DTO_GiaoVien.TENTIMKIEM, DTO_GiaoVien.GiaoVien_MaKhoa, DTO_GiaoVien.GiaoVien_GhiChu);
+                DalGiaoVien.ThemGiaoVien(magv,tengv,ghichu,makhoa);
             }
             catch
 
@@ -29,11 +29,11 @@ namespace BUS_QLSV
 
         }
 
-        public void CapNhatGiaoVien()
+        public void CapNhatGiaoVien(string magv, string tengv, string ghichu,string makhoa)
         {
             try
             {
-                DalGiaoVien.CapNhatGiaoVien(DTO_GiaoVien.GiaoVien_MaGiaoVien, DTO_GiaoVien.TENTIMKIEM, DTO_GiaoVien.GiaoVien_MaKhoa, DTO_GiaoVien.GiaoVien_GhiChu);
+                DalGiaoVien.CapNhatGiaoVien(magv, tengv, ghichu,makhoa);
             }
             catch (Exception ex)
             {
@@ -42,11 +42,11 @@ namespace BUS_QLSV
 
         }
 
-        public void XoaGiaoVien()
+        public void XoaGiaoVien(string magv)
         {
             try
             {
-                DalGiaoVien.XoaGiaoVien(DTO_GiaoVien.GiaoVien_MaGiaoVien);
+                DalGiaoVien.XoaGiaoVien(magv);
             }
             catch
             {
@@ -62,13 +62,6 @@ namespace BUS_QLSV
             return dt;
         }
 
-        public DataTable TimKiemGV()
-        {
-            DataTable dt = new DataTable();
-            dt = DalGiaoVien.TimKiemGiaoVien(DTO_GiaoVien.COTTIMKIEM, DTO_GiaoVien.TENTIMKIEM);
-            return dt;
-        }
-
         public string TaoMaGV()
         {
             string ma;
@@ -76,18 +69,22 @@ namespace BUS_QLSV
             return ma;
         }
 
-        public void LoadDLVao_cmbMaKhoa()
+        public void LoadDLVao_cmbMaKhoa(ComboBox makhoa)
         {
-            DalGiaoVien.LayDLVaoCombobox_MaKhoa(DTO_GiaoVien.cmbMAKHOA);
+            DalGiaoVien.LayDLVaoCombobox_MaKhoa(makhoa);
         }
 
-        public void GoiYGiaoVien()
+        public DataTable TimKiemGV(string columnName, string TenTimKiem)   // tìm kiếm giáo viên
         {
-            GoiYTimKiem(DTO_GiaoVien.TXT, DTO_GiaoVien.COLUMN);
+            DataTable dt = new DataTable();
+            dt = DalGiaoVien.TimKiemGiaoVien(columnName, TenTimKiem);
+            return dt;
         }
-        public void GoiYTimKiem(TextBox txt, int column)
+
+        public void GoiYTimKiem(TextBox txt,string table, int column) // gợi ý tìm kiếm
         {
-            BUS_xuly.TextBox_AutoComplete(txt, "GiaoVien", column);
+            table = "GiaoVien";
+            BUS_xuly.TextBox_AutoComplete(txt, table, column);
         }
     }
 }
