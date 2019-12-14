@@ -62,6 +62,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNoidungTimKiem = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cmbMaLop = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.grouptextBox.SuspendLayout();
@@ -100,6 +102,8 @@
             // 
             // grouptextBox
             // 
+            this.grouptextBox.Controls.Add(this.cmbMaLop);
+            this.grouptextBox.Controls.Add(this.label11);
             this.grouptextBox.Controls.Add(this.cmbNganh_sv);
             this.grouptextBox.Controls.Add(this.label8);
             this.grouptextBox.Controls.Add(this.btnLuu);
@@ -488,6 +492,25 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // cmbMaLop
+            // 
+            this.cmbMaLop.FormattingEnabled = true;
+            this.cmbMaLop.Location = new System.Drawing.Point(139, 214);
+            this.cmbMaLop.Name = "cmbMaLop";
+            this.cmbMaLop.Size = new System.Drawing.Size(287, 24);
+            this.cmbMaLop.TabIndex = 61;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(20, 218);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 20);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "Lớp:";
+            // 
             // frmQLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -546,5 +569,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbNganh_sv;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cmbMaLop;
+        private System.Windows.Forms.Label label11;
     }
 }

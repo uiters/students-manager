@@ -117,6 +117,8 @@ namespace GUI_QLSV.UserControls
             dgv_SV.DataSource = BUS_sv.LoadDL();
             DTO_sv.CMB = cbMaNganh;
             BUS_sv.LayDLVaoComboboxMaNganh(DTO_sv.CMB);
+            DTO_sv.CMB = cmbMaLop;
+            BUS_sv.LayDLVaoComboboxMaLop(DTO_sv.CMB);
             DisEnable_SV();
             dtp_NgaySinh.Value = DateTime.Now;
             #endregion
@@ -188,8 +190,9 @@ namespace GUI_QLSV.UserControls
             DTO_sv.SinhVien_MaNganh = cbMaNganh.SelectedValue.ToString();
             DTO_sv.SinhVien_Hinh = txtHinh.Text;
             DTO_sv.SinhVien_GioiTinh = gioitinh;
+            DTO_sv.SinhVien_MaLop = cmbMaLop.SelectedValue.ToString();
 
-            BUS_sv.ThemSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaNganh);
+            BUS_sv.ThemSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaLop ,DTO_sv.SinhVien_MaNganh);
             dgv_SV.DataSource = BUS_sv.LoadDL();
 
       
@@ -200,7 +203,7 @@ namespace GUI_QLSV.UserControls
         //hủy quá trình đang thêm
         private void btnCancel_SV_Click(object sender, EventArgs e)
         {
-            
+         
             BUS_xuly.ClearAllTextBox(groupBox1);           
             DisEnable_SV();
             btnThem_SV.Visible = true;
@@ -240,7 +243,8 @@ namespace GUI_QLSV.UserControls
             txtHinh.Text = dgv_SV.CurrentRow.Cells[6].Value.ToString();
             pcHinhSV.ImageLocation = txtHinh.Text;
             pcHinhSV.SizeMode = PictureBoxSizeMode.StretchImage;
-            cbMaNganh.SelectedValue= dgv_SV.CurrentRow.Cells[7].Value.ToString();       
+            cmbMaLop.SelectedValue = dgv_SV.CurrentRow.Cells[7].Value.ToString();
+            cbMaNganh.SelectedValue= dgv_SV.CurrentRow.Cells[8].Value.ToString();       
             
 
            
@@ -404,7 +408,12 @@ namespace GUI_QLSV.UserControls
 
         private void btnCancel_MH_Click(object sender, EventArgs e)
         {
+            DTO_mh.MonHoc_MaMonHoc = txtMaMH.Text;
+            BUS_mh.XoaMonHoc(DTO_mh.MonHoc_MaMonHoc);
+            dgvMonhoc.DataSource = BUS_mh.LoadDLMonHoc();
+
             BUS_xuly.ClearAllTextBox(groupBox3);
+            
             DisEnable_MH();
         }
 
@@ -412,10 +421,14 @@ namespace GUI_QLSV.UserControls
         {
             txtMaMH.Text = dgvMonhoc.CurrentRow.Cells[0].Value.ToString();
             txtTenMh.Text = dgvMonhoc.CurrentRow.Cells[1].Value.ToString();
-            cmbMaKhoa_MH.SelectedValue = dgvMonhoc.CurrentRow.Cells[2].Value.ToString();        
-            numSoTietLT.Value = (int)dgvMonhoc.CurrentRow.Cells[3].Value;
-            numSoTietTH.Value = (int)dgvMonhoc.CurrentRow.Cells[4].Value;
-            if ((bool)dgvMonhoc.CurrentRow.Cells[2].Value == true)
+
+            if(dgvMonhoc.CurrentRow.Cells[2].Value.ToString()=="")
+            {
+                rdMontuchon.Checked = false;
+                rdMonbatbuoc.Checked = false;
+            }
+
+            else if ((bool)dgvMonhoc.CurrentRow.Cells[2].Value == true)
             {
                 rdMonbatbuoc.Checked = true;
             }
@@ -423,11 +436,21 @@ namespace GUI_QLSV.UserControls
             {
                 rdMontuchon.Checked = true;
             }
+
+
+
+            if (dgvMonhoc.CurrentRow.Cells[3].Value.ToString() == ""|| dgvMonhoc.CurrentRow.Cells[4].Value.ToString() == "")
+            {
+                numSoTietLT.Value = 0;
+                numSoTietTH.Value = 0;
+            }
             else
             {
-                rdMontuchon.Checked = false;
-                rdMonbatbuoc.Checked = false;
+                numSoTietLT.Value = (int)dgvMonhoc.CurrentRow.Cells[3].Value;
+                numSoTietTH.Value = (int)dgvMonhoc.CurrentRow.Cells[4].Value;
             }
+
+          
             cmbMaKhoa_MH.SelectedValue = dgvMonhoc.CurrentRow.Cells[5].Value.ToString();
 
         }
@@ -445,30 +468,30 @@ namespace GUI_QLSV.UserControls
         {
             if (cmbTimKiem_DKMH.Text == "--Điều kiện tìm--")
             {
-                MessageBox.Show("Mời bạn chọn điều kiện tìm");
+                MessageBox.Show("Chọn điều kiện tìm kiếm");
                 return;
             }
             else
             {
-                if (cmbTimKiem_DKMH.Text == "Mã sinh viên")
+
+
+                if (cmbTimKiem_DKMH.Text == "Tên sinh viên")
+
                 {
-                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.ToString();
-                    BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
-                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+
+                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.Text;
+
+                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiem("HoTen",DTO_dkmh.DKMH_MaSinhVien);
                     int n = dgvDangkyMH.Rows.Count - 1;
                     MessageBox.Show("Tìm thấy " + n + " kết quả! ");
-                    //  lblTenSV.Text = BUS_dkmh.LayTenSV();
-
                 }
                 else
                 {
-                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.ToString();
-                    BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
-                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiemSVDK(DTO_dkmh.DKMH_MaSinhVien);
+                    DTO_dkmh.DKMH_MaSinhVien = txtTimKiem_DKMH.Text;
+
+                    dgvDangkyMH.DataSource = BUS_dkmh.TimKiem("SinhVien.MaSinhVien",DTO_dkmh.DKMH_MaSinhVien);
                     int n = dgvDangkyMH.Rows.Count - 1;
                     MessageBox.Show("Tìm thấy " + n + " kết quả! ");
-                    //  lblTenSV.Text = BUS_dkmh.LayTenSV();
-
                 }
                 groupboxSVDKMH.Visible = true;
             }
@@ -476,51 +499,67 @@ namespace GUI_QLSV.UserControls
 
 
 
-        private void dgvDangkyMH_CellClick(object sender, DataGridViewCellEventArgs e)
+            private void dgvDangkyMH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMonHoc_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[0].Value.ToString();
-            txtMSV_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[1].Value.ToString();
-            /* txtTenSV_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[2].Value.ToString();
-             txtTinChi_DKMH.Text == dgvDangkyMH.CurrentRow.Cells[3].Value.ToString();
-             if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
-             {
-                 radioButton1.Checked = true;
-             }
-             else if ((bool)dgvDangkyMH.CurrentRow.Cells[4].Value == true)
-             {
-                 radioButton2.Checked = true;
-             }
-             else
-             {
-                 radioButton1.Checked = false;
-                 radioButton2.Checked = false;
-             }
-             txtTinChi_DKMH.Text = (int)dgvDangkyMH.CurrentRow.Cells[5].Value + (int)dgvDangkyMH.CurrentRow.Cells[6].Value;*/
+            if (dgvDangkyMH.CurrentRow.Cells[0].Value.ToString() == "")
+            {
+                txtMonHoc_DKMH.Text = "NULL";
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
+                txtTinChi_DKMH.Text = "0";
+                txtMonHoc_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[0].Value.ToString();
+                txtMSV_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[1].Value.ToString();
+            }
+            else
+            {
+                txtMonHoc_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[0].Value.ToString();
+                txtMSV_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[1].Value.ToString();
+                txtTenSV_DKMH.Text = dgvDangkyMH.CurrentRow.Cells[2].Value.ToString();
+
+                if (dgvDangkyMH.CurrentRow.Cells[3].Value.ToString() == "")
+                {
+                    radioButton1.Checked = false;
+                    radioButton2.Checked = false;
+                }
+                else if ((bool)dgvDangkyMH.CurrentRow.Cells[3].Value == true)
+                {
+                    radioButton1.Checked = true;
+                }
+                else if ((bool)dgvDangkyMH.CurrentRow.Cells[3].Value == false)
+                {
+                    radioButton2.Checked = true;
+                }
+
+
+                int a = (int)dgvDangkyMH.CurrentRow.Cells[4].Value + (int)dgvDangkyMH.CurrentRow.Cells[5].Value;
+                txtTinChi_DKMH.Text = a.ToString();
+            }
         }
-
-
-
-
 
 
         #endregion
 
         private void txtTimKiem_DKMH_TextChanged(object sender, EventArgs e)
         {
+          
+        }
+
+        private void cmbTimKiem_DKMH_TextChanged(object sender, EventArgs e)
+        {
             DTO_dkmh.TXTTIM = txtTimKiem_DKMH;
             int col;
             string table = "";
-            if (cmbTimKiem_DKMH.SelectedItem.ToString() == "Mã sinh viên")
+            if (cmbTimKiem_DKMH.SelectedItem.ToString() == "Mã số sinh viên")
             {
-                col = 1;
-                DTO_sv.COLUMN = col;
-                BUS_sv.TextBoxAutoComplete(DTO_sv.TXT, table, DTO_sv.COLUMN);
+                col = 0;
+                
+                BUS_dkmh.TuDongHoanThanh(DTO_dkmh.TXTTIM, table, col);
             }
             else
             {
-                col = 2;
-                DTO_sv.COLUMN = col;
-                BUS_sv.TextBoxAutoComplete(DTO_sv.TXT, table, DTO_sv.COLUMN);
+                col = 1;
+                
+                BUS_dkmh.TuDongHoanThanh(DTO_dkmh.TXTTIM, table, col);
             }
         }
     }

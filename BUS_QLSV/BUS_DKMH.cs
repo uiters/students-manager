@@ -24,10 +24,10 @@ namespace BUS_QLSV
             return dt;
         }
 
-        public DataTable TimKiemSVDK(string masv)
+        public DataTable TimKiem(string columnName, string dktim)
         {
             DataTable dt = new DataTable();
-            dt = DalDK.TimKiemMHDK(masv);
+            dt = DalDK.TimKiemSV(columnName, dktim);
             return dt;
         }
         public void TuDongHoanThanh(TextBox TXT, string table, int column)
@@ -36,12 +36,7 @@ namespace BUS_QLSV
             BUS_xuly.TextBox_AutoComplete(TXT, table, column);
         }
 
-        public string LayTenSV(string hoten)
-        {
-            string ten = "";
-            ten = DalDK.LayTenSV(hoten);
-            return ten;
-        }
+
 
     }
 }

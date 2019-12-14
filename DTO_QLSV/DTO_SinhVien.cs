@@ -17,6 +17,8 @@ namespace DTO_QLSV
         private string _SinhVien_GioiTinh;
         private string _SinhVien_Hinh;
         private string _SinhVien_MaNganh;
+        private string _SinhVien_Malop;
+
 
         private int column;
         private TextBox txt;
@@ -109,11 +111,21 @@ namespace DTO_QLSV
                 _SinhVien_MaNganh = value;
             }
         }
+        public string SinhVien_MaLop
+        {
+            get { return _SinhVien_Malop; }
+            set
+
+            {
+                _SinhVien_Malop = value;
+            }
+
+        }
         public DTO_SinhVien()
         {
 
         }
-        public DTO_SinhVien(string MaSinhVien,string HoTen,string QueQuan,DateTime NgaySinh,string NoiSinh,string GioiTinh,string Hinh, string MaNganh)
+        public DTO_SinhVien(string MaSinhVien,string HoTen,string QueQuan,DateTime NgaySinh,string NoiSinh,string GioiTinh,string Hinh, string MaNganh,string malop)
         {
             this._SinhVien_MaSinhVien = MaSinhVien;
             this._SinhVien_HoTen = HoTen;
@@ -123,6 +135,7 @@ namespace DTO_QLSV
             this._SinhVien_GioiTinh = GioiTinh;
             this._SinhVien_Hinh = Hinh;
             this._SinhVien_MaNganh = MaNganh;
+            this.SinhVien_MaLop = malop;
         }
     }
 }

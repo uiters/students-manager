@@ -16,24 +16,33 @@ namespace DAL_QLSV
         public DataTable LoadDL_DKMonHoc()
         {
             DataTable dt = new DataTable();
-            dt = xuly.LayDanhSach("select MonHoc.MaMonHoc,sinhvien.MaSinhVien,HoTen,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh from (DKMH full join SinhVien on DKMH.MaSinhVien=SinhVien.MaSinhVien) full join MonHoc on MonHoc.MaMonHoc=DKMH.MaMonHoc");
+            dt = xuly.LayDanhSach("select MonHoc.TenMonHoc,sinhvien.MaSinhVien,SinhVien.HoTen,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh  from (Diem right join SinhVien on Diem.MaSinhVien=SinhVien.MaSinhVien) left join MonHoc on MonHoc.MaMonHoc=Diem.MaMonHoc ");
             return dt;
         }
-
-        public DataTable TimKiemMHDK(string MaSV)
+        public DataTable TimKiemSV(string field, string DKTim)
         {
             DataTable dt = new DataTable();
-           // dt = xuly.LayDanhSach("Select * from DK_MonHoc where MaSinhVien = '" + MaSV + "'");
-            dt = xuly.LayDanhSach("select MonHoc.MaMonHoc,sinhvien.MaSinhVien,HoTen,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh from (DKMH full join SinhVien on DKMH.MaSinhVien=SinhVien.MaSinhVien) full join MonHoc on MonHoc.MaMonHoc=DKMH.MaMonHoc having MaSinhVien '"+ MaSV +"'");
+            dt.Clear();
+            dt = xuly.LayDanhSach("select MonHoc.TenMonHoc,sinhvien.MaSinhVien,SinhVien.HoTen,MonHoc.TenMonHoc,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh  from (Diem right join SinhVien on Diem.MaSinhVien=SinhVien.MaSinhVien) left join MonHoc on MonHoc.MaMonHoc=Diem.MaMonHoc  where " + field + " = N'" + DKTim + "'");
             return dt;
         }
+        //public DataTable TimKiemMHDK(string MaSV)
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    // dt = xuly.LayDanhSach("Select * from DK_MonHoc where MaSinhVien = '" + MaSV + "'");
+        //    dt = xuly.LayDanhSach("select MonHoc.MaMonHoc,sinhvien.MaSinhVien,HoTen,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh from (DKMH right join SinhVien on DKMH.MaSinhVien=SinhVien.MaSinhVien) left join MonHoc on MonHoc.MaMonHoc=DKMH.MaMonHoc where MaSinhVien '" + MaSV +"'");
+        //    return dt;
+        //}
 
 
-        public string LayTenSV(string Masv)
-        {
-            string ten = "";
-            ten = xuly.LayTen("Select Hoten from SinhVien Where HoTen = '" + Masv + "'");
-            return ten;
-        }
+        //public DataTable LayTenSV(string hoten)
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    // dt = xuly.LayDanhSach("Select * from DK_MonHoc where MaSinhVien = '" + MaSV + "'");
+        //    dt = xuly.LayDanhSach("select MonHoc.MaMonHoc,sinhvien.MaSinhVien,HoTen,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh from (DKMH right join SinhVien on DKMH.MaSinhVien=SinhVien.MaSinhVien) left join MonHoc on MonHoc.MaMonHoc=DKMH.MaMonHoc where HoTen '" + hoten + "'");
+        //    return dt;
+        //}
     }
 }

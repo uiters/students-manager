@@ -18,19 +18,31 @@ namespace BUS_QLSV
 
         
         
-        public void ThemSinhVien(string masv,string hoten,string quequan,DateTime ngaysinh,string noisinh,string hinh,string gioitinh,string manganh)
+        public void ThemSinhVien(string masv,string hoten,string quequan,DateTime ngaysinh,string noisinh,string hinh,string gioitinh,string malop,string manganh)
         {
             int tuoi=DateTime.Now.Year;
 
-           if((tuoi-ngaysinh.Year>18)&&(tuoi-ngaysinh.Year<24))
-            DalSinhVien.ThemSinhVien(masv,hoten,quequan,ngaysinh,noisinh,hinh,gioitinh,manganh);
+            if ((tuoi - ngaysinh.Year >= 18) && (tuoi - ngaysinh.Year < 24))
+            {
+                DalSinhVien.ThemSinhVien(masv, hoten, quequan, ngaysinh, noisinh, hinh, gioitinh,malop, manganh);
+            }
+            else
+            {
+                MessageBox.Show("Sinh viên phải >=17 tuổi ");
+            }
         }
 
-        public void CapNhatSinhVien(string masv, string hoten, string quequan, DateTime ngaysinh, string noisinh, string hinh, string gioitinh, string manganh)
+        public void CapNhatSinhVien(string masv, string hoten, string quequan, DateTime ngaysinh, string noisinh, string hinh, string gioitinh,string malop, string manganh)
         {
             int tuoi = DateTime.Now.Year;
-            if ((tuoi - ngaysinh.Year > 18) && (tuoi - ngaysinh.Year < 24))
-                DalSinhVien.CapNhatSinhVien(masv, hoten, quequan, ngaysinh, noisinh, hinh, gioitinh, manganh);
+            if ((tuoi - ngaysinh.Year >= 18) && (tuoi - ngaysinh.Year < 24))
+            {
+                DalSinhVien.CapNhatSinhVien(masv, hoten, quequan, ngaysinh, noisinh, hinh, gioitinh,malop, manganh);
+            }
+            else
+            {
+                MessageBox.Show("Sinh viên phải >=17 tuổi ");
+            }
         }
 
         public void XoaSinhVien(string masv)
@@ -67,6 +79,10 @@ namespace BUS_QLSV
         public void LayDLVaoComboboxMaNganh(ComboBox CMB)
         {
             DalSinhVien.LayMaNganhVaoComBoboxMaNganh(CMB);
+        }
+        public void LayDLVaoComboboxMaLop(ComboBox CMB)
+        {
+            DalSinhVien.LayMaNganhVaoComBoboxMaLop(CMB);
         }
     }
 }

@@ -38,11 +38,10 @@ namespace BUS_QLSV
         {
             try
             {
-                if (KiemTraTenMonHoc(tenmh) == false )
-                {
+               
 
                     DAL_MonHoc.CapNhatMonHoc(mamh, tenmh, loaimonhoc, lythuyet, thuchanh, makhoa);
-                }
+                
 
             }
             catch (Exception ex)

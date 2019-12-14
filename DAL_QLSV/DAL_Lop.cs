@@ -26,13 +26,13 @@ namespace DAL_QLSV
         public void ThemLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD,DateTime KT,string mamh,string magv)
         {
             _Lop_MaLop.SqlValue = malop;
-            _Lop_MaLop.ParameterName = "@Malop";
+            _Lop_MaLop.ParameterName = "@MaLop";
 
-            _Lop_TenLop.SqlValue = malop;
+            _Lop_TenLop.SqlValue = tenlop;
             _Lop_TenLop.ParameterName = "@TenLop";
 
             _Lop_LoaiLop.SqlValue = loailop;
-            _Lop_LoaiLop.ParameterName = "@MLoaiLop";
+            _Lop_LoaiLop.ParameterName = "@LoaiLop";
 
             _Lop_NienKhoa.SqlValue = nienkhoa;
             _Lop_NienKhoa.ParameterName = "@NienKhoa";
@@ -59,13 +59,13 @@ namespace DAL_QLSV
         public void CapNhatLop(string malop, string tenlop, bool loailop, string nienkhoa, DateTime BD, DateTime KT, string mamh, string magv)
         {
             _Lop_MaLop.SqlValue = malop;
-            _Lop_MaLop.ParameterName = "@Malop";
+            _Lop_MaLop.ParameterName = "@MaLop";
 
-            _Lop_TenLop.SqlValue = malop;
+            _Lop_TenLop.SqlValue = tenlop;
             _Lop_TenLop.ParameterName = "@TenLop";
 
             _Lop_LoaiLop.SqlValue = loailop;
-            _Lop_LoaiLop.ParameterName = "@MLoaiLop";
+            _Lop_LoaiLop.ParameterName = "@LoaiLop";
 
             _Lop_NienKhoa.SqlValue = nienkhoa;
             _Lop_NienKhoa.ParameterName = "@NienKhoa";
@@ -91,7 +91,7 @@ namespace DAL_QLSV
         public void XoaLop(string malop)
         {
             _Lop_MaLop.SqlValue = malop;
-            _Lop_MaLop.ParameterName = "@Malop";
+            _Lop_MaLop.ParameterName = "@MaLop";
             xuly.ThaoTacDuLieu("qlsv_XoaLop", CommandType.StoredProcedure, _Lop_MaLop);
 
         }
@@ -120,10 +120,10 @@ namespace DAL_QLSV
             xuly.LoadDLVaoCombobox("Select * from MonHoc", cmb, "TenMonHoc", "MaMonHoc");
         }
 
-        public DataTable TimKiemLop(string cotTim, string DKTim)
+        public DataTable TimKiemLop(string cotTim, string DKTim,string table)
         {
             DataTable dt = new DataTable();
-            dt = xuly.LayDanhSach("Select * from Lop Where " + cotTim + " = '" + DKTim + "'");
+            dt = xuly.LayDanhSach("Select * from "+table+" Where " + cotTim + " = '" + DKTim + "'");
             return dt;
         }
 

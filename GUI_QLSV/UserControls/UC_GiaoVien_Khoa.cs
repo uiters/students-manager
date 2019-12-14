@@ -187,7 +187,7 @@ namespace GUI_QLSV.UserControls
 
         private void btnXoa_GV_Click_1(object sender, EventArgs e)
         {
-            Bus_GV.XoaGiaoVien(DTO_GV.GiaoVien_MaGiaoVien);
+            Bus_GV.XoaGiaoVien(DTO_GV.GiaoVien_MaGiaoVien=txtMaGiaoVien.Text);
             dgvGiaoVien.DataSource = Bus_GV.LoadDLGiaoVien();
             BUS_xuly.ClearAllTextBox(groupboxGV);
 

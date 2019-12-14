@@ -21,6 +21,7 @@ namespace BUS_QLSV
             DataTable dt = new DataTable();
 
             dt = DalDiem.LayDuLieuKhoa();
+
             return dt;
         }
 
@@ -28,21 +29,21 @@ namespace BUS_QLSV
         //{
         //    DataTable dt = new DataTable();
 
-        //    dt = qlsv_dDiem.LayDSMonHoc();
+        //    dt = DalDiem.LayDSMonHoc();
         //    return dt;
         //}
 
-        public void NhapDiem()
+        public void NhapDiem(string mmh,string mssv,float diem,int lanthi)
         {
             try
             {
-                if (DTO_Diem.Diem_MaSinhVien == "")
+                if (mssv == "")
                 {
 
                     MessageBox.Show("Vui lòng nhập mã số sinh viên ! ");
                     return;
                 }
-                DalDiem.NhapDiem(DTO_Diem.Diem_MaMonHoc, DTO_Diem.Diem_MaSinhVien, DTO_Diem.Diem_SoDiem, DTO_Diem.Diem_LanThi);
+                DalDiem.NhapDiem(mmh,mssv,diem,lanthi);
             }
             catch
             {
@@ -52,19 +53,12 @@ namespace BUS_QLSV
             }
 
         }
-
-        public DataTable LayDLDiem()
-        {
-            DataTable dt = new DataTable();
-            dt = DalDiem.LayDLDiem();
-            return dt;
-        }
-
-        public void XoaDiem()
+     
+        public void XoaDiem(string mmh,string mssv)
         {
             try
             {
-                DalDiem.XoaDiem(DTO_Diem.Diem_MaMonHoc, DTO_Diem. Diem_MaSinhVien);
+                DalDiem.XoaDiem(mmh,mssv);
                 MessageBox.Show("Xóa thành công");
             }
             catch (Exception ex)
@@ -73,11 +67,11 @@ namespace BUS_QLSV
             }
         }
 
-        public void CapNhatDiem()
+        public void CapNhatDiem(string mmh, string mssv, float diem, int lanthi)
         {
             try
             {
-                DalDiem.CapNhatDiem(DTO_Diem.Diem_MaMonHoc, DTO_Diem.Diem_MaSinhVien, DTO_Diem.Diem_SoDiem, DTO_Diem.Diem_LanThi);
+                DalDiem.CapNhatDiem(mmh, mssv, diem, lanthi);
                 MessageBox.Show("Cập nhật thành công");
             }
             catch
@@ -86,33 +80,30 @@ namespace BUS_QLSV
             }
         }
 
-        public DataTable TracuuDiem()
+        public DataTable TracuuDiem(string mssv)
         {
             DataTable dt = new DataTable();
-            dt = DalDiem.TimKiemDiem(DTO_Diem.Diem_MaSinhVien);
+            dt = DalDiem.TimKiemDiem(mssv);
             return dt;
         }
 
-        public void LayDanhSachMonHocVaoListBox()
+        public DataTable LayDLDiem()
         {
-            // DalDiem.LoadDLVaoListBox(DTO_Diem.LISTBOX, DTO_Diem.MAKHOA);
-            DalDiem.LoadDLVaoListBox(DTO_Diem.LISTBOX, DTO_Diem.Diem_MaMonHoc);
+            DataTable dt = new DataTable();
+            dt = DalDiem.LayDLDiem();
+            return dt;
         }
 
-        public void GoiYMaSinhVien()
+        public void LayDanhSachMonHocVaoListBox(ListBox lb,string makhoa)
         {
-            GoiYMaSinhVien(DTO_Diem.TXTMSV);
+             DalDiem.LoadDLVaoListBox(lb, makhoa);
+           // DalDiem.LoadDLVaoListBox(DTO_Diem.LISTBOX, DTO_Diem.Diem_MaMonHoc);
         }
 
-        //gợi ý tìm kiếm msv
-        public void GoiYTimMSV()
-        {
-            GoiYMaSinhVien(DTO_Diem.txtTIMMSV);
-        }
         //Tạo từ gợi ý khi tìm kiếm
-        public void GoiYMaSinhVien(TextBox txt)
+        public void GoiYMaSinhVien(TextBox txt,string table,int column)
         {
-            BUS_xuly.TextBox_AutoComplete(txt, "SinhVien", 0);
+            BUS_xuly.TextBox_AutoComplete(txt, table,column);
         }
     }
 }

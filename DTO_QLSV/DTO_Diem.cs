@@ -15,17 +15,17 @@ namespace DTO_QLSV
         private int _Diem_LanThi;
 
         private ListBox lb;
-        private TextBox txtMSV;
+        private string _MSSV;
         private TextBox txtTimMsv;
         public TextBox txtTIMMSV
         {
             get { return txtTimMsv; }
             set { txtTimMsv = value; }
         }
-        public TextBox TXTMSV
+        public string MSSV
         {
-            get { return txtMSV; }
-            set { txtMSV = value; }
+            get { return _MSSV; }
+            set { _MSSV = value; }
         }
 
         public ListBox LISTBOX
@@ -47,12 +47,12 @@ namespace DTO_QLSV
         public float Diem_SoDiem
         {
             get { return _Diem_SoDiem; }
-            set { Diem_SoDiem = value; }
+            set { _Diem_SoDiem = value; }
         }
         public int Diem_LanThi
         {
             get { return _Diem_LanThi; }
-            set { Diem_LanThi = value; }
+            set { _Diem_LanThi = value; }
         }
         public DTO_Diem() {  }
         public DTO_Diem(string MaMonHoc, string MaSinhVien, float SoDiem, int LanThi)

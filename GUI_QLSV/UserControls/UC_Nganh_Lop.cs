@@ -84,6 +84,8 @@ namespace GUI_QLSV.UserControls
 
             DTO_Nganh.Nganh_cmbMaKhoa = cmbMaKhoa;
             Bus_Nganh.LoadDLVao_cmbMaKhoa(DTO_Nganh.Nganh_cmbMaKhoa);
+            
+            
             dgvNganh.DataSource = Bus_Nganh.LoadDL();
 
             //ko cho thao tác 
@@ -128,8 +130,8 @@ namespace GUI_QLSV.UserControls
 
                     loailop = true;
 
-                else
-                    loailop = true;
+                else if(rdb_2.Checked==true)
+                    loailop = false;
 
                 DTO_lop.Lop_LoaiLop = loailop;
 
@@ -137,17 +139,10 @@ namespace GUI_QLSV.UserControls
                 DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
                 DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
                 DTO_lop.Lop_MaGiaoVien = cmbGiaoVien_Lop.SelectedValue.ToString();
-                DTO_lop.Lop_MaMonHoc = cmbGiaoVien_Lop.SelectedValue.ToString();
-                if (dtpNgayKetThuc_Lop.Value.Day- dtpNgayBatDau_Lop.Value.Day>0)
-                {
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu ");
-                    DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
-                    DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
-                }
+                DTO_lop.Lop_MaMonHoc = cmbMonHoc_Lop.SelectedValue.ToString();
+       
+               
+                
                 BUS_Lop.ThemLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop, DTO_lop.Lop_NienKhoa, DTO_lop.Lop_NgayBatDau, DTO_lop.Lop_NgayKetThuc, DTO_lop.Lop_MaMonHoc,DTO_lop.Lop_MaGiaoVien);
 
                 dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
@@ -172,30 +167,26 @@ namespace GUI_QLSV.UserControls
             else if (flag == "sửa")
             {
 
-                txtMaLop.Text = BUS_Lop.TaoMaLop();
                 DTO_lop.Lop_MaLop = txtMaLop.Text;
                 DTO_lop.Lop_TenLop = txtTenLop.Text;
+
+
                 if (rdb_1.Checked == true)
 
                     loailop = true;
 
-                else
-                    loailop = true;
+                else if (rdb_2.Checked == true)
+                    loailop = false;
 
                 DTO_lop.Lop_LoaiLop = loailop;
+
                 DTO_lop.Lop_NienKhoa = txtNienKhoa_Lop.Text;
                 DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
                 DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
-                if (dtpNgayKetThuc_Lop.Value.Day - dtpNgayBatDau_Lop.Value.Day > 0)
-                {
-                 
-                }
-                else
-                {
-                    MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu ");
-                    DTO_lop.Lop_NgayBatDau = dtpNgayBatDau_Lop.Value;
-                    DTO_lop.Lop_NgayKetThuc = dtpNgayKetThuc_Lop.Value;
-                }
+                DTO_lop.Lop_MaGiaoVien = cmbGiaoVien_Lop.SelectedValue.ToString();
+                DTO_lop.Lop_MaMonHoc = cmbMonHoc_Lop.SelectedValue.ToString();
+
+
                 BUS_Lop.CapNhatLop(DTO_lop.Lop_MaLop, DTO_lop.Lop_TenLop, DTO_lop.Lop_LoaiLop, DTO_lop.Lop_NienKhoa, DTO_lop.Lop_NgayBatDau, DTO_lop.Lop_NgayKetThuc, DTO_lop.Lop_MaMonHoc, DTO_lop.Lop_MaGiaoVien);
                 dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
                 BUS_xuly.ClearAllTextBox(groupboxLOP);
@@ -256,16 +247,31 @@ namespace GUI_QLSV.UserControls
             }
             else
             {
+                string table = "";
                 if (txtTimLop.Text == "")
                 {
                     dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
+                    int n = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM,"Lop").Rows.Count;
+                    MessageBox.Show("Tìm thấy " + n + " kết quả");
                 }
                 else
                 {
-                    DTO_lop.DKTIM = txtTimLop.Text;
-                    dgvLop.DataSource = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM);
-                    int n = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM).Rows.Count;
-                    MessageBox.Show("Tìm thấy " + n + " kết quả");
+                    if (cmbTimLop.Text == "Tên Lớp")
+                    {
+                        table = "Lop";
+                        DTO_lop.DKTIM = txtTimLop.Text;
+                        dgvLop.DataSource = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM,table);
+                        int n = BUS_Lop.TimKiemLop("TenLop", DTO_lop.DKTIM, table).Rows.Count;
+                        MessageBox.Show("Tìm thấy " + n + " kết quả");
+                    }
+                    else
+                    {
+                        table = "GiaoVien";
+                        DTO_lop.DKTIM = txtTimLop.Text;
+                        dgvLop.DataSource = BUS_Lop.TimKiemLop("TenGiaoVien", DTO_lop.DKTIM, table);
+                        int n = BUS_Lop.TimKiemLop("TenGiaoVien", DTO_lop.DKTIM, table).Rows.Count;
+                        MessageBox.Show("Tìm thấy " + n + " kết quả");
+                    }
                 }
             }
         }
@@ -276,7 +282,13 @@ namespace GUI_QLSV.UserControls
 
             txtMaLop.Text = dgvLop.CurrentRow.Cells[0].Value.ToString();
             txtTenLop.Text = dgvLop.CurrentRow.Cells[1].Value.ToString();
-            if ((bool)dgvLop.CurrentRow.Cells[2].Value == true )
+
+            if(dgvLop.CurrentRow.Cells[2].Value.ToString()=="")
+            {
+                rdb_1.Checked = false;
+                rdb_2.Checked = false;
+            }
+            else if ((bool)dgvLop.CurrentRow.Cells[2].Value == true )
             {
                 rdb_1.Checked = true;
             }
@@ -284,11 +296,7 @@ namespace GUI_QLSV.UserControls
             {
                 rdb_2.Checked = true;
             }
-            else
-            {
-                rdb_1.Checked = false;
-                rdb_2.Checked = false;
-            }
+          
 
             txtNienKhoa_Lop.Text = dgvLop.CurrentRow.Cells[3].Value.ToString();
 
@@ -301,31 +309,41 @@ namespace GUI_QLSV.UserControls
             { dtpNgayKetThuc_Lop.Value = DateTime.Now; }
             else
                 dtpNgayKetThuc_Lop.Value = (DateTime)dgvLop.CurrentRow.Cells[5].Value;
-           
+
+            cmbMonHoc_Lop.SelectedValue = dgvLop.CurrentRow.Cells[6].Value;
+            cmbGiaoVien_Lop.SelectedValue = dgvLop.CurrentRow.Cells[7].Value;
+
 
         }
 
         private void cmbTimLop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int cotgoiy = 0;
             string table = "";
-            if (cmbTimLop.SelectedItem.ToString() == "Tên Lớp")
+            if (cmbTimLop.SelectedItem.ToString() == "-- Chọn điều kiện --")
             {
-                cotgoiy = 3;
-                DTO_lop.COTGOIY = cotgoiy;
-                DTO_lop.COTIMKIEM = "TenLop";
-
-                DTO_lop.TXTGOIY = txtTimLop;
-                BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY,table,cotgoiy);
+                MessageBox.Show("Chưa chọn điều kiện");
             }
-            else if (cmbTimLop.SelectedItem.ToString() == "Mã Ngành")
+            else
             {
-                cotgoiy = 2;
-                DTO_lop.COTGOIY = cotgoiy;
-                DTO_lop.COTIMKIEM = "MaNganh";
+              
+                if (cmbTimLop.SelectedItem.ToString() == "Tên Lớp")
+                {
 
-                DTO_lop.TXTGOIY = txtTimLop;
-                BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY, table, cotgoiy);
+                    DTO_lop.COTGOIY = 1;
+                    DTO_lop.COTIMKIEM = "TenLop";
+                    table = "Lop";
+                    DTO_lop.TXTGOIY = txtTimLop;
+                    BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY, table, DTO_lop.COTGOIY);
+                }
+                else if (cmbTimLop.SelectedItem.ToString() == "Giáo viên dạy")
+                {
+
+                    DTO_lop.COTGOIY = 1;
+                    DTO_lop.COTIMKIEM = "MaGiaoVien";
+                    table = "GiaoVien";
+                    DTO_lop.TXTGOIY = txtTimLop;
+                    BUS_Lop.GoiYTimKiem(DTO_lop.TXTGOIY, table, DTO_lop.COTGOIY);
+                }
             }
 
         }
@@ -452,8 +470,10 @@ namespace GUI_QLSV.UserControls
         
         }
 
+
+
         #endregion
 
-      
+ 
     }
 }

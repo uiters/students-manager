@@ -19,12 +19,18 @@ namespace BUS_QLSV
         {
             try
             {
-                Dal_Lop.ThemLop(malop,tenlop,loailop,nienkhoa,BD,KT,mamh,magv);
+                if ((KT.Day - BD.Day > 0) || (KT.Month - BD.Month > 0) || (KT.Year - BD.Year > 0))
+                {
+
+                    Dal_Lop.ThemLop(malop, tenlop, loailop, nienkhoa, BD, KT, mamh, magv);
+                }
+
+
             }
-            catch
+            catch(Exception e)
 
             {
-                MessageBox.Show("Có lỗi khi thực hiện! ");
+                MessageBox.Show("Có lỗi khi thực hiện! ",e.ToString());
             }
 
         }
@@ -32,7 +38,11 @@ namespace BUS_QLSV
         {
             try
             {
-                Dal_Lop.CapNhatLop(malop, tenlop, loailop, nienkhoa, BD, KT,mamh,magv);
+                if ((KT.Day - BD.Day > 0) || (KT.Month - BD.Month > 0) || (KT.Year - BD.Year > 0))
+                {
+
+                    Dal_Lop.CapNhatLop(malop, tenlop, loailop, nienkhoa, BD, KT, mamh, magv);
+                }
             }
             catch
             {
@@ -78,16 +88,16 @@ namespace BUS_QLSV
             Dal_Lop.LayDLVaoCombobox_MaMonHoc(monhoc);
         }
 
-        public DataTable TimKiemLop(string columnName,string timkiem)
+        public DataTable TimKiemLop(string columnName,string timkiem,string table)
         {
             DataTable dt = new DataTable();
-            dt = Dal_Lop.TimKiemLop(columnName,timkiem);
+            dt = Dal_Lop.TimKiemLop(columnName,timkiem,table);
             return dt;
         }
 
         public void GoiYTimKiem(TextBox txt,string table, int column)
         {
-            table = "Lop";
+            
             BUS_xuly.TextBox_AutoComplete(txt, table, column);
         }
     }

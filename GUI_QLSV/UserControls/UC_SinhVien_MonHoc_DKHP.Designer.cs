@@ -88,6 +88,7 @@
             this.btnTimDKMH = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.groupboxSVDKMH = new System.Windows.Forms.GroupBox();
+            this.lblTenSV = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDangkyMH = new System.Windows.Forms.DataGridView();
@@ -105,7 +106,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtMSV_DKMH = new System.Windows.Forms.TextBox();
             this.oFD_Pic = new System.Windows.Forms.OpenFileDialog();
-            this.lblTenSV = new System.Windows.Forms.Label();
+            this.cmbMaLop = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabSV_Mon_DKMH.SuspendLayout();
             this.tabSinhVien.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -158,6 +160,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.cmbMaLop);
+            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.btnTakePhoto);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnQuanLySV);
@@ -363,7 +367,7 @@
             // rdNu
             // 
             this.rdNu.AutoSize = true;
-            this.rdNu.Location = new System.Drawing.Point(512, 88);
+            this.rdNu.Location = new System.Drawing.Point(512, 129);
             this.rdNu.Margin = new System.Windows.Forms.Padding(4);
             this.rdNu.Name = "rdNu";
             this.rdNu.Size = new System.Drawing.Size(48, 22);
@@ -375,7 +379,7 @@
             // 
             this.rdNam.AutoSize = true;
             this.rdNam.Checked = true;
-            this.rdNam.Location = new System.Drawing.Point(441, 88);
+            this.rdNam.Location = new System.Drawing.Point(441, 129);
             this.rdNam.Margin = new System.Windows.Forms.Padding(4);
             this.rdNam.Name = "rdNam";
             this.rdNam.Size = new System.Drawing.Size(61, 22);
@@ -457,7 +461,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(356, 90);
+            this.label4.Location = new System.Drawing.Point(356, 131);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 18);
@@ -818,6 +822,7 @@
             this.cmbTimKiem_DKMH.Size = new System.Drawing.Size(135, 25);
             this.cmbTimKiem_DKMH.TabIndex = 3;
             this.cmbTimKiem_DKMH.Text = "--Điều kiện tìm--";
+            this.cmbTimKiem_DKMH.TextChanged += new System.EventHandler(this.cmbTimKiem_DKMH_TextChanged);
             // 
             // btnTimDKMH
             // 
@@ -857,6 +862,18 @@
             this.groupboxSVDKMH.TabIndex = 18;
             this.groupboxSVDKMH.TabStop = false;
             this.groupboxSVDKMH.Text = "Các môn học đã đăng ký";
+            // 
+            // lblTenSV
+            // 
+            this.lblTenSV.AutoSize = true;
+            this.lblTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenSV.ForeColor = System.Drawing.Color.Red;
+            this.lblTenSV.Location = new System.Drawing.Point(415, 32);
+            this.lblTenSV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTenSV.Name = "lblTenSV";
+            this.lblTenSV.Size = new System.Drawing.Size(61, 17);
+            this.lblTenSV.TabIndex = 3;
+            this.lblTenSV.Text = "label37";
             // 
             // label25
             // 
@@ -1035,17 +1052,25 @@
             this.oFD_Pic.FileName = "openFileDialog1";
             this.oFD_Pic.FileOk += new System.ComponentModel.CancelEventHandler(this.oFD_Pic_FileOk);
             // 
-            // lblTenSV
+            // cmbMaLop
             // 
-            this.lblTenSV.AutoSize = true;
-            this.lblTenSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSV.ForeColor = System.Drawing.Color.Red;
-            this.lblTenSV.Location = new System.Drawing.Point(415, 32);
-            this.lblTenSV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTenSV.Name = "lblTenSV";
-            this.lblTenSV.Size = new System.Drawing.Size(61, 17);
-            this.lblTenSV.TabIndex = 3;
-            this.lblTenSV.Text = "label37";
+            this.cmbMaLop.FormattingEnabled = true;
+            this.cmbMaLop.Location = new System.Drawing.Point(469, 88);
+            this.cmbMaLop.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMaLop.Name = "cmbMaLop";
+            this.cmbMaLop.Size = new System.Drawing.Size(160, 25);
+            this.cmbMaLop.TabIndex = 42;
+            this.cmbMaLop.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(356, 93);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(87, 18);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "Thuộc Lớp: ";
             // 
             // UC_SinhVien_MonHoc_DKHP
             // 
@@ -1165,5 +1190,7 @@
         private System.Windows.Forms.ComboBox cmbTimKiem_DKMH;
         private System.Windows.Forms.TextBox txtTimKiem_DKMH;
         private System.Windows.Forms.Label lblTenSV;
+        private System.Windows.Forms.ComboBox cmbMaLop;
+        public System.Windows.Forms.Label label17;
     }
 }

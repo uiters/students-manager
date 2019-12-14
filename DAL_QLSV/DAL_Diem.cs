@@ -25,6 +25,7 @@ namespace DAL_QLSV
             DataTable dt = new DataTable();
 
             dt = xuly.LayDanhSach("Select * from Khoa");
+
             return dt;
         }
 
@@ -37,7 +38,7 @@ namespace DAL_QLSV
             _MaMH.ParameterName = "@MaMonHoc";
 
             _Masv.SqlValue = masv;
-            _Masv.ParameterName = "@MaSV";
+            _Masv.ParameterName = "@MaSinhVien";
 
             _SoDiem.SqlValue = sodiem;
             _SoDiem.ParameterName = "@SoDiem";
@@ -54,7 +55,7 @@ namespace DAL_QLSV
         public DataTable LayDLDiem()
         {
             DataTable dt = new DataTable();
-            dt = xuly.LayDanhSach("Select * from Diem");
+            dt = xuly.LayDanhSach("Select * from Diem ");
             return dt;
         }
         public void XoaDiem(string MaMH, String MaSV)
@@ -74,7 +75,7 @@ namespace DAL_QLSV
             _MaMH.ParameterName = "@MaMonHoc";
 
             _Masv.SqlValue = masv;
-            _Masv.ParameterName = "@MaSV";
+            _Masv.ParameterName = "@MaSinhVien";
 
             _SoDiem.SqlValue = sodiem;
             _SoDiem.ParameterName = "@SoDiem";
@@ -89,7 +90,7 @@ namespace DAL_QLSV
         {
             DataTable dt = new DataTable();
             dt.Clear();
-            dt = xuly.LayDanhSach("Select * from Diem where MaSv = '" + masv + "'");
+            dt = xuly.LayDanhSach("select MonHoc.MaMonHoc,TenMonHoc,SinhVien.MaSinhVien,HoTen,SoDiem,LanThi from (diem right join SinhVien on sinhvien.MaSinhVien=diem.MaSinhVien) left join MonHoc on MonHoc.MaMonHoc=Diem.MaMonHoc  where Diem.MaSinhVien = '" + masv + "'");
             return dt;
         }
 

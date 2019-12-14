@@ -57,6 +57,10 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.dgvLop = new System.Windows.Forms.DataGridView();
             this.groupboxLOP = new System.Windows.Forms.GroupBox();
+            this.cmbGiaoVien_Lop = new System.Windows.Forms.ComboBox();
+            this.cmbMonHoc_Lop = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.rdb_2 = new System.Windows.Forms.RadioButton();
             this.rdb_1 = new System.Windows.Forms.RadioButton();
             this.dtpNgayKetThuc_Lop = new System.Windows.Forms.DateTimePicker();
@@ -74,10 +78,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbMonHoc_Lop = new System.Windows.Forms.ComboBox();
-            this.cmbGiaoVien_Lop = new System.Windows.Forms.ComboBox();
             this.tabKhoaHoc_Nganh_Lop.SuspendLayout();
             this.tabNganh.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -360,9 +360,8 @@
             this.cmbTimLop.FormattingEnabled = true;
             this.cmbTimLop.Items.AddRange(new object[] {
             "Tên Lớp",
-            "Mã Khóa Học",
-            "Mã Ngành"});
-            this.cmbTimLop.Location = new System.Drawing.Point(309, 377);
+            "Giáo viên dạy"});
+            this.cmbTimLop.Location = new System.Drawing.Point(266, 376);
             this.cmbTimLop.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTimLop.Name = "cmbTimLop";
             this.cmbTimLop.Size = new System.Drawing.Size(160, 24);
@@ -393,7 +392,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Location = new System.Drawing.Point(233, 382);
+            this.label23.Location = new System.Drawing.Point(190, 381);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(67, 17);
@@ -415,6 +414,8 @@
             // 
             // dgvLop
             // 
+            this.dgvLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLop.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLop.Location = new System.Drawing.Point(8, 23);
             this.dgvLop.Margin = new System.Windows.Forms.Padding(4);
@@ -456,6 +457,42 @@
             this.groupboxLOP.TabIndex = 0;
             this.groupboxLOP.TabStop = false;
             this.groupboxLOP.Text = "Thêm Lớp";
+            // 
+            // cmbGiaoVien_Lop
+            // 
+            this.cmbGiaoVien_Lop.FormattingEnabled = true;
+            this.cmbGiaoVien_Lop.Location = new System.Drawing.Point(620, 141);
+            this.cmbGiaoVien_Lop.Name = "cmbGiaoVien_Lop";
+            this.cmbGiaoVien_Lop.Size = new System.Drawing.Size(200, 24);
+            this.cmbGiaoVien_Lop.TabIndex = 25;
+            // 
+            // cmbMonHoc_Lop
+            // 
+            this.cmbMonHoc_Lop.FormattingEnabled = true;
+            this.cmbMonHoc_Lop.Location = new System.Drawing.Point(620, 108);
+            this.cmbMonHoc_Lop.Name = "cmbMonHoc_Lop";
+            this.cmbMonHoc_Lop.Size = new System.Drawing.Size(200, 24);
+            this.cmbMonHoc_Lop.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(499, 141);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Giáo viên dạy:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(499, 111);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 17);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Dạy Môn Học: ";
             // 
             // rdb_2
             // 
@@ -635,42 +672,6 @@
             this.label32.Size = new System.Drawing.Size(59, 17);
             this.label32.TabIndex = 0;
             this.label32.Text = "Mã Lớp:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(499, 141);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Giáo viên dạy:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(499, 111);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 17);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Dạy Môn Học: ";
-            // 
-            // cmbMonHoc_Lop
-            // 
-            this.cmbMonHoc_Lop.FormattingEnabled = true;
-            this.cmbMonHoc_Lop.Location = new System.Drawing.Point(620, 108);
-            this.cmbMonHoc_Lop.Name = "cmbMonHoc_Lop";
-            this.cmbMonHoc_Lop.Size = new System.Drawing.Size(200, 24);
-            this.cmbMonHoc_Lop.TabIndex = 24;
-            // 
-            // cmbGiaoVien_Lop
-            // 
-            this.cmbGiaoVien_Lop.FormattingEnabled = true;
-            this.cmbGiaoVien_Lop.Location = new System.Drawing.Point(620, 141);
-            this.cmbGiaoVien_Lop.Name = "cmbGiaoVien_Lop";
-            this.cmbGiaoVien_Lop.Size = new System.Drawing.Size(200, 24);
-            this.cmbGiaoVien_Lop.TabIndex = 25;
             // 
             // UC_Nganh_Lop
             // 

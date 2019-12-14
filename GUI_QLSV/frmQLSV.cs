@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO_QLSV;
 using BUS_QLSV;
+using GUI_QLSV.UserControls;
 namespace GUI_QLSV
 {
     public partial class frmQLSV : Form
@@ -19,13 +20,16 @@ namespace GUI_QLSV
         }
 
         DTO_SinhVien DTO_sv = new DTO_SinhVien();
-       
+        
         DTO_Lop DTO_lop = new DTO_Lop();
 
         BUS_Xuly BUS_xuly = new BUS_Xuly();
         BUS_SinhVien BUS_sv = new BUS_SinhVien();
         
         BUS_LOP BUS_lop = new BUS_LOP();
+
+        UC_SinhVien_MonHoc_DKHP userControl = new UC_SinhVien_MonHoc_DKHP();
+        
         int col = 0;
         string table;
         #region hide and show txt
@@ -79,9 +83,10 @@ namespace GUI_QLSV
             DTO_sv.SinhVien_MaNganh = cmbNganh_sv.SelectedValue.ToString();
             DTO_sv.SinhVien_Hinh = txtHinh.Text;
             DTO_sv.SinhVien_GioiTinh = gioitinh;
-
-            BUS_sv.CapNhatSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaNganh);
-            dgvSinhVien.DataSource = BUS_sv.LoadDL();
+            DTO_sv.SinhVien_MaLop = cmbMaLop.SelectedValue.ToString();
+            BUS_sv.CapNhatSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaLop, DTO_sv.SinhVien_MaNganh);
+            dgvSinhVien.DataSource = userControl.dgv_SV.DataSource = BUS_sv.LoadDL();
+           
             BUS_xuly.ClearAllTextBox(grouptextBox);
             DisEnable_SV();
             groupBox2.Enabled = true;
@@ -102,7 +107,8 @@ namespace GUI_QLSV
            
             DTO_sv.SinhVien_MaSinhVien = txtMSSV.Text;
             BUS_sv.XoaSinhVien(DTO_sv.SinhVien_MaSinhVien);
-            dgvSinhVien.DataSource = BUS_sv.LoadDL();
+            dgvSinhVien.DataSource = userControl.dgv_SV.DataSource = BUS_sv.LoadDL();
+
             BUS_xuly.ClearAllTextBox(grouptextBox);          
 
         }
@@ -181,7 +187,9 @@ namespace GUI_QLSV
             txtHinh.Text = dgvSinhVien.CurrentRow.Cells[6].Value.ToString();
             //pcHinhSV.ImageLocation = txtHinh.Text;
             //pcHinhSV.SizeMode = PictureBoxSizeMode.StretchImage;
-            cmbNganh_sv.SelectedValue = dgvSinhVien.CurrentRow.Cells[7].Value.ToString();
+            cmbMaLop.SelectedValue = dgvSinhVien.CurrentRow.Cells[7].Value.ToString();
+
+            cmbNganh_sv.SelectedValue = dgvSinhVien.CurrentRow.Cells[8].Value.ToString();
 
 
         }
@@ -190,10 +198,13 @@ namespace GUI_QLSV
 
         private void frmQLSV_Load(object sender, EventArgs e)
         {
-            dgvSinhVien.DataSource = BUS_sv.LoadDL();
-            
+            dgvSinhVien.DataSource = userControl.dgv_SV.DataSource = BUS_sv.LoadDL();
+
             DTO_sv.CMB = cmbNganh_sv;
             BUS_sv.LayDLVaoComboboxMaNganh(DTO_sv.CMB);
+            DTO_sv.CMB = cmbMaLop;
+            BUS_sv.LayDLVaoComboboxMaLop(DTO_sv.CMB);
+
             DisEnable_SV();
         }
 
