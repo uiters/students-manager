@@ -16,5 +16,10 @@ namespace GUI_QLSV.Reports
         {
             InitializeComponent();
         }
+
+        private void frmBaoCaoSinhVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

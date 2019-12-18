@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUI_QLSV.UserControls;
 using BUS_QLSV;
+using GUI_QLSV.Reports;
 namespace GUI_QLSV
 {
     public partial class frmMain : Form
@@ -466,7 +467,8 @@ namespace GUI_QLSV
 
         private void lnkXemDiem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmBaoCaoDiem BaoCaoDiem = new frmBaoCaoDiem();
+            BaoCaoDiem.ShowDialog();
         }
         private void xuatDSMonHocToolStripMenuItem_Click(object sender, EventArgs e)
         {

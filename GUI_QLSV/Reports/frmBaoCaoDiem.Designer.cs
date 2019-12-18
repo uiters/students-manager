@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvDiem = new System.Windows.Forms.DataGridView();
-            this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTinChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemLanI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiemLanII = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LanThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayThi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExel = new System.Windows.Forms.Button();
             this.btnXemDiem = new System.Windows.Forms.Button();
@@ -50,89 +42,12 @@
             // 
             this.dgvDiem.AllowUserToOrderColumns = true;
             this.dgvDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenMonHoc,
-            this.SoTinChi,
-            this.Hoten,
-            this.DiemLanI,
-            this.DiemLanII,
-            this.LanThi,
-            this.NgayThi,
-            this.GhiChu});
             this.dgvDiem.Location = new System.Drawing.Point(0, 130);
             this.dgvDiem.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDiem.Name = "dgvDiem";
             this.dgvDiem.ReadOnly = true;
             this.dgvDiem.Size = new System.Drawing.Size(847, 600);
             this.dgvDiem.TabIndex = 7;
-            // 
-            // TenMonHoc
-            // 
-            this.TenMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMonHoc.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc.FillWeight = 57.43292F;
-            this.TenMonHoc.HeaderText = "Tên Môn Học";
-            this.TenMonHoc.Name = "TenMonHoc";
-            this.TenMonHoc.ReadOnly = true;
-            // 
-            // SoTinChi
-            // 
-            this.SoTinChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoTinChi.DataPropertyName = "SoTinChi";
-            this.SoTinChi.FillWeight = 57.43292F;
-            this.SoTinChi.HeaderText = "Số Tín Chỉ";
-            this.SoTinChi.Name = "SoTinChi";
-            this.SoTinChi.ReadOnly = true;
-            // 
-            // Hoten
-            // 
-            this.Hoten.DataPropertyName = "Hoten";
-            this.Hoten.HeaderText = "Họ Tên";
-            this.Hoten.Name = "Hoten";
-            this.Hoten.ReadOnly = true;
-            // 
-            // DiemLanI
-            // 
-            this.DiemLanI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemLanI.DataPropertyName = "DiemLanI";
-            this.DiemLanI.FillWeight = 40F;
-            this.DiemLanI.HeaderText = "Điểm Lần I";
-            this.DiemLanI.Name = "DiemLanI";
-            this.DiemLanI.ReadOnly = true;
-            // 
-            // DiemLanII
-            // 
-            this.DiemLanII.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiemLanII.DataPropertyName = "DiemLanII";
-            this.DiemLanII.FillWeight = 57.43292F;
-            this.DiemLanII.HeaderText = "Điểm Lần II";
-            this.DiemLanII.Name = "DiemLanII";
-            this.DiemLanII.ReadOnly = true;
-            // 
-            // LanThi
-            // 
-            this.LanThi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LanThi.DataPropertyName = "LanThi";
-            this.LanThi.FillWeight = 57.43292F;
-            this.LanThi.HeaderText = "Lần Thi";
-            this.LanThi.Name = "LanThi";
-            this.LanThi.ReadOnly = true;
-            // 
-            // NgayThi
-            // 
-            this.NgayThi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgayThi.DataPropertyName = "NgayThi";
-            this.NgayThi.FillWeight = 57.43292F;
-            this.NgayThi.HeaderText = "Ngày Thi";
-            this.NgayThi.Name = "NgayThi";
-            this.NgayThi.ReadOnly = true;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.HeaderText = "Ghi Chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -170,6 +85,7 @@
             this.btnXemDiem.TabIndex = 2;
             this.btnXemDiem.Text = "Xem điểm";
             this.btnXemDiem.UseVisualStyleBackColor = true;
+            this.btnXemDiem.Click += new System.EventHandler(this.btnXemDiem_Click);
             // 
             // txtMSSV
             // 
@@ -178,6 +94,7 @@
             this.txtMSSV.Name = "txtMSSV";
             this.txtMSSV.Size = new System.Drawing.Size(231, 22);
             this.txtMSSV.TabIndex = 1;
+            this.txtMSSV.TextChanged += new System.EventHandler(this.txtMSSV_TextChanged);
             // 
             // label1
             // 
@@ -197,6 +114,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmBaoCaoDiem";
             this.Text = "frmBaoCaoDiem";
+            this.Load += new System.EventHandler(this.frmBaoCaoDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -207,14 +125,6 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dgvDiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTinChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemLanI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiemLanII;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LanThi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayThi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnExel;
         public System.Windows.Forms.Button btnXemDiem;
