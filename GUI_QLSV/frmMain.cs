@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GUI_QLSV.UserControls;
 using BUS_QLSV;
+using GUI_QLSV.Reports;
 namespace GUI_QLSV
 {
     public partial class frmMain : Form
@@ -456,31 +457,37 @@ namespace GUI_QLSV
         #region Báo cáo
         private void lnkXuatDSMH_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmBaoCaoMonHoc BaoCaoMonHoc = new frmBaoCaoMonHoc();
+            BaoCaoMonHoc.ShowDialog();
         }
 
         private void lnkXuatSV_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmBaoCaoSinhVien BaoCaoSinhVien = new frmBaoCaoSinhVien();
+            BaoCaoSinhVien.ShowDialog();
         }
 
         private void lnkXemDiem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmBaoCaoDiem BaoCaoDiem = new frmBaoCaoDiem();
+            BaoCaoDiem.ShowDialog();
         }
         private void xuatDSMonHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmBaoCaoMonHoc BaoCaoMonHoc = new frmBaoCaoMonHoc();
+            BaoCaoMonHoc.ShowDialog();
         }
 
         private void xuatDSSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmBaoCaoDiem BaoCaoDiem = new frmBaoCaoDiem();
+            BaoCaoDiem.ShowDialog();
         }
 
         private void xemDiemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmBaoCaoDiem BaoCaoDiem = new frmBaoCaoDiem();
+            BaoCaoDiem.ShowDialog();
         }
 
         #endregion

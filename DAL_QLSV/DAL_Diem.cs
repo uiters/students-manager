@@ -64,7 +64,7 @@ namespace DAL_QLSV
             _MaMH.ParameterName = "@MaMonHoc";
 
             _Masv.SqlValue = MaSV;
-            _Masv.ParameterName = "@MaSV";
+            _Masv.ParameterName = "@MaSinhVien";
 
             xuly.ThaoTacDuLieu("qlsv_XoaDiem", CommandType.StoredProcedure, _MaMH, _Masv);
         }

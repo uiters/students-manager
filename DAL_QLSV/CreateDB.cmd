@@ -1,1 +1,1 @@
-SQLCMD -S Thien-E -i CreateDB.sql
+SQLCMD -S VANCUONG -E -i CreateDB.sql

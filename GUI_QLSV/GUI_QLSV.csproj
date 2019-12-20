@@ -39,6 +39,9 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>E:\Downloads\Compressed\Release\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -108,6 +111,9 @@
     <Compile Include="Reports\frmBaoCaoSinhVien.Designer.cs">
       <DependentUpon>frmBaoCaoSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\MonHoc.cs" />
+    <Compile Include="Reports\SinhVien.cs" />
+    <Compile Include="Reports\XemDiem.cs" />
     <Compile Include="UserControls\UC_GiaoVien_Khoa.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\frmBaoCaoDiem.resx">
       <DependentUpon>frmBaoCaoDiem.cs</DependentUpon>
@@ -204,7 +211,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BUS_QLSV\BUS_QLSV.csproj">
       <Project>{e39f052a-4ec5-4a94-b733-787209de5322}</Project>
@@ -214,6 +220,14 @@
       <Project>{44e57d11-b5b5-4fa3-b9f3-20ff60d3be1c}</Project>
       <Name>DTO_QLSV</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\backgroup.jpg" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\school1.jpg" />
+    <None Include="Resources\backgroup1.jpg" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\school.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,187 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvMonHoc = new System.Windows.Forms.DataGridView();
-            this.TenMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTinChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HinhThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongSoTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTietLyThuyet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTietThucHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnDongY = new System.Windows.Forms.Button();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
+            this.dgvMonHoc = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvMonHoc
-            // 
-            this.dgvMonHoc.AllowUserToOrderColumns = true;
-            this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenMonHoc,
-            this.SoTinChi,
-            this.HinhThuc,
-            this.TongSoTiet,
-            this.SoTietLyThuyet,
-            this.SoTietThucHanh,
-            this.GhiChu});
-            this.dgvMonHoc.Location = new System.Drawing.Point(23, 102);
-            this.dgvMonHoc.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvMonHoc.Name = "dgvMonHoc";
-            this.dgvMonHoc.ReadOnly = true;
-            this.dgvMonHoc.Size = new System.Drawing.Size(805, 404);
-            this.dgvMonHoc.TabIndex = 6;
-            // 
-            // TenMonHoc
-            // 
-            this.TenMonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenMonHoc.DataPropertyName = "TenMonHoc";
-            this.TenMonHoc.FillWeight = 57.43292F;
-            this.TenMonHoc.HeaderText = "Tên Môn Học";
-            this.TenMonHoc.Name = "TenMonHoc";
-            this.TenMonHoc.ReadOnly = true;
-            // 
-            // SoTinChi
-            // 
-            this.SoTinChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoTinChi.DataPropertyName = "SoTinChi";
-            this.SoTinChi.FillWeight = 57.43292F;
-            this.SoTinChi.HeaderText = "Số Tín Chỉ";
-            this.SoTinChi.Name = "SoTinChi";
-            this.SoTinChi.ReadOnly = true;
-            // 
-            // HinhThuc
-            // 
-            this.HinhThuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HinhThuc.DataPropertyName = "HinhThuc";
-            this.HinhThuc.FillWeight = 40F;
-            this.HinhThuc.HeaderText = "Hình Thức";
-            this.HinhThuc.Name = "HinhThuc";
-            this.HinhThuc.ReadOnly = true;
-            // 
-            // TongSoTiet
-            // 
-            this.TongSoTiet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TongSoTiet.DataPropertyName = "TongSoTiet";
-            this.TongSoTiet.FillWeight = 57.43292F;
-            this.TongSoTiet.HeaderText = "Tổng Số Tiết";
-            this.TongSoTiet.Name = "TongSoTiet";
-            this.TongSoTiet.ReadOnly = true;
-            // 
-            // SoTietLyThuyet
-            // 
-            this.SoTietLyThuyet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoTietLyThuyet.DataPropertyName = "SoTietLyThuyet";
-            this.SoTietLyThuyet.FillWeight = 57.43292F;
-            this.SoTietLyThuyet.HeaderText = "Số Tiết Lý Thuyết";
-            this.SoTietLyThuyet.Name = "SoTietLyThuyet";
-            this.SoTietLyThuyet.ReadOnly = true;
-            // 
-            // SoTietThucHanh
-            // 
-            this.SoTietThucHanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoTietThucHanh.DataPropertyName = "SoTietThucHanh";
-            this.SoTietThucHanh.FillWeight = 57.43292F;
-            this.SoTietThucHanh.HeaderText = "Số Tiết Thực Hành";
-            this.SoTietThucHanh.Name = "SoTietThucHanh";
-            this.SoTietThucHanh.ReadOnly = true;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.HeaderText = "Ghi Chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.btnDongY);
             this.groupBox1.Controls.Add(this.cmbKhoa);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(94, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(70, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(616, 73);
+            this.groupBox1.Size = new System.Drawing.Size(465, 66);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Xuất danh sách môn học";
             // 
             // btnExcel
             // 
-            this.btnExcel.Location = new System.Drawing.Point(512, 30);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcel.Enabled = false;
+            this.btnExcel.Location = new System.Drawing.Point(384, 24);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(100, 28);
+            this.btnExcel.Size = new System.Drawing.Size(75, 23);
             this.btnExcel.TabIndex = 5;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.BtnExcel_Click);
             // 
             // btnDongY
             // 
-            this.btnDongY.Location = new System.Drawing.Point(417, 30);
-            this.btnDongY.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDongY.Location = new System.Drawing.Point(313, 24);
             this.btnDongY.Name = "btnDongY";
-            this.btnDongY.Size = new System.Drawing.Size(87, 28);
+            this.btnDongY.Size = new System.Drawing.Size(65, 23);
             this.btnDongY.TabIndex = 4;
             this.btnDongY.Text = "Đồng ý";
             this.btnDongY.UseVisualStyleBackColor = true;
+            this.btnDongY.Click += new System.EventHandler(this.BtnDongY_Click);
             // 
             // cmbKhoa
             // 
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(207, 32);
-            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbKhoa.Location = new System.Drawing.Point(155, 26);
             this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(160, 24);
+            this.cmbKhoa.Size = new System.Drawing.Size(121, 21);
             this.cmbKhoa.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 36);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 17);
+            this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Xuất danh sách theo Khoa:";
             // 
+            // dgvMonHoc
+            // 
+            this.dgvMonHoc.AllowUserToOrderColumns = true;
+            this.dgvMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonHoc.Location = new System.Drawing.Point(17, 83);
+            this.dgvMonHoc.Name = "dgvMonHoc";
+            this.dgvMonHoc.ReadOnly = true;
+            this.dgvMonHoc.Size = new System.Drawing.Size(604, 328);
+            this.dgvMonHoc.TabIndex = 6;
+            // 
             // frmBaoCaoMonHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 519);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(631, 422);
             this.Controls.Add(this.dgvMonHoc);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBaoCaoMonHoc";
-            this.Text = "frmBaoCaoMonHoc";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).EndInit();
+            this.Text = "Báo cáo môn học";
+            this.Load += new System.EventHandler(this.frmBaoCaoMonHoc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonHoc)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.DataGridView dgvMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTinChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HinhThuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongSoTiet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTietLyThuyet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTietThucHanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnExcel;
         public System.Windows.Forms.Button btnDongY;
         private System.Windows.Forms.ComboBox cmbKhoa;
         public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.DataGridView dgvMonHoc;
     }
 }
