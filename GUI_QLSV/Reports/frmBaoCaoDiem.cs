@@ -27,8 +27,12 @@ namespace GUI_QLSV.Reports
         private void btnXemDiem_Click(object sender, EventArgs e)
         {
             DTO_diem.Diem_MaSinhVien = txtMSSV.Text;           
+<<<<<<< HEAD
             dgvDiem.DataSource = BUS_diem.TracuuDiem(DTO_diem.Diem_MaSinhVien);
             btnExel.Enabled = true;
+=======
+            dgvDiem.DataSource = BUS_diem.TracuuDiem(DTO_diem.Diem_MaSinhVien); 
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
         }
 
         private void frmBaoCaoDiem_Load(object sender, EventArgs e)
@@ -45,6 +49,7 @@ namespace GUI_QLSV.Reports
             DTO_diem.txtTIMMSV = txtMSSV;
             BUS_diem.GoiYMaSinhVien(DTO_diem.txtTIMMSV, table, column);
         }
+<<<<<<< HEAD
 
         private void BtnExel_Click(object sender, EventArgs e)
         {
@@ -53,5 +58,7 @@ namespace GUI_QLSV.Reports
             // excel.Export(BUS_diem.LayDLDiem(), "Danh Sach", "Bảng Điểm");
             excel.Export(BUS_diem.TracuuDiem(DTO_diem.Diem_MaSinhVien), "Danh Sach", "Bảng Điểm");
         }
+=======
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
     }
 }

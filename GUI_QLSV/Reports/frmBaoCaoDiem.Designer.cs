@@ -43,7 +43,12 @@
             this.dgvDiem.AllowUserToOrderColumns = true;
             this.dgvDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             this.dgvDiem.Location = new System.Drawing.Point(0, 106);
+=======
+            this.dgvDiem.Location = new System.Drawing.Point(0, 130);
+            this.dgvDiem.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
             this.dgvDiem.Name = "dgvDiem";
             this.dgvDiem.ReadOnly = true;
             this.dgvDiem.Size = new System.Drawing.Size(635, 488);
@@ -112,7 +117,11 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBaoCaoDiem";
+<<<<<<< HEAD
             this.Text = "Báo cáo điểm";
+=======
+            this.Text = "frmBaoCaoDiem";
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
             this.Load += new System.EventHandler(this.frmBaoCaoDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.groupBox1.ResumeLayout(false);

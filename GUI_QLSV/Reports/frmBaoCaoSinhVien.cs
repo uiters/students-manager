@@ -25,6 +25,7 @@ namespace GUI_QLSV.Reports
 
         private void frmBaoCaoSinhVien_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             BUS_SinhVien.LayDLVaoComboboxMaNganh(DTO_SinhVien.CMB=cmbKhoaHoc);
             BUS_SinhVien.LayDLVaoComboboxMaLop(DTO_SinhVien.CMB=cmbLop);
             dgvSinhVien.DataSource = BUS_SinhVien.LoadDL();
@@ -60,6 +61,8 @@ namespace GUI_QLSV.Reports
 
         private void CmbKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
+=======
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
 
         }
     }

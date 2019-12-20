@@ -142,7 +142,11 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBaoCaoSinhVien";
+<<<<<<< HEAD
             this.Text = "Báo cáo sinh viên";
+=======
+            this.Text = "frmBaoCaoSinhVien";
+>>>>>>> 64479447fd0f2e3d67c8c0f3cf19401ead19d87d
             this.Load += new System.EventHandler(this.frmBaoCaoSinhVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
