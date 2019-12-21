@@ -119,5 +119,11 @@ namespace BUS_QLSV
         {
             BUS_xuly.TextBox_AutoComplete(txt, "MonHoc", column);
         }
+        public DataTable ReportMonHoc(string CotTim, string DKTim)
+        {
+            DataTable dt = new DataTable();
+            dt = DAL_MonHoc.ReportMonHoc(CotTim, DKTim);
+            return dt;
+        }
     }
 }

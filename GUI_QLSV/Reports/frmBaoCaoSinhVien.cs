@@ -25,17 +25,18 @@ namespace GUI_QLSV.Reports
 
         private void frmBaoCaoSinhVien_Load(object sender, EventArgs e)
         {
-            BUS_SinhVien.LayDLVaoComboboxMaNganh(DTO_SinhVien.CMB=cmbKhoaHoc);
+            BUS_SinhVien.LayDLVaoComboboxMaNganh(DTO_SinhVien.CMB=cmbNganh);
             BUS_SinhVien.LayDLVaoComboboxMaLop(DTO_SinhVien.CMB=cmbLop);
             dgvSinhVien.DataSource = BUS_SinhVien.LoadDL();
         }
 
         private void BtnDongY_Click(object sender, EventArgs e)
         {
-            if(cmbKhoaHoc.Text!=null)
+            if(cmbNganh.Text!=null)
             {
                 DTO_SinhVien.SinhVien_MaLop = cmbLop.SelectedValue.ToString();
-                dgvSinhVien.DataSource = BUS_SinhVien.LoadDL();
+                DTO_SinhVien.SinhVien_MaNganh = cmbNganh.SelectedValue.ToString();
+                dgvSinhVien.DataSource = BUS_SinhVien.ReportSV("SinhVien.MaNganh", DTO_SinhVien.SinhVien_MaNganh,"SinhVien.MaLop", DTO_SinhVien.SinhVien_MaLop);
                 btnExcel.Enabled=true;
             }
             else
@@ -46,7 +47,7 @@ namespace GUI_QLSV.Reports
         }
         private void cmbKhoa_SelectValueChanged(object sender, EventArgs e)
         {
-            DTO_SinhVien.SinhVien_MaNganh = cmbKhoaHoc.SelectedValue.ToString();
+            DTO_SinhVien.SinhVien_MaNganh = cmbNganh.SelectedValue.ToString();
             DTO_SinhVien.CMB = cmbLop;
             BUS_SinhVien.LayDLVaoComboboxMaLop(DTO_SinhVien.CMB);
         }

@@ -25,17 +25,17 @@ namespace GUI_QLSV.Reports
         private void BtnDongY_Click(object sender, EventArgs e)
         {
             DTO_MonHoc.MonHoc_MaKhoa = cmbKhoa.SelectedValue.ToString();
-            dgvMonHoc.DataSource = BUS_MonHoc.LoadDLMonHoc();
+            //BUS_MonHoc.TimKiemMH();
+            dgvMonHoc.DataSource = BUS_MonHoc.ReportMonHoc("MaKhoa", DTO_MonHoc.MonHoc_MaKhoa);
             btnExcel.Enabled = true;
         }
         private void frmBaoCaoMonHoc_Load(object sender, EventArgs e)
         {
-            dgvMonHoc.DataSource = BUS_MonHoc.LoadDLMonHoc();
             DTO_MonHoc.CMB = cmbKhoa;
-            BUS_MonHoc.LoadDLVaoCombobox_cmbMaKhoa_MH(DTO_MonHoc.CMB);
-       
+            BUS_MonHoc.LoadDLVaoCombobox_cmbMaKhoa_MH(DTO_MonHoc.CMB=cmbKhoa);
+            //BUS_MonHoc.TimKiemMH();
+            dgvMonHoc.DataSource = BUS_MonHoc.LoadDLMonHoc();
         }
-        //load du lieu tu db len cmb
         private void BtnExcel_Click(object sender, EventArgs e)
         {
             DTO_MonHoc.MonHoc_MaKhoa = cmbKhoa.SelectedValue.ToString();

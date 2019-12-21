@@ -44,7 +44,6 @@ namespace DAL_QLSV
             xuly.ThaoTacDuLieu("qlsv_ThemMonHoc", CommandType.StoredProcedure, _MonHoc_MaMonHoc, _MonHoc_TenMonHoc, _MonHoc_LoaiMonHoc, _MonHoc_TinChiLyThuyet, _MonHoc_TinChiThucHanh,_MonHoc_MaKhoa);
         }
 
-
         public void CapNhatMonHoc(string mamh, string tenmh, bool hinhthuc, int sotietLT, int sotietTH, string makhoa)
         {
             _MonHoc_MaMonHoc.SqlValue = mamh;
@@ -95,7 +94,6 @@ namespace DAL_QLSV
             xuly.LoadDLVaoCombobox("Select * from Khoa", cmb, "TenKhoa", "MaKhoa");
         }
 
-
         //sử dụng cho hàm kiểm tra tên môn học đã tồn tại hay chưa
         public string LayTenMonHoc(string Tenmonhoc)
         {
@@ -112,9 +110,11 @@ namespace DAL_QLSV
             dt = xuly.LayDanhSach("Select * from MonHoc where " + CotTim + " = N'" + DKTim + "'");
             return dt;
         }
-
-      
-
-
+        public DataTable ReportMonHoc(string CotTim, string DKTim)
+        {
+            DataTable dt = new DataTable();
+            dt = xuly.LayDanhSach("select MaMonHoc,TenMonHoc,LoaiMonHoc,TinChiLyThuyet,TinChiThucHanh,MaKhoa MaKhoa from MonHoc where " +CotTim+"=N'"+DKTim+"'");
+            return dt;
+        }
     }
 }

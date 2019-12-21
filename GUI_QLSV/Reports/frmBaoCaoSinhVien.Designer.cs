@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.cmbLop = new System.Windows.Forms.ComboBox();
-            this.cmbKhoaHoc = new System.Windows.Forms.ComboBox();
+            this.cmbNganh = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDongY = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnExcel);
             this.groupBox1.Controls.Add(this.cmbLop);
-            this.groupBox1.Controls.Add(this.cmbKhoaHoc);
+            this.groupBox1.Controls.Add(this.cmbNganh);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnDongY);
             this.groupBox1.Controls.Add(this.label2);
@@ -75,23 +75,23 @@
             this.cmbLop.Size = new System.Drawing.Size(121, 21);
             this.cmbLop.TabIndex = 7;
             // 
-            // cmbKhoaHoc
+            // cmbNganh
             // 
-            this.cmbKhoaHoc.FormattingEnabled = true;
-            this.cmbKhoaHoc.Location = new System.Drawing.Point(129, 25);
-            this.cmbKhoaHoc.Name = "cmbKhoaHoc";
-            this.cmbKhoaHoc.Size = new System.Drawing.Size(142, 21);
-            this.cmbKhoaHoc.TabIndex = 6;
-            this.cmbKhoaHoc.SelectedIndexChanged += new System.EventHandler(this.CmbKhoaHoc_SelectedIndexChanged);
+            this.cmbNganh.FormattingEnabled = true;
+            this.cmbNganh.Location = new System.Drawing.Point(129, 25);
+            this.cmbNganh.Name = "cmbNganh";
+            this.cmbNganh.Size = new System.Drawing.Size(142, 21);
+            this.cmbNganh.TabIndex = 6;
+            this.cmbNganh.SelectedIndexChanged += new System.EventHandler(this.CmbKhoaHoc_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(46, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Chọn Khóa học:";
+            this.label3.Text = "Chọn ngành:";
             // 
             // btnDongY
             // 
@@ -157,7 +157,7 @@
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.ComboBox cmbLop;
-        private System.Windows.Forms.ComboBox cmbKhoaHoc;
+        private System.Windows.Forms.ComboBox cmbNganh;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button btnDongY;
         public System.Windows.Forms.Label label2;

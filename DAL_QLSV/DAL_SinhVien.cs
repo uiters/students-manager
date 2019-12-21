@@ -24,9 +24,6 @@ namespace DAL_QLSV
         SqlParameter _SinhVien_MaNganh = new SqlParameter();
         SqlParameter _SinhVien_Hinh = new SqlParameter();
         SqlParameter _SinhVien_Lop = new SqlParameter();
-        
-
-      
 
         public void ThemSinhVien(string MaSv, string Hoten, string Quequan, DateTime Ngaysinh, string noisinh, string gioitinh, string hinh, string malop,string manganh)
         {
@@ -96,7 +93,6 @@ namespace DAL_QLSV
         }
         public void XoaSinhVien(string MaSv)
         {
-
              _SinhVien_MaSinhVien.SqlValue = MaSv;
             _SinhVien_MaSinhVien.ParameterName = "@MaSinhVien";
 
@@ -124,7 +120,13 @@ namespace DAL_QLSV
             dt = xuly.LayDanhSach("Select * from  SinhVien where " + field + " = N'" + DKTim + "'");
             return dt;
         }
-
+        public DataTable ReportSinhVien(string field1,string DKtim1, string field2, string DKtim2)
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt = xuly.LayDanhSach("select MaSinhVien,HoTen,QueQuan,NgaySinh,NoiSinh,GioiTinh,hinh,SinhVien.MaLop,sinhvien.MaNganh from sinhvien inner join lop on sinhvien.malop=lop.MaLop inner join Nganh on sinhvien.MaNganh=nganh.MaNganh where " + field1 + " = N'" + DKtim1 + "' and  " + field2 + " = N'" + DKtim2 + "'");
+            return dt;
+        }
         public void LayMaNganhVaoComBoboxMaNganh(ComboBox cmb)
         {
             xuly.LoadDLVaoCombobox("Select * from Nganh", cmb, "TenNganh", "MaNganh");
@@ -133,6 +135,5 @@ namespace DAL_QLSV
         {
             xuly.LoadDLVaoCombobox("Select * from Lop", cmb, "TenLop", "MaLop");
         }
-
     }
 }
