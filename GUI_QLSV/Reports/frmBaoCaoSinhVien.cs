@@ -56,7 +56,8 @@ namespace GUI_QLSV.Reports
         {
             DTO_SinhVien.CMB = cmbLop;
             SinhVien excel = new SinhVien();
-            excel.Export(BUS_SinhVien.LoadDL(), "Danh sach", "Danh sách sinh viên");
+            //excel.Export(BUS_SinhVien.LoadDL(), "Danh sach", "Danh sách sinh viên");
+            excel.Export(BUS_SinhVien.ReportSV("SinhVien.MaNganh", DTO_SinhVien.SinhVien_MaNganh, "SinhVien.MaLop", DTO_SinhVien.SinhVien_MaLop), "Danh sach", "Danh sách sinh viên");
         }
 
         private void CmbKhoaHoc_SelectedIndexChanged(object sender, EventArgs e)

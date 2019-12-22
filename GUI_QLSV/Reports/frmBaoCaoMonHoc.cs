@@ -40,7 +40,8 @@ namespace GUI_QLSV.Reports
         {
             DTO_MonHoc.MonHoc_MaKhoa = cmbKhoa.SelectedValue.ToString();
             MonHoc excel = new MonHoc();
-            excel.Export(BUS_MonHoc.LoadDLMonHoc(), "Danh sach", "Danh sách môn học");
+            //excel.Export(BUS_MonHoc.LoadDLMonHoc(), "Danh sach", "Danh sách môn học");
+            excel.Export(BUS_MonHoc.ReportMonHoc("MaKhoa", DTO_MonHoc.MonHoc_MaKhoa), "Danh sach", "Danh sách môn học");
         }
     }
 }

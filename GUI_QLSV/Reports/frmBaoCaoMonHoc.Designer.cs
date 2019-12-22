@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBaoCaoMonHoc));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnDongY = new System.Windows.Forms.Button();
@@ -109,6 +110,7 @@
             this.ClientSize = new System.Drawing.Size(631, 422);
             this.Controls.Add(this.dgvMonHoc);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBaoCaoMonHoc";
             this.Text = "Báo cáo môn học";

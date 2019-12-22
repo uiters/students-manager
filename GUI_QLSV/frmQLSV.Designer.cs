@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLSV));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.grouptextBox = new System.Windows.Forms.GroupBox();
@@ -132,7 +133,7 @@
             // 
             this.cmbMaLop.FormattingEnabled = true;
             this.cmbMaLop.Location = new System.Drawing.Point(104, 174);
-            this.cmbMaLop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbMaLop.Margin = new System.Windows.Forms.Padding(2);
             this.cmbMaLop.Name = "cmbMaLop";
             this.cmbMaLop.Size = new System.Drawing.Size(216, 21);
             this.cmbMaLop.TabIndex = 61;
@@ -151,7 +152,7 @@
             // 
             this.cmbNganh_sv.FormattingEnabled = true;
             this.cmbNganh_sv.Location = new System.Drawing.Point(641, 32);
-            this.cmbNganh_sv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbNganh_sv.Margin = new System.Windows.Forms.Padding(2);
             this.cmbNganh_sv.Name = "cmbNganh_sv";
             this.cmbNganh_sv.Size = new System.Drawing.Size(271, 21);
             this.cmbNganh_sv.TabIndex = 59;
@@ -480,11 +481,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::GUI_QLSV.Properties.Resources.backgroup;
+            this.BackgroundImage = global::GUI_QLSV.Properties.Resources.background_full_hd_dep_110637776;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(954, 587);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmQLSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Quản lý sinh viên";
