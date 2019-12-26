@@ -25,7 +25,8 @@ namespace GUI_QLSV.UserControls
         int column = 0;
         private void dgvDiem_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtMaMH.Text = dgvDiem.CurrentRow.Cells[0].Value.ToString();
+            txtMaSV.Text = dgvDiem.CurrentRow.Cells[1].Value.ToString();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -38,8 +39,23 @@ namespace GUI_QLSV.UserControls
         {
             DTO_diem.Diem_MaMonHoc = txtMaMH.Text;
             DTO_diem.Diem_MaSinhVien = txtMaSV.Text;
-            DTO_diem.Diem_SoDiem = float.Parse(txtDiem.Text);
-            DTO_diem.Diem_LanThi = int.Parse(txtLanThi.Text);
+            if (txtDiem.Text == null)
+            {
+
+                DTO_diem.Diem_SoDiem = 0;
+            }
+            else
+            {
+                DTO_diem.Diem_SoDiem = float.Parse(txtDiem.Text);
+            }
+            if (txtLanThi.Text == null)
+            {
+                DTO_diem.Diem_LanThi = 0;
+            }
+            else
+            {
+                DTO_diem.Diem_SoDiem = float.Parse(txtLanThi.Text);
+            }
 
             BUS_diem.CapNhatDiem(DTO_diem.Diem_MaMonHoc, DTO_diem.Diem_MaSinhVien, DTO_diem.Diem_SoDiem, DTO_diem.Diem_LanThi);
 
@@ -63,10 +79,25 @@ namespace GUI_QLSV.UserControls
         {
             txtMaMH.Enabled = false;
             DTO_diem.Diem_MaMonHoc = txtMaMH.Text;
-            DTO_diem.Diem_MaSinhVien = txtMaSV.Text;         
-            DTO_diem.Diem_SoDiem = float.Parse(txtDiem.Text);
-            DTO_diem.Diem_LanThi = int.Parse(txtLanThi.Text);
-            
+            DTO_diem.Diem_MaSinhVien = txtMaSV.Text;
+            if (txtDiem.Text == null)
+            {
+                
+                DTO_diem.Diem_SoDiem = 0;
+            }
+            else
+            {
+                DTO_diem.Diem_SoDiem = float.Parse(txtDiem.Text);
+            }
+            if (txtLanThi.Text == null)
+            {
+                DTO_diem.Diem_LanThi = 0;
+            }
+              else
+            {
+                DTO_diem.Diem_SoDiem = float.Parse(txtLanThi.Text);
+            }
+
             BUS_diem.NhapDiem(DTO_diem.Diem_MaMonHoc, DTO_diem.Diem_MaSinhVien, DTO_diem.Diem_SoDiem, DTO_diem.Diem_LanThi);
 
             dgvDiem.DataSource = BUS_diem.LayDLDiem();

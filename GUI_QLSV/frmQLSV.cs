@@ -80,16 +80,19 @@ namespace GUI_QLSV
             DTO_sv.SinhVien_QueQuan = txtQueQuan.Text;
             DTO_sv.SinhVien_NgaySinh = dtp_NgaySinh.Value;
             DTO_sv.SinhVien_NoiSinh = txtNoiSinh.Text;
-            DTO_sv.SinhVien_MaNganh = cmbNganh_sv.SelectedValue.ToString();
-            DTO_sv.SinhVien_Hinh = txtHinh.Text;
-            DTO_sv.SinhVien_GioiTinh = gioitinh;
-            DTO_sv.SinhVien_MaLop = cmbMaLop.SelectedValue.ToString();
-            BUS_sv.CapNhatSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaLop, DTO_sv.SinhVien_MaNganh);
-            dgvSinhVien.DataSource = userControl.dgv_SV.DataSource = BUS_sv.LoadDL();
-           
-            BUS_xuly.ClearAllTextBox(grouptextBox);
-            DisEnable_SV();
-            groupBox2.Enabled = true;
+            if (cmbNganh_sv.SelectedValue.ToString() != null)
+            {
+                DTO_sv.SinhVien_MaNganh = cmbNganh_sv.SelectedValue.ToString();
+                DTO_sv.SinhVien_Hinh = txtHinh.Text;
+                DTO_sv.SinhVien_GioiTinh = gioitinh;
+                DTO_sv.SinhVien_MaLop = cmbMaLop.SelectedValue.ToString();
+                BUS_sv.CapNhatSinhVien(DTO_sv.SinhVien_MaSinhVien, DTO_sv.SinhVien_HoTen, DTO_sv.SinhVien_QueQuan, DTO_sv.SinhVien_NgaySinh, DTO_sv.SinhVien_NoiSinh, DTO_sv.SinhVien_GioiTinh, DTO_sv.SinhVien_Hinh, DTO_sv.SinhVien_MaLop, DTO_sv.SinhVien_MaNganh);
+                dgvSinhVien.DataSource = userControl.dgv_SV.DataSource = BUS_sv.LoadDL();
+
+                BUS_xuly.ClearAllTextBox(grouptextBox);
+                DisEnable_SV();
+                groupBox2.Enabled = true;
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -133,17 +136,17 @@ namespace GUI_QLSV
 
                     {
                         DTO_sv.FIELD = "HoTen";
-                        DTO_sv.DKTIM = txtNoidungTimKiem.ToString();
+                        DTO_sv.DKTIM = txtNoidungTimKiem.Text;
                         
-                        dgvSinhVien.DataSource = BUS_sv.TimKiemSV(DTO_sv.FIELD, DTO_sv.DKTIM);
+                        dgvSinhVien.DataSource = BUS_sv.TimKiemSV("Hoten", DTO_sv.DKTIM);
                     int n = dgvSinhVien.Rows.Count - 1;
                         MessageBox.Show("Tìm thấy " + n + " kết quả! ");
                     }
                     else
                     {
                         DTO_sv.FIELD = "MaSinhVien";
-                        DTO_sv.DKTIM = txtNoidungTimKiem.ToString();
-                         dgvSinhVien.DataSource = BUS_sv.TimKiemSV(DTO_sv.FIELD, DTO_sv.DKTIM);
+                        DTO_sv.DKTIM = txtNoidungTimKiem.Text;
+                         dgvSinhVien.DataSource = BUS_sv.TimKiemSV("MaSinhVien", DTO_sv.DKTIM);
                          int n = dgvSinhVien.Rows.Count - 1;
                         MessageBox.Show("Tìm thấy " + n + " kết quả! ");
                     }
@@ -157,6 +160,7 @@ namespace GUI_QLSV
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvSinhVien.DataSource = BUS_sv.LoadDL();
+            txtNoidungTimKiem.Text = "";
         }
 
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)

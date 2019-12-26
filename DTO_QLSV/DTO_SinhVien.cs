@@ -31,7 +31,7 @@ namespace DTO_QLSV
             get { return cmb; }
             set { cmb = value; }
         }
-        public String FIELD//column name
+        public string FIELD//column name
         {
             get { return field; }
             set { field = value; }
