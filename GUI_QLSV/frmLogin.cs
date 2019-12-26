@@ -22,6 +22,7 @@ namespace GUI_QLSV
         DTO_tb_User DTO_User = new DTO_tb_User();
         BUS_tb_User BUS_User = new BUS_tb_User();
 
+        frmMain frmmain = new frmMain();
         public delegate void EnableGroupbox(bool kq);
         public EnableGroupbox setGroupbox; // hiển thị groupboxleft
         public string PQ;//phân quyền
@@ -57,6 +58,9 @@ namespace GUI_QLSV
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            frmmain.pan_Main.BackgroundImage = Properties.Resources.school;
+
+           
         }
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)

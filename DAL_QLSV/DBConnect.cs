@@ -11,7 +11,7 @@ namespace DAL_QLSV
 {
    public class DBConnect
     {
-        string strCn = @"Data Source=VANCUONG;Initial Catalog=QuanLySinhVien;Integrated Security=True";
+        string strCn = @"Data Source=Thien;Initial Catalog=QuanLySinhVien;Integrated Security=True";
         public SqlConnection OpenCN()
         {
             SqlConnection cn = new SqlConnection(strCn);
