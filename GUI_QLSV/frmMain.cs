@@ -77,7 +77,7 @@ namespace GUI_QLSV
             TacVuToolStripMenuItem.Enabled = false;
             báoCáoToolStripMenuItem.Enabled = false;
             pan_Main.Controls.Clear();
-            // pan_Main.BackgroundImage = Properties.Resources.school;
+            pan_Main.BackgroundImage = Properties.Resources.school;
 
             lblTitle.Text = "Chương trình quản lý sinh viên";
             lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15, System.Drawing.FontStyle.Bold);
@@ -406,7 +406,7 @@ namespace GUI_QLSV
             TacVuToolStripMenuItem.Enabled = false;
             báoCáoToolStripMenuItem.Enabled = false;
             pan_Main.Controls.Clear();
-           // pan_Main.BackgroundImage = Properties.Resources.school;
+            pan_Main.BackgroundImage = Properties.Resources.school;
 
             lblTitle.Text = "Chương trình quản lý sinh viên";
             lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15, System.Drawing.FontStyle.Bold);
@@ -558,7 +558,12 @@ namespace GUI_QLSV
         {
             lnkXuatSV.BackColor = System.Drawing.Color.AliceBlue;
         }
-      
+
+        private void pan_Main_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void lnkXuatSV_MouseLeave(object sender, EventArgs e)
         {
             lnkXuatSV.BackColor = System.Drawing.Color.Empty;
