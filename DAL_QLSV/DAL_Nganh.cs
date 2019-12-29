@@ -63,7 +63,7 @@ namespace DAL_QLSV
         public DataTable LoadDL()
         {
             DataTable dt = new DataTable();
-            dt = xuly.LayDanhSach("Select * from Nganh");
+            dt = xuly.LayDanhSach("select MaNganh,TenNganh,Nganh.GhiChu,Khoa.MaKhoa from Nganh right join khoa on nganh.makhoa=khoa.makhoa");
 
             return dt;
         }
@@ -80,5 +80,6 @@ namespace DAL_QLSV
             xuly.LoadDLVaoCombobox("Select * from Khoa", cmb, "TenKhoa", "MaKhoa");
 
         }
+
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GUI_QLSV.UserControls;
 using BUS_QLSV;
 using GUI_QLSV.Reports;
+using DTO_QLSV;
 namespace GUI_QLSV
 {
     public partial class frmMain : Form
@@ -21,6 +22,26 @@ namespace GUI_QLSV
 
         #region Khai báo đối tượng
         BUS_Xuly Bus_xuly = new BUS_Xuly();
+        BUS_GiaoVien Bus_GV = new BUS_GiaoVien();
+        BUS_Khoa Bus_Khoa = new BUS_Khoa();
+        BUS_Nganh Bus_Nganh = new BUS_Nganh();
+        BUS_LOP Bus_Lop = new BUS_LOP();
+        BUS_SinhVien Bus_SV = new BUS_SinhVien();
+        BUS_DKMH Bus_Dkmh = new BUS_DKMH();
+        BUS_MonHoc Bus_MonHoc = new BUS_MonHoc();
+        BUS_Diem Bus_Diem = new BUS_Diem();
+
+        DTO_GiaoVien Dto_GV = new DTO_GiaoVien();
+        DTO_Khoa Dto_Khoa = new DTO_Khoa();
+        DTO_Nganh Dto_Nganh = new DTO_Nganh();
+        DTO_Lop Dto_Lop = new DTO_Lop();
+        DTO_SinhVien Dto_SV = new DTO_SinhVien();
+        DTO_DKMH Dto_Dkmh = new DTO_DKMH();
+        DTO_MonHoc Dto_MonHoc = new DTO_MonHoc();
+        DTO_Diem Dto_Diem = new DTO_Diem();
+
+
+
         static frmLogin frmLogin = new frmLogin();
         //static frmBaocaoDiem frmDiem = new frmBaocaoDiem();
         //static frmReportSinhVien frm = new frmReportSinhVien();
@@ -30,7 +51,10 @@ namespace GUI_QLSV
         static UC_GiaoVien_Khoa giaovien_khoa = new UC_GiaoVien_Khoa();
         static UC_Nganh_Lop nganh_lop = new UC_Nganh_Lop();
         static UC_Nhapdiem nhapdiem = new UC_Nhapdiem();
-       
+        
+
+
+
         bool Flag=false;// cờ đổi ngôn ngữ, true= english, false= VN
         #endregion
 
@@ -562,6 +586,12 @@ namespace GUI_QLSV
         private void pan_Main_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pan_Main_MouseLeave(object sender, EventArgs e)
+        {
+          
+        
         }
 
         private void lnkXuatSV_MouseLeave(object sender, EventArgs e)

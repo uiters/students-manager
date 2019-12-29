@@ -105,9 +105,10 @@ namespace GUI_QLSV.UserControls
             BUS_Lop.LoadDLVaoCombobox_MonHoc(DTO_lop.cmbMaMonHoc);
             dgvLop.DataSource = BUS_Lop.LoadDL_dgvLop();
 
+            dgvNganh.DataSource = Bus_Nganh.LoadDL();
             DTO_Nganh.Nganh_cmbMaKhoa = cmbMaKhoa;
             Bus_Nganh.LoadDLVao_cmbMaKhoa(DTO_Nganh.Nganh_cmbMaKhoa);
-            dgvNganh.DataSource = Bus_Nganh.LoadDL();
+           
 
             btnThemLop.Visible = true;
             DisEnable_LOP();

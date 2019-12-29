@@ -71,6 +71,9 @@ namespace GUI_QLSV.UserControls
 
             DTO_GV.cmbMAKHOA = cmbMaKhoa;
             Bus_GV.LoadDLVao_cmbMaKhoa(DTO_GV.cmbMAKHOA);
+           
+
+
         }
 
         private void UC_GiaoVien_Khoa_Load(object sender, EventArgs e)

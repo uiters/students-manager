@@ -284,9 +284,9 @@
             this.grB_leftMenu.Controls.Add(this.pan_QLSV);
             this.grB_leftMenu.Controls.Add(this.pan_QLMH);
             this.grB_leftMenu.Location = new System.Drawing.Point(13, 42);
-            this.grB_leftMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grB_leftMenu.Margin = new System.Windows.Forms.Padding(4);
             this.grB_leftMenu.Name = "grB_leftMenu";
-            this.grB_leftMenu.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grB_leftMenu.Padding = new System.Windows.Forms.Padding(4);
             this.grB_leftMenu.Size = new System.Drawing.Size(297, 654);
             this.grB_leftMenu.TabIndex = 8;
             this.grB_leftMenu.TabStop = false;
@@ -297,7 +297,7 @@
             this.pan_QLDIEM.Controls.Add(this.btnQLDIEM_Collapse);
             this.pan_QLDIEM.Controls.Add(this.pan_MenuQLDIEM);
             this.pan_QLDIEM.Location = new System.Drawing.Point(9, 433);
-            this.pan_QLDIEM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_QLDIEM.Margin = new System.Windows.Forms.Padding(4);
             this.pan_QLDIEM.Name = "pan_QLDIEM";
             this.pan_QLDIEM.Size = new System.Drawing.Size(280, 194);
             this.pan_QLDIEM.TabIndex = 3;
@@ -308,7 +308,7 @@
             this.btnQLDIEM_ex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLDIEM_ex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLDIEM_ex.Location = new System.Drawing.Point(-1, 4);
-            this.btnQLDIEM_ex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLDIEM_ex.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLDIEM_ex.Name = "btnQLDIEM_ex";
             this.btnQLDIEM_ex.Size = new System.Drawing.Size(280, 43);
             this.btnQLDIEM_ex.TabIndex = 1;
@@ -322,7 +322,7 @@
             this.btnQLDIEM_Collapse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLDIEM_Collapse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLDIEM_Collapse.Location = new System.Drawing.Point(0, 4);
-            this.btnQLDIEM_Collapse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLDIEM_Collapse.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLDIEM_Collapse.Name = "btnQLDIEM_Collapse";
             this.btnQLDIEM_Collapse.Size = new System.Drawing.Size(281, 43);
             this.btnQLDIEM_Collapse.TabIndex = 0;
@@ -337,7 +337,7 @@
             this.pan_MenuQLDIEM.Controls.Add(this.lnkXuatDSMH);
             this.pan_MenuQLDIEM.Controls.Add(this.lnkXemDiem);
             this.pan_MenuQLDIEM.Location = new System.Drawing.Point(0, 47);
-            this.pan_MenuQLDIEM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_MenuQLDIEM.Margin = new System.Windows.Forms.Padding(4);
             this.pan_MenuQLDIEM.Name = "pan_MenuQLDIEM";
             this.pan_MenuQLDIEM.Size = new System.Drawing.Size(279, 147);
             this.pan_MenuQLDIEM.TabIndex = 0;
@@ -402,7 +402,7 @@
             this.pan_QLSV.Controls.Add(this.btnQLSV_ex);
             this.pan_QLSV.Controls.Add(this.pan_MenuQLSV);
             this.pan_QLSV.Location = new System.Drawing.Point(9, 12);
-            this.pan_QLSV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_QLSV.Margin = new System.Windows.Forms.Padding(4);
             this.pan_QLSV.Name = "pan_QLSV";
             this.pan_QLSV.Size = new System.Drawing.Size(280, 203);
             this.pan_QLSV.TabIndex = 2;
@@ -413,7 +413,7 @@
             this.btnQLSV_collapse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLSV_collapse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLSV_collapse.Location = new System.Drawing.Point(-1, 4);
-            this.btnQLSV_collapse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLSV_collapse.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLSV_collapse.Name = "btnQLSV_collapse";
             this.btnQLSV_collapse.Size = new System.Drawing.Size(280, 43);
             this.btnQLSV_collapse.TabIndex = 1;
@@ -427,7 +427,7 @@
             this.btnQLSV_ex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLSV_ex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLSV_ex.Location = new System.Drawing.Point(0, 4);
-            this.btnQLSV_ex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLSV_ex.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLSV_ex.Name = "btnQLSV_ex";
             this.btnQLSV_ex.Size = new System.Drawing.Size(281, 42);
             this.btnQLSV_ex.TabIndex = 0;
@@ -441,7 +441,7 @@
             this.pan_MenuQLSV.Controls.Add(this.lnkDangXuat);
             this.pan_MenuQLSV.Controls.Add(this.lnkTaiKhoan);
             this.pan_MenuQLSV.Location = new System.Drawing.Point(0, 48);
-            this.pan_MenuQLSV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_MenuQLSV.Margin = new System.Windows.Forms.Padding(4);
             this.pan_MenuQLSV.Name = "pan_MenuQLSV";
             this.pan_MenuQLSV.Size = new System.Drawing.Size(279, 155);
             this.pan_MenuQLSV.TabIndex = 0;
@@ -487,7 +487,7 @@
             this.pan_QLMH.Controls.Add(this.btnQLMH_Collapse);
             this.pan_QLMH.Controls.Add(this.pan_MenuMH);
             this.pan_QLMH.Location = new System.Drawing.Point(9, 223);
-            this.pan_QLMH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_QLMH.Margin = new System.Windows.Forms.Padding(4);
             this.pan_QLMH.Name = "pan_QLMH";
             this.pan_QLMH.Size = new System.Drawing.Size(280, 203);
             this.pan_QLMH.TabIndex = 3;
@@ -498,7 +498,7 @@
             this.btnQLMH_ex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLMH_ex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLMH_ex.Location = new System.Drawing.Point(-1, 4);
-            this.btnQLMH_ex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLMH_ex.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLMH_ex.Name = "btnQLMH_ex";
             this.btnQLMH_ex.Size = new System.Drawing.Size(280, 42);
             this.btnQLMH_ex.TabIndex = 1;
@@ -512,7 +512,7 @@
             this.btnQLMH_Collapse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQLMH_Collapse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLMH_Collapse.Location = new System.Drawing.Point(-1, 4);
-            this.btnQLMH_Collapse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQLMH_Collapse.Margin = new System.Windows.Forms.Padding(4);
             this.btnQLMH_Collapse.Name = "btnQLMH_Collapse";
             this.btnQLMH_Collapse.Size = new System.Drawing.Size(281, 42);
             this.btnQLMH_Collapse.TabIndex = 0;
@@ -528,7 +528,7 @@
             this.pan_MenuMH.Controls.Add(this.lnkGV_Khoa);
             this.pan_MenuMH.Controls.Add(this.lnk_QuanlySv__Mon_DKMH);
             this.pan_MenuMH.Location = new System.Drawing.Point(0, 47);
-            this.pan_MenuMH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_MenuMH.Margin = new System.Windows.Forms.Padding(4);
             this.pan_MenuMH.Name = "pan_MenuMH";
             this.pan_MenuMH.Size = new System.Drawing.Size(279, 147);
             this.pan_MenuMH.TabIndex = 0;
@@ -613,11 +613,12 @@
             this.pan_Main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pan_Main.Controls.Add(this.lblTitle);
             this.pan_Main.Location = new System.Drawing.Point(335, 54);
-            this.pan_Main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pan_Main.Margin = new System.Windows.Forms.Padding(4);
             this.pan_Main.Name = "pan_Main";
             this.pan_Main.Size = new System.Drawing.Size(919, 640);
             this.pan_Main.TabIndex = 9;
             this.pan_Main.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_Main_Paint);
+            this.pan_Main.MouseLeave += new System.EventHandler(this.pan_Main_MouseLeave);
             // 
             // lblTitle
             // 
