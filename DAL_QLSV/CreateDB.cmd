@@ -1,1 +1,0 @@
-SQLCMD -S VANCUONG -E -i CreateDB.sql
