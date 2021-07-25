@@ -1,0 +1,26 @@
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\bin\Debug\DTO_QLSV.exe.config
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\bin\Debug\DTO_QLSV.exe
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\bin\Debug\DTO_QLSV.pdb
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.csprojAssemblyReference.cache
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.Properties.Resources.resources
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.GenerateResource.cache
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.CoreCompileInputs.cache
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.exe
+E:\NMCNPM\QuanLySinhVien-master\DTO_QLSV\obj\Debug\DTO_QLSV.pdb
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe.config
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.pdb
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.Properties.Resources.resources
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.GenerateResource.cache
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.CoreCompileInputs.cache
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.exe
+E:\NMCNPM\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csprojAssemblyReference.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.Properties.Resources.resources
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.GenerateResource.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.csproj.CoreCompileInputs.cache
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\DTO_QLSV\obj\Debug\DTO_QLSV.pdb
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe.config
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.exe
+D:\New folder\QuanLySinhVien\DTO_QLSV\bin\Debug\DTO_QLSV.pdb
