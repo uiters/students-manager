@@ -17,9 +17,8 @@
   </h4>
 </div>
 
-<div align="center">
 ![Students Manaer](https://user-images.githubusercontent.com/43579640/126887012-f87a7c0d-7901-4cc6-a740-8f6431704afb.png)
-<div>
+
 
 ## Features
 
